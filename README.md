@@ -1,5 +1,5 @@
 # v24-bears-team-05
 
-☕ Bear Coffee | Voyage-24 | https://chingu.io/
+**[☕ Bear Coffee](https://bearcoffee.netlify.app/)** | Voyage-24 | https://chingu.io/
 
 ### An e-commerce web app
