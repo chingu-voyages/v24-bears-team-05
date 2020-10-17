@@ -1,5 +1,4 @@
 <script>
-
 </script>
 
 <style>
@@ -28,7 +27,7 @@
 </style>
 
 <svelte:head>
-  <title>TODO: Title</title>
+  <title>Bear Coffee</title>
 </svelte:head>
 
 <h1>Great success!</h1>
