@@ -1,5 +1,7 @@
+<!-- Layout is for any layout components like Nav. 
+  Similar to layout in Gatsby, present in all pages -->
 <script>
-  // Reserved for any layout components like Nav. Similar to layout in Gatsby
+  import Nav from "../components/Nav.svelte";
 </script>
 
 <style>
@@ -13,6 +15,5 @@
   } */
 </style>
 
-<main>
-  <slot />
-</main>
+<Nav />
+<slot />
