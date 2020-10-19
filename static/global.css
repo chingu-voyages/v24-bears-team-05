@@ -1,9 +1,23 @@
+/* fonts */
 @font-face {
   font-family: "Killarney";
   src: url("/fonts/killarney_demo-webfont.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
+/* CSS boilerplate */
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
