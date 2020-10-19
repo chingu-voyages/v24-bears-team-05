@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: stretch;
     width: 100%;
+    position: relative;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
   }
   h1,
