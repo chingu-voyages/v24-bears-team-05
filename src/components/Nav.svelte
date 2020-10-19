@@ -22,8 +22,11 @@
     border: none;
     height: 100%;
     background: none;
-    border-right: 1px solid #888;
+    border-right: 1px solid hsl(0, 0%, 96%);
     padding: 0 1rem;
+  }
+  button:hover {
+    background-color: hsl(0, 0%, 96%);
   }
 </style>
 
