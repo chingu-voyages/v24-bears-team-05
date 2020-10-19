@@ -1,15 +1,47 @@
 <style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
+    height: 3rem;
+  }
   h1,
   h2 {
     font-family: "Killarney";
+    margin-bottom: 0;
+  }
+  h1 {
+    align-self: center;
+    text-align: center;
+    line-height: 80%;
+    font-size: 1.5rem;
+  }
+  button {
+    border: none;
+    height: 100%;
+    background: none;
+    border-right: 1px solid #888;
+    padding: 0 1rem;
   }
 </style>
 
 <nav>
-  <h1>Bear Coffee</h1>
-  <div>
-    <h2>Beans</h2>
-    <h2>Brew Guides</h2>
-    <h2>About</h2>
-  </div>
+  <!-- Burger -->
+  <button>
+    <!-- prettier-ignore -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6H21" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H21" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <h1>Bear<br />Coffee</h1>
+  <!-- Cart placeholder -->
+  <div />
+  <!-- 
+    Desktop markup
+    <div>
+      <h2>Beans</h2>
+      <h2>Brew Guides</h2>
+      <h2>About</h2>
+    </div>
+   -->
 </nav>
