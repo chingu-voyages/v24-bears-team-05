@@ -1,11 +1,11 @@
-<!-- Layout is for any layout components like Nav. 
+<!-- Layout is for any layout components like Header+Nav, Footer, or a container. 
   Similar to layout in Gatsby, present on all pages -->
 <script>
-  import Nav from "../components/Nav.svelte";
+  import Header from "../components/Header.svelte";
 </script>
 
 <style>
 </style>
 
-<Nav />
+<Header />
 <slot />
