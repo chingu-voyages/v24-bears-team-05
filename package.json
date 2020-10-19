@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper export && mv ./__sapper__/export ./public && mv ./public/404/index.html ./public/404.html",
-    "export": "sapper export --legacy --entry '/ /404'",
+    "build": "sapper export && mv ./__sapper__/export ./public",
+    "export": "sapper export --legacy",
     "start": "node __sapper__/build"
   },
   "dependencies": {
