@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper export && mv ./__sapper__/export ./public",
-    "export": "sapper export --legacy",
+    "export": "sapper export --legacy --entry '/ /404'",
+    "postexport": "mv __sapper__/export/404/index.html __sapper__/export/404.html",
     "start": "node __sapper__/build"
   },
   "dependencies": {
