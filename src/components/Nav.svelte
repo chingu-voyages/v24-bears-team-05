@@ -2,10 +2,9 @@
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
-    height: 3rem;
   }
   h1,
   h2 {
@@ -13,14 +12,13 @@
     margin-bottom: 0;
   }
   h1 {
-    align-self: center;
     text-align: center;
     line-height: 80%;
     font-size: 1.5rem;
+    padding: 0.5rem 0;
   }
   button {
     border: none;
-    height: 100%;
     background: none;
     border-right: 1px solid hsl(0, 0%, 96%);
     padding: 0 1rem;
