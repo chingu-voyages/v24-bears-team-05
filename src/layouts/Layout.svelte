@@ -3,6 +3,7 @@
 <script>
   import Header from "../components/Header.svelte";
   export let templateHtml, settings;
+  export let segment;
 </script>
 
 <style>
@@ -12,6 +13,6 @@
   <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 <div class="container">
-  <Header />
+  <Header {segment}/>
   {@html templateHtml}
 </div>
