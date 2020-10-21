@@ -1,17 +1,37 @@
-import sirv from 'sirv';
-import polka from 'polka';
-import compression from 'compression';
-import * as sapper from '@sapper/server';
+/* eslint-disable no-unused-vars */
+require('dotenv').config();
+const polka = require('polka');
+const cors = require('cors');
+const compression = require('compression');
+const bodyParser = require('body-parser');
+const sirv = require('sirv');
 
-const { PORT, NODE_ENV } = process.env;
-const dev = NODE_ENV === 'development';
+const { Elder, getConfig } = require('@elderjs/elderjs');
+const elder = new Elder({ context: 'server' });
+const { distDir } = getConfig();
 
-polka() // You can also use Express
-	.use(
-		compression({ threshold: 0 }),
-		sirv('static', { dev }),
-		sapper.middleware()
-	)
-	.listen(PORT, err => {
-		if (err) console.log('error', err);
-	});
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
+
+const server = polka();
+
+server.use(cors());
+
+server.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store');
+  next();
+});
+
+server.use(compression({ level: 6 }));
+
+server.use(bodyParser.urlencoded({ extended: false }), bodyParser.json());
+
+server.use(elder.server);
+
+server.use(sirv(distDir, { dev: true }));
+
+server.listen(SERVER_PORT, (err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log(`> Elder.js running on http://localhost:${SERVER_PORT}`);
+});
