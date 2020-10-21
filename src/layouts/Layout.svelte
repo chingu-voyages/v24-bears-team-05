@@ -2,10 +2,16 @@
   Similar to layout in Gatsby, present on all pages -->
 <script>
   import Header from "../components/Header.svelte";
+  export let templateHtml, settings;
 </script>
 
 <style>
 </style>
 
-<Header />
-<slot />
+<svelte:head>
+  <link rel="stylesheet" href="/global.css" />
+</svelte:head>
+<div class="container">
+  <Header />
+  {@html templateHtml}
+</div>
