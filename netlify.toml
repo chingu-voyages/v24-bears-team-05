@@ -12,3 +12,11 @@
       public,
       max-age=31536000,
       immutable'''
+
+# Elder.js ntl dev config
+# Requires running "npm run dev:rollup" on a second terminal
+[dev]
+  command = "npm run dev:server" # Command to start your dev server
+  targetPort = 3000 # The port for your application server, framework or site generator
+  framework = "#custom"
+  publish = "public"
