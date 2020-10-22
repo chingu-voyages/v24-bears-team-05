@@ -96,8 +96,10 @@
   }
   menu a {
     text-decoration: none;
+    font-family: Killarney;
+    font-size: 2.5rem;
     padding: 1rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 </style>
 
