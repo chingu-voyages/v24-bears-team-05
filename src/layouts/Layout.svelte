@@ -12,6 +12,6 @@
   <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 <div class="container">
-  <Header />
+  <Header hydrate-client={{}} />
   {@html templateHtml}
 </div>
