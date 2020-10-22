@@ -10,6 +10,7 @@
     width: 100%;
     position: relative;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
+    z-index: 2;
   }
   h1,
   h2 {
@@ -78,14 +79,21 @@
     stroke-width: 6;
   }
 
-  /* TODO: these styles are for the menu that appears when opened  */
+  /* TODO: these styles are for the menu that appears when opened
+  Not final yet, due to issues  */
   menu {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    background-color: #fbfaf4;
     display: flex;
     flex-flow: column;
+    z-index: 1;
+    top: 3.5rem;
   }
   menu a {
     text-decoration: none;
-    padding-bottom: 1rem;
+    padding: 1rem;
     font-weight: 600;
   }
 </style>
@@ -108,7 +116,6 @@
     </button>
   </nav>
   <h1>Bear<br />Coffee</h1>
-  <!-- TODO: Cart placeholder -->
   <button class="cart" aria-label="cart">
     <!-- prettier-ignore -->
     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,6 +124,7 @@
       <path d="M16.3093 10C16.3093 11.0609 15.8879 12.0783 15.1378 12.8284C14.3876 13.5786 13.3702 14 12.3093 14C11.2485 14 10.231 13.5786 9.4809 12.8284C8.73075 12.0783 8.30933 11.0609 8.30933 10" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
+
   <!-- 
     Desktop markup
     <div>
@@ -126,3 +134,11 @@
     </div>
    -->
 </header>
+{#if opened}
+  <menu>
+    <a href="beans">Beans</a>
+    <a href="brew-guides">Brew Guides</a>
+    <a href="about">About</a>
+    <a href="faq">FAQ</a>
+  </menu>
+{/if}
