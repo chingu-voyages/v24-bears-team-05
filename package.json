@@ -44,6 +44,6 @@
     "@babel/runtime": "^7.12.1",
     "autoprefixer": "^10.0.1",
     "nodemon": "^2.0.6",
-    "rollup": "^2.32.0"
+    "rollup": "^2.32.1"
   }
 }
