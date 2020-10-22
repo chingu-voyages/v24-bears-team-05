@@ -1,10 +1,13 @@
 <script>
+  import { fly } from "svelte/transition";
+
   let opened;
 </script>
 
 <style>
   header {
     display: flex;
+    background-color: white;
     justify-content: space-between;
     align-items: stretch;
     width: 100%;
@@ -134,8 +137,9 @@
     </div>
    -->
 </header>
+
 {#if opened}
-  <menu>
+  <menu transition:fly={{ duration: 200, y: -200 }}>
     <a href="beans">Beans</a>
     <a href="brew-guides">Brew Guides</a>
     <a href="about">About</a>
