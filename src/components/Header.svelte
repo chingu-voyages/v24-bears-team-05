@@ -142,11 +142,13 @@
    -->
 </header>
 
+<!-- Burger menu dropdown -->
 {#if opened}
   <menu transition:fly={{ duration: 200, y: -200 }}>
     <a href="beans">Beans</a>
     <a href="brew-guides">Brew Guides</a>
     <a href="about">About</a>
     <a href="faq">FAQ</a>
+    <!-- TODO: Follow Us section -->
   </menu>
 {/if}

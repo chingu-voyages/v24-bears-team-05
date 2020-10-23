@@ -1,5 +1,5 @@
 <script>
-  import Hero from "../../components/Hero.svelte";
+  import HomeHero from "../../components/HomeHero.svelte";
 </script>
 
 <style>
@@ -34,7 +34,7 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='12 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
 </svelte:head>
 
-<Hero />
+<HomeHero />
 
 <h1>Great success!</h1>
 

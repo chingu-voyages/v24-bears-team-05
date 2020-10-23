@@ -15,7 +15,8 @@
     margin-top: 1rem;
   }
   h2 {
-    margin-bottom: 0rem;
+    margin-top: 4rem;
+    margin-bottom: 3.5rem;
     text-align: center;
     font-size: 3rem;
     line-height: 95%;
@@ -29,12 +30,14 @@
     padding: 0.4rem 1.5rem;
     margin-top: 1.5rem;
   }
+  .subscribe {
+    font-size: 2.2rem;
+    text-align: center;
+    max-width: 12rem;
+  }
 </style>
 
 <section>
   <h2>Find Your Next<br />Favorite Brew</h2>
-  <img
-    src="/images/ronaldo-arthur-vidal-Cdz_lvnl37k-unsplash-crop.jpg"
-    alt="Coffee Hero" />
-  <button>Get Matched</button>
+  <h3 class="subscribe">Subscribe to Save 15%</h3>
 </section>
