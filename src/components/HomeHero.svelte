@@ -4,7 +4,7 @@
     flex-flow: column nowrap;
     align-items: center;
     padding: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0;
   }
   h2 {
     margin-top: 4rem;
