@@ -45,7 +45,7 @@
     <p>
       Each batch of coffee is roasted with the intent of creating a connection.
       We recognize the hands that harvested the beans and the consumer who
-      enjoys their morning cup. We respect and value everyone in the process
+      enjoys their morning cup. We respect and value everyone in the process.
     </p>
     <a href="beans"> Shop Our Beans </a>
   </article>
