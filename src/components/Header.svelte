@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: stretch;
     width: 100%;
-    position: relative;
+    position: fixed;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
     z-index: 2;
   }
@@ -83,11 +83,12 @@
   }
 
   /* TODO: these styles are for the menu that appears when opened
-  Not final yet, due to issues  */
+  Not final yet, due to scroll bar still appearing */
   menu {
     margin: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
+    height: 100%;
     background-color: #fbfaf4;
     display: flex;
     flex-flow: column;
