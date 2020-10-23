@@ -30,6 +30,7 @@
 
   main {
     background-color: hsl(40, 12%, 95%, 1);
+    padding-bottom: 2rem;
   }
 </style>
 
@@ -44,11 +45,4 @@
   <HomeHero />
   <HomeSec1 />
   <HomeSec2 />
-
-  <h1>Great success!</h1>
-
-  <p>
-    <strong>Try editing this file (src/routes/index.svelte) to test live
-      reloading.</strong>
-  </p>
 </main>

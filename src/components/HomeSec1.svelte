@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 
   .scale {
