@@ -1,5 +1,6 @@
 <script>
   import HomeHero from "../../components/HomeHero.svelte";
+  import HomeSec1 from "../../components/HomeSec1.svelte";
 </script>
 
 <style>
@@ -25,6 +26,10 @@
       font-size: 4em;
     }
   }
+
+  main {
+    background-color: hsl(40, 12%, 95%, 1);
+  }
 </style>
 
 <svelte:head>
@@ -34,11 +39,14 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='12 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
 </svelte:head>
 
-<HomeHero />
+<main>
+  <HomeHero />
+  <HomeSec1 />
 
-<h1>Great success!</h1>
+  <h1>Great success!</h1>
 
-<p>
-  <strong>Try editing this file (src/routes/index.svelte) to test live
-    reloading.</strong>
-</p>
+  <p>
+    <strong>Try editing this file (src/routes/index.svelte) to test live
+      reloading.</strong>
+  </p>
+</main>

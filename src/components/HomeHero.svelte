@@ -1,6 +1,5 @@
 <style>
   section {
-    background-color: hsl(40, 12%, 95%, 1);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
