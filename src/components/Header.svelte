@@ -95,7 +95,7 @@
     flex-flow: column;
     z-index: 1;
     top: 3.5rem;
-    overflow-x: scroll;
+    overflow: auto;
   }
   menu a {
     text-decoration: none;
