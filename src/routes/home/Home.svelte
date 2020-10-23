@@ -1,6 +1,7 @@
 <script>
   import HomeHero from "../../components/HomeHero.svelte";
   import HomeSec1 from "../../components/HomeSec1.svelte";
+  import HomeSec2 from "../../components/HomeSec2.svelte";
 </script>
 
 <style>
@@ -42,6 +43,7 @@
 <main>
   <HomeHero />
   <HomeSec1 />
+  <HomeSec2 />
 
   <h1>Great success!</h1>
 
