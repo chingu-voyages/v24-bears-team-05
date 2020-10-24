@@ -47,7 +47,7 @@
       We recognize the hands that harvested the beans and the consumer who
       enjoys their morning cup. We respect and value everyone in the process.
     </p>
-    <a href="beans">Shop Our Beans</a>
+    <a href="/beans">Shop Our Beans</a>
   </article>
 
   <img src="/images/home/action_coffee.jpg" alt="Pouring Coffee" />
