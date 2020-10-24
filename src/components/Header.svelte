@@ -100,7 +100,7 @@
     background-color: #fbfaf4;
     display: flex;
     flex-flow: column;
-    z-index: 1;
+    z-index: 29;
     top: 3.5rem;
     overflow: auto;
   }
