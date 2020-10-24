@@ -1,7 +1,10 @@
 <script>
+  import { onMount } from "svelte";
   import { fly } from "svelte/transition";
 
   let opened;
+  let isHome;
+  onMount(() => (isHome = window.location.pathname == "/"));
 </script>
 
 <style>
@@ -27,6 +30,9 @@
     font-size: 1.5rem;
     padding: 0.5rem 0;
     user-select: none;
+  }
+  .home-link {
+    cursor: pointer;
   }
 
   .menu,
@@ -124,7 +130,11 @@
       </svg>
     </button>
   </nav>
-  <h1>Bear<br />Coffee</h1>
+  <h1
+    class:home-link={!isHome}
+    on:click={() => !isHome && (window.location.href = '/')}>
+    Bear<br />Coffee
+  </h1>
   <button class="cart" aria-label="cart">
     <!-- prettier-ignore -->
     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
