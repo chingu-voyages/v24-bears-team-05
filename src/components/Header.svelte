@@ -5,6 +5,7 @@
 </script>
 
 <style>
+<<<<<<< HEAD
 	header {
 		display: flex;
 		background-color: white;
@@ -26,6 +27,31 @@
 		font-size: 1.5rem;
 		padding: 0.5rem 0;
 	}
+=======
+  header {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+  }
+  h1,
+  h2 {
+    font-family: "Killarney";
+    margin-bottom: 0;
+  }
+  h1 {
+    text-align: center;
+    line-height: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    user-select: none;
+  }
+>>>>>>> 0f1daaf10a280b83cac0a3098e6e215b4e525e80
 
 	.menu,
 	.cart {
@@ -82,6 +108,7 @@
 		stroke-width: 6;
 	}
 
+<<<<<<< HEAD
 	/* TODO: these styles are for the menu that appears when opened
   Not final yet, due to issues  */
 	menu {
@@ -101,6 +128,29 @@
 		padding: 1rem;
 		font-weight: 500;
 	}
+=======
+  /* TODO: these styles are for the menu that appears when opened
+  Not final yet, due to scroll bar still appearing */
+  menu {
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fbfaf4;
+    display: flex;
+    flex-flow: column;
+    z-index: 1;
+    top: 3.5rem;
+    overflow: auto;
+  }
+  menu a {
+    text-decoration: none;
+    font-family: Killarney;
+    font-size: 2.5rem;
+    padding: 1rem;
+    font-weight: 500;
+  }
+>>>>>>> 0f1daaf10a280b83cac0a3098e6e215b4e525e80
 </style>
 
 <header>
@@ -140,11 +190,22 @@
    -->
 </header>
 
+<!-- Burger menu dropdown -->
 {#if opened}
+<<<<<<< HEAD
 	<menu transition:fly={{ duration: 200, y: -200 }}>
 		<a href="beans">Beans</a>
 		<a href="brew-guides">Brew Guides</a>
 		<a href="about">About</a>
 		<a href="faq">FAQ</a>
 	</menu>
+=======
+  <menu transition:fly={{ duration: 200, y: -200 }}>
+    <a href="beans">Beans</a>
+    <a href="brew-guides">Brew Guides</a>
+    <a href="about">About</a>
+    <a href="faq">FAQ</a>
+    <!-- TODO: Follow Us section -->
+  </menu>
+>>>>>>> 0f1daaf10a280b83cac0a3098e6e215b4e525e80
 {/if}

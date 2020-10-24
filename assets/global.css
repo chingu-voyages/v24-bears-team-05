@@ -1,9 +1,16 @@
 /* fonts */
 @font-face {
+<<<<<<< HEAD
 	font-family: "Killarney";
 	src: url("/fonts/killarney_demo-webfont.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
+=======
+  font-family: "Killarney";
+  src: url("/fonts/killarney-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+>>>>>>> 0f1daaf10a280b83cac0a3098e6e215b4e525e80
 }
 /* CSS border-box reset */
 html,
