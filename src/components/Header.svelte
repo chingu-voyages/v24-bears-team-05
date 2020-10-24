@@ -12,6 +12,7 @@
     align-items: stretch;
     width: 100%;
     position: fixed;
+    top: 0;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
     z-index: 2;
   }
