@@ -3,9 +3,10 @@
 </svelte:head>
 
 <script>
+    // This component should recieve data from svelte/store.  Data to the store gets passed from Product.js which is inside beans page
     import CartStore from '../../storage/cartStore.js';
     import { onDestroy} from 'svelte';
-
+    
     let cartItems = [];
 
     const unsub = CartStore.subscribe(data => {

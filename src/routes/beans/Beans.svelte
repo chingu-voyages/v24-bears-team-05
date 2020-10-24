@@ -3,8 +3,9 @@
 </svelte:head>
 
 <script>
-    import products from '../../storage/products.js';
     import Product from '../../components/Product.svelte';
+    export let data;
+    let products = [...data.products]
 </script>
 
 <div class = "text-wrapper">
@@ -15,10 +16,9 @@
 
 <div class = "products">
     {#each products as product (product.id)}
-        <Product {product} />    
+        <Product hydrate-client={{product}} />    
     {/each}
 </div>
-
 
 
 <style>

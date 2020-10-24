@@ -1,4 +1,4 @@
-export default [
+module.exports.products = [
     {
         "id": 1,
         "name": "Tucan- Ethiopia Karo",
@@ -54,3 +54,4 @@ export default [
         "url": "https://s3-alpha-sig.figma.com/img/b639/316c/73e8a522a0ac59a8a1b56306efecfeb4?Expires=1604275200&Signature=VuvSv50GTvM4Mk1rLVOzPF-hCOOSOO3aMpNilenG3BmKTRWrE4qlqVlts~qeq~ysbvZqxAHGhkgMPbNPjY5oj3YoIp~bcgfmkJc01MYZwx46HP9KIxDtFoKeTKJbWvfSan~hLitN2no5QUDTARAjg6qRE1blrRhYUX9mLIn4cz90QKBrruEMl-7asyabrKsRJtGC~kTgoDP8PTbSK5Ryfuzw4-Exq7j0q93CnJQ5d7CpCVY9xDly8D5iu9iEeXHfhSCCAuC~lnDKpl35BOulXvuTEkT3MHqAAohOSMz9uF8snxGs-P0X5IC8wko6BrOK9Bo4fR-A46jN1gtcBMdSkA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
     }
 ]
+
