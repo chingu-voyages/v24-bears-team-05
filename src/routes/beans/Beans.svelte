@@ -13,7 +13,7 @@
     place-items: center;
     padding: 0 1rem;
   }
-  h2 {
+  h1 {
     text-align: center;
     font-size: 3.5rem;
     margin-top: 1rem;
@@ -37,7 +37,7 @@
 
 <main>
   <section>
-    <h2>Choose<br />Your Beans</h2>
+    <h1>Choose<br />Your Beans</h1>
     <hr />
     <p>
       Choose from a wide variety of coffee from the top roasters in the US. All
@@ -45,5 +45,5 @@
     </p>
   </section>
 
-  <BeansProducts client-hydrate={{}} />
+  <BeansProducts hydrate-client={{}} />
 </main>
