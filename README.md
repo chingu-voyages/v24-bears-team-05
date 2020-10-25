@@ -2,7 +2,7 @@
 
 **[☕ Coffee E-commerce](https://bearcoffee.netlify.app/)** | Voyage-24 | https://chingu.io/
 
-### An e-commerce web app
+### A freshly-ground e-commerce store roasted on the JAM stack!
 
 ## Tech
 
