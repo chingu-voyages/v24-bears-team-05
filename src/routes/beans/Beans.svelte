@@ -1,5 +1,7 @@
 <script>
   import BeansProducts from "../../components/BeansProducts.svelte";
+  export let data;
+  let { products } = data;
 </script>
 
 <style>
@@ -46,5 +48,5 @@
     </p>
   </section>
 
-  <BeansProducts hydrate-client={{}} />
+  <BeansProducts hydrate-client={{ products }} />
 </main>

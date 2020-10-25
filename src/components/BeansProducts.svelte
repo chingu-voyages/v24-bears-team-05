@@ -1,6 +1,9 @@
 <script>
+  export let products;
+  console.log(products);
+
   // Mock data before moving to Stripe
-  let products = [
+  products = [
     {
       name: "Bear Coffee — Kenya",
       type: "Bungoma",
@@ -27,24 +30,22 @@
     },
   ];
 
-  const originalList = products
+  const originalList = products;
 
   function filterBungoma() {
     products = originalList;
-    products = products.filter(product => product.type === "Bungoma")
-
+    products = products.filter((product) => product.type === "Bungoma");
   }
   function filterEthipiaRaro() {
     products = originalList;
-    products = products.filter(product => product.type === "Ethipia Raro")
-
+    products = products.filter((product) => product.type === "Ethipia Raro");
   }
   function filterParaisoVeracruz() {
     products = originalList;
-    products = products.filter(product => product.type === "Paraiso Veracruz")
-
+    products = products.filter(
+      (product) => product.type === "Paraiso Veracruz"
+    );
   }
-
 </script>
 
 <style>
@@ -99,7 +100,7 @@
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
 
@@ -110,12 +111,17 @@
     display: block;
   }
 
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
 
-  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
-  .dropdown:hover .dropbtn {background-color:#ddd;} 
-
+  .dropdown:hover .dropbtn {
+    background-color: #ddd;
+  }
 </style>
 
 <section>
@@ -126,7 +132,6 @@
         <a href="#" on:click={filterBungoma}>Bungoma</a>
         <a href="#" on:click={filterEthipiaRaro}>Ethipia Raro</a>
         <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
-  
       </div>
     </div>
     {#each products as { name, type, src, color, price }}
