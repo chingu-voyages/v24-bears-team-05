@@ -1,6 +1,6 @@
 <script>
   // Mock data before moving to Stripe
-  const products = [
+  let products = [
     {
       name: "Bear Coffee — Kenya",
       type: "Bungoma",
@@ -26,21 +26,30 @@
         "https://s3-alpha-sig.figma.com/img/54db/e45d/f6775d54a23be2a8723bbb8fb392ecab?Expires=1604275200&Signature=bJ-Gwz7r82O~UgqiQgnNp8OJZMihA9VyJo3om2elrItXm30ea9AUPJLPENDYcipm7I6H~H3-8wZfhP7nJr85~wAamSDhnGUggGweb-uTot4WItAZAsDDLq76h9n0oEd8j~y6v-liJwosdE0qk2JWgJNHxhbdG6ceX7ITjP387rNh2yr5eC5XJleXhg9id1k64qY8C0QR-NsEO3XnVfq56CqpPyRW7ZbBJxsyFnXblQHpGz2YeYwPfZOIasJG5p-PysXsop8nw7UGCYVYr4Wrz7UKnelzcMDf~TB2Fl4zhZeQvarw7XobC16QyFix5NfVmBUeLC1cNzbu2qU041r1Fw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
     },
   ];
+
+  const originalList = products
+
+  function filterBungoma() {
+    products = originalList;
+    products = products.filter(product => product.type === "Bungoma")
+
+  }
+  function filterEthipiaRaro() {
+    products = originalList;
+    products = products.filter(product => product.type === "Ethipia Raro")
+
+  }
+  function filterParaisoVeracruz() {
+    products = originalList;
+    products = products.filter(product => product.type === "Paraiso Veracruz")
+
+  }
+
 </script>
 
 <style>
   section {
     padding: 0 1rem;
-  }
-  button {
-    font-family: Killarney;
-    border: 2px solid #222222;
-    border-radius: 0.5rem;
-    background: none;
-    font-size: 1.2rem;
-    padding: 0.25rem 1.5rem;
-    align-self: flex-end;
-    margin-bottom: 1.5rem;
   }
 
   .container {
@@ -73,11 +82,53 @@
     margin-right: -0.5rem;
     margin-bottom: 0.5rem;
   }
+
+  .dropdown {
+    font-family: Killarney;
+    border: 2px solid #222222;
+    border-radius: 0.5rem;
+    background: none;
+    font-size: 1.2rem;
+    padding: 0.25rem 1.5rem;
+    align-self: flex-end;
+    margin-bottom: 1.5rem;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color:#ddd;} 
+
 </style>
 
 <section>
   <div class="container">
-    <button>Filter</button>
+    <div class="dropdown">
+      Filter
+      <div class="dropdown-content">
+        <a href="#" on:click={filterBungoma}>Bungoma</a>
+        <a href="#" on:click={filterEthipiaRaro}>Ethipia Raro</a>
+        <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
+  
+      </div>
+    </div>
     {#each products as { name, type, src, color, price }}
       <article style="background-color: {color};">
         <img {src} alt={name} />
