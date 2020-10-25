@@ -6,7 +6,7 @@
     padding: 1rem;
     padding-bottom: 0;
   }
-  h2 {
+  h1 {
     margin-top: 1rem;
     margin-bottom: 3.5rem;
     text-align: center;
@@ -68,8 +68,8 @@
 </style>
 
 <section>
-  <h2>Find Your Next<br />Favorite Brew</h2>
-  <h3 class="subscribe">Subscribe to Save 15%</h3>
+  <h1>Find Your Next<br />Favorite Brew</h1>
+  <h2 class="subscribe">Subscribe to Save 15%</h2>
   <div>
     <img src="/images/home/tucan.png" alt="Tucan Coffee Bag" class="tucan" />
     <img src="/images/home/geckos.png" alt="Geckos Coffee Bag" class="geckos" />
