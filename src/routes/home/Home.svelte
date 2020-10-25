@@ -32,6 +32,9 @@
     background-color: hsl(40, 12%, 95%, 1);
     padding-bottom: 2rem;
   }
+  main {
+    margin-top: 3.5rem;
+  }
 </style>
 
 <svelte:head>

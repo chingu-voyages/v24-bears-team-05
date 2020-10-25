@@ -7,7 +7,7 @@
     padding-bottom: 0;
   }
   h2 {
-    margin-top: 4rem;
+    margin-top: 1rem;
     margin-bottom: 3.5rem;
     text-align: center;
     font-size: 3rem;
