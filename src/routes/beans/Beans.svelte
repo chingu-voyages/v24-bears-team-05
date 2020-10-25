@@ -25,6 +25,7 @@
     line-height: 1.2;
     font-weight: 400;
     text-align: center;
+    max-width: 40rem;
   }
   hr {
     width: 7.8rem;
