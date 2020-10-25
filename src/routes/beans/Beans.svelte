@@ -6,6 +6,29 @@
   main {
     margin-top: 3.5rem;
   }
+
+  section {
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+    padding: 0 1rem;
+  }
+  h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+  p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: center;
+  }
+  hr {
+    width: 7.8rem;
+  }
 </style>
 
 <svelte:head>
@@ -14,7 +37,7 @@
 
 <main>
   <section>
-    <h1>Choose Your Beans</h1>
+    <h2>Choose<br />Your Beans</h2>
     <hr />
     <p>
       Choose from a wide variety of coffee from the top roasters in the US. All
