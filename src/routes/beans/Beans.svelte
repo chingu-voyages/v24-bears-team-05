@@ -1,5 +1,9 @@
 <script>
   import BeansProducts from "../../components/BeansProducts.svelte";
+  import Product from '../../components/Product.svelte';
+
+  export let data;
+  let products = [...data.products];
 </script>
 
 <style>
@@ -29,6 +33,12 @@
   hr {
     width: 7.8rem;
   }
+
+  .products {
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+  }
 </style>
 
 <svelte:head>
@@ -46,4 +56,10 @@
   </section>
 
   <BeansProducts client-hydrate={{}} />
+
+  <div class = "products">
+    {#each products as product (product.id)}
+        <Product hydrate-client={{ product}} />    
+    {/each}
+  </div>
 </main>

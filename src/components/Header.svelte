@@ -1,9 +1,12 @@
 <script>
+  import CartItems from './CartItems.svelte';
+
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
 
   let opened;
   let isHome;
+  let cartOpened;
   onMount(() => (isHome = location.pathname == "/"));
 </script>
 
@@ -105,6 +108,7 @@
     padding: 1rem;
     font-weight: 500;
   }
+ 
 </style>
 
 <header>
@@ -125,7 +129,7 @@
     </button>
   </nav>
   <a class="logo" href={!isHome ? '/' : null}> Bear<br />Coffee </a>
-  <button class="cart" aria-label="cart">
+  <button class="cart" aria-label="cart" on:click ={()=> (cartOpened = !cartOpened)}>
     <!-- prettier-ignore -->
     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6.30933 2L3.30933 6V20C3.30933 20.5304 3.52004 21.0391 3.89511 21.4142C4.27019 21.7893 4.77889 22 5.30933 22H19.3093C19.8398 22 20.3485 21.7893 20.7235 21.4142C21.0986 21.0391 21.3093 20.5304 21.3093 20V6L18.3093 2H6.30933Z" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -152,5 +156,12 @@
     <a href="/about">About</a>
     <a href="/faq">FAQ</a>
     <!-- TODO: Follow Us section -->
+  </menu>
+{/if}
+
+<!-- Cart slider -->
+{#if cartOpened}
+  <menu id="cart-menu" transition:fly={{ duration: 200, x: 200 }}>
+    <CartItems />
   </menu>
 {/if}
