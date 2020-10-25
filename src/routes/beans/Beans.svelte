@@ -1,7 +1,7 @@
 <script>
   import BeansProducts from "../../components/BeansProducts.svelte";
   export let data;
-  let { products } = data;
+  const { products } = data;
 </script>
 
 <style>

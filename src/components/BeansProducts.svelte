@@ -1,9 +1,6 @@
 <script>
-  export let products;
-  console.log(products);
-
-  // Mock data before moving to Stripe
-  products = [
+  export let products = [
+    // Mock data if Stripe not connected and undefined
     {
       name: "Bear Coffee — Kenya",
       type: "Bungoma",
