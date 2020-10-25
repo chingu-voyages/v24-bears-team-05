@@ -19,11 +19,6 @@
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
     z-index: 30;
   }
-  h1,
-  h2 {
-    font-family: "Killarney";
-    margin-bottom: 0;
-  }
   .logo {
     font-family: "Killarney";
     text-decoration: none;
