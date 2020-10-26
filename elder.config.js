@@ -1,11 +1,11 @@
 module.exports = {
-  origin: '', // TODO: update this.
-  srcDir: 'src',
-  distDir: 'public',
+  origin: "https://bearcoffee.netlify.app/",
+  srcDir: "src",
+  distDir: "public",
   rootDir: process.cwd(),
   build: {},
   server: {
-    prefix: '',
+    prefix: "",
   },
   debug: {
     stacks: false,
@@ -21,10 +21,10 @@ module.exports = {
     // '@elderjs/plugin-markdown': { // Markdown plugin, enable if used
     //   routes: ['blog'],
     // },
-    '@elderjs/plugin-browser-reload': {
+    "@elderjs/plugin-browser-reload": {
       // this reloads your browser when nodemon restarts your server.
       port: 8090,
     },
   },
-  shortcodes: { closePattern: '}}', openPattern: '{{' },
+  shortcodes: { closePattern: "}}", openPattern: "{{" },
 };
