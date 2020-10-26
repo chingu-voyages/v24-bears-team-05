@@ -15,6 +15,6 @@
   <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 <div class="container">
-  <Header hydrate-client={{}} hydrate-options={{ loading: 'eager' }} />
+  <Header />
   {@html templateHtml}
 </div>
