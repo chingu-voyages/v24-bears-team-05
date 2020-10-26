@@ -131,7 +131,7 @@
         <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
       </div>
     </div>
-    {#each products as { name, type, src, color, price }}
+    {#each products as { name, type, src, color = "lightgray", price = "N/A" }}
       <article style="background-color: {color};">
         <img {src} alt={name} />
         <h2>{name}</h2>
