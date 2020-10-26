@@ -1,12 +1,24 @@
 <script>   
+    export let products;
     export let product;
     let itemsInCart = [];
    
     function addToCart(input) {
-        let item = {...input}
+        let newInput = {...input}
         itemsInCart = JSON.parse(localStorage.getItem('session')) || [];
-        itemsInCart.push(item)
-        localStorage.setItem('session', JSON.stringify(itemsInCart));
+        const itemInCart = itemsInCart.find(item => item.id === newInput.id);
+        if(itemInCart){
+                var updatedItemsInCart = itemsInCart.map(item => {
+                    if(item.id === itemInCart.id) return item
+                    return {...itemInCart, quantity: item.quantity + 1}
+                })
+                localStorage.setItem('session', JSON.stringify(updatedItemsInCart));
+            }
+        else{
+            const addedItem =  {...newInput, quantity: 1}
+            itemsInCart.push(addedItem)
+            localStorage.setItem('session', JSON.stringify(itemsInCart));
+        }
          console.log( JSON.parse( localStorage.getItem( 'session' ) ) );
     }
 

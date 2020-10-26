@@ -59,7 +59,7 @@
 
   <div class = "products">
     {#each products as product (product.id)}
-        <Product hydrate-client={{ product}} />    
+        <Product hydrate-client={{ product, products}} />    
     {/each}
   </div>
 </main>
