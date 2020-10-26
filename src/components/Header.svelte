@@ -20,7 +20,7 @@
     z-index: 30;
   }
 
-  .menu,
+  .m-menu-btn,
   .cart {
     width: 3.5rem;
     height: 3.5rem;
@@ -34,7 +34,7 @@
     border-right: var(--btn-borders);
     border-left: var(--btn-borders);
   }
-  .menu:hover,
+  .m-menu-btn:hover,
   .cart:hover {
     background-color: hsl(0, 0%, 96%);
   }
@@ -76,7 +76,6 @@
     stroke-dasharray: 60 60;
     stroke-width: 6;
   }
-
   .opened .line1,
   .opened .line3 {
     stroke-dasharray: 90 207;
@@ -105,7 +104,7 @@
   <nav>
     <!-- Burger -->
     <button
-      class="menu"
+      class="m-menu-btn"
       class:opened
       aria-expanded={opened}
       on:click={() => (opened = !opened)}
