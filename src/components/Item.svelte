@@ -1,6 +1,6 @@
 <script>
     export let item;
-    let quantity = 1;
+    let quantity = item.quantity;
     let price = item.price;
     $: total = price * quantity;
 

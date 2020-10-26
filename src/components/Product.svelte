@@ -9,8 +9,8 @@
         const itemInCart = itemsInCart.find(item => item.id === newInput.id);
         if(itemInCart){
                 var updatedItemsInCart = itemsInCart.map(item => {
-                    if(item.id === itemInCart.id) return item
-                    return {...itemInCart, quantity: item.quantity + 1}
+                    const updateItems = item.id === itemInCart.id ? ({...itemInCart, quantity: item.quantity + 1}) : {...item}
+                    return updateItems
                 })
                 localStorage.setItem('session', JSON.stringify(updatedItemsInCart));
             }
