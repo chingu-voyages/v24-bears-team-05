@@ -108,6 +108,9 @@
     padding: 1rem;
     font-weight: 500;
   }
+  #cart-menu {
+    padding: 0;
+  }
  
 </style>
 

@@ -1,37 +1,36 @@
 <script>
+import Item from './Item.svelte';
+
 import { onMount} from 'svelte';
     let cartItems = []
-console.log('brr')
 
 onMount(() => {
     cartItems = [...JSON.parse( localStorage.getItem( 'session' ) )]
 })
 </script>
 
-
-<style>
-    img {
-        width: 120px;
-    }
-</style>
-
-    <div class="cart-header">
-        <h1>A lot of cart items</h1>
+    <div style="
+        height: 100px;
+        width: 100%;
+        padding: 1.4rem;
+        background-color:#f5d8c3;
+    ">
+        <h1 style="
+            font-weight: 300;
+            text-align: center;
+        ">Your cart</h1>
     </div>
 
-<div class = "cart">
+<div style="
+
+">
     {#if cartItems.length}
-        {#each cartItems as item}
-            <div class="cartItem">
-                <img src={item.url} alt={item.name}/>
-                <h4>{item.name}</h4>
-                <p>{item.price}</p>
-            </div>
+        {#each cartItems as item }
+            <Item {item}/>
         {/each}
     {:else if !cartItems.length}
         <h1>Cart is empty</h1>
     {/if}
 </div>
-
 
 
