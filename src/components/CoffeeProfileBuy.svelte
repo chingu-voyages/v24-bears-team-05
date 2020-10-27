@@ -67,6 +67,7 @@
     place-items: center;
     height: 2rem;
     width: 5rem;
+    margin-bottom: 0;
   }
   .quantity input {
     height: 100%;
@@ -85,6 +86,20 @@
     outline: none;
     cursor: pointer;
   }
+  .cart-add {
+    display: flex;
+    place-content: space-between;
+    align-items: center;
+  }
+  .cart-add-btn {
+    background: white;
+    border: none;
+    height: 3rem;
+    font-family: Killarney;
+    font-weight: 400;
+    font-size: 2.5rem;
+    padding: 0 0.75rem;
+  }
 </style>
 
 <div class="select">
@@ -98,7 +113,7 @@
 
 <p class="price">{price}</p>
 
-<div>
+<div class="cart-add">
   <div class="quantity">
     <button
       on:click={() => (quantity = quantity > 0 && quantity - 1)}>-</button>
