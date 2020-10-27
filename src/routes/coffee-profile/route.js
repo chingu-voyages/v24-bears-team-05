@@ -72,11 +72,11 @@ products = products.map((product) => {
 });
 
 module.exports = {
-  template: "BeanView",
+  template: "CoffeeProfile",
   all: async () => products,
   permalink: ({ request }) => request.slug,
   data: async ({ request }) => {
-    const product = products.find((product) => product.slug === request.slug);
+    const product = products.find(({ slug }) => slug === request.slug);
     return { product };
   },
 };
