@@ -8,7 +8,7 @@
   $: quantity =
     quantity == null
       ? (actualQuantity = null && quantity)
-      : /^[^0]\d{0,2}$/.test(String(quantity))
+      : quantity > 0 && quantity < 1000
       ? (actualQuantity = quantity && quantity)
       : actualQuantity;
 </script>
@@ -105,5 +105,5 @@
     <input type="number" bind:value={quantity} />
     <button on:click={() => (quantity = Number(quantity) + 1)}>+</button>
   </div>
-  <button>Add To Cart</button>
+  <button class="cart-add-btn">Add To Cart</button>
 </div>
