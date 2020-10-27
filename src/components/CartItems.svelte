@@ -7,6 +7,8 @@ import { onMount} from 'svelte';
 onMount(() => {
     cartItems = [...JSON.parse( localStorage.getItem( 'session' ) )]
 })
+const totalCost = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+console.log(totalCost)
 </script>
 
     <div style="
@@ -20,10 +22,8 @@ onMount(() => {
             text-align: center;
         ">Your cart</h1>
     </div>
-
-<div style="
-
-">
+<p>Total cost ${totalCost}</p>
+<div>
     {#if cartItems.length}
         {#each cartItems as item }
             <Item {item}/>

@@ -4,16 +4,26 @@
     let price = item.price;
     $: total = price * quantity;
 
-    function increment(){
-        quantity+= 1
-    }
-    function decrement(){
+    function increment(id) {
+        const copiedState = JSON.parse( localStorage.getItem( 'session' ));
+        const findUpdated = copiedState.find(item => item.id === id);
+        findUpdated.quantity = quantity++;
+        localStorage.setItem('session', JSON.stringify(copiedState));
+    };
+    function decrement(id) {
         if(quantity > 1){
-           quantity-=1
-        }else{
-            quantity = 1
-        }
-    }
+            const copiedState = JSON.parse( localStorage.getItem( 'session' ));
+            const findUpdated = copiedState.find(item => item.id === id);
+            findUpdated.quantity = quantity--;
+            localStorage.setItem('session', JSON.stringify(copiedState));
+        };
+    };
+    function removeItem(id) {
+        const copiedState = JSON.parse( localStorage.getItem( 'session' ));
+        const updatedState = copiedState.filter(item => item.id !== id);
+        localStorage.setItem('session', JSON.stringify(updatedState));
+    };
+    
 </script>
 
 <div class="cartItem" style="
@@ -44,7 +54,7 @@
                 outline: none;
                 cursor: pointer;
                 font-size: 1rem;
-            " on:click={decrement}>-</button>
+            " on:click={() =>decrement(item.id)}>-</button>
             <h5 style="
                 font-size: 1.5rem;
             ">{quantity}</h5>
@@ -54,11 +64,11 @@
                 outline: none;
                 cursor: pointer;
                 font-size: 1rem;
-            " on:click={increment}>+</button>
+            " on:click={()=>increment(item.id)}>+</button>
         </div>
     </div>
     <div style="width: 15%">
-        <p>X</p>
+        <p on:click={() => removeItem(item.id)}>X</p>
         <p>${total}</p>
     </div>
 

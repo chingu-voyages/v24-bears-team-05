@@ -19,8 +19,8 @@
             itemsInCart.push(addedItem)
             localStorage.setItem('session', JSON.stringify(itemsInCart));
         }
-         console.log( JSON.parse( localStorage.getItem( 'session' ) ) );
-    }
+         console.log(JSON.parse( localStorage.getItem( 'session' )));
+    };
 
 </script>
 
