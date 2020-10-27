@@ -50,13 +50,6 @@
   .desc {
     font-weight: 500;
   }
-
-  /* remove input number arrows */
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 </style>
 
 <svelte:head>
@@ -84,13 +77,6 @@
       </p>
 
       <CoffeeProfileBuy hydrate-client={{ price }} />
-
-      <div class="quantity">
-        <button>-</button>
-        <input type="number" min="0" style="appearance: textfield;" />
-        <button>+</button>
-      </div>
-      <button>Add To Cart</button>
     </article>
   </section>
 </main>
