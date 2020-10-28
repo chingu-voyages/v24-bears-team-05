@@ -40,6 +40,12 @@
     min-width: 10rem;
     width: 100%;
   }
+  .link-wrapper {
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+  }
   article img {
     max-width: 11em;
     margin-bottom: 1rem;
@@ -105,11 +111,13 @@
         <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
       </div>
     </div>
-    {#each products as { name, origin, roastProfile, src, color = "lightgray", price = "N/A" }}
-      <article style="background-color: {color};">
-        <img {src} alt="{name} - {origin}" />
-        <h2>{name} — {origin}</h2>
-        <h2>{roastProfile}</h2>
+    {#each products as { name, origin, roastProfile, src, color = "lightgray", price = "N/A", slug="#" }}
+    <article style="background-color: {color};">
+        <a class="link-wrapper" href={slug} alt={name}>
+          <img {src} alt="{name} - {origin}" />
+          <h2>{name} — {origin}</h2>
+          <h2>{roastProfile}</h2>
+        </a>
         <h2 class="price">{price}</h2>
       </article>
     {/each}
