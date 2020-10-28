@@ -3,6 +3,7 @@
     display: flex;
     flex-flow: column;
     place-items: center;
+    margin-bottom: 3rem;
   }
 
   .social h2 {
@@ -65,8 +66,7 @@
     }
     .logo {
       place-self: flex-end;
-      margin: 0;
-      margin-right: 2rem;
+      margin: 0 2rem 2rem 0;
       padding: 0;
     }
   }
