@@ -1,9 +1,8 @@
 <script>
+  import HeaderDNav from "./HeaderDNav.svelte";
   import { fly } from "svelte/transition";
-  import { onMount } from "svelte";
-  let isHome;
-  onMount(() => (isHome = location.pathname == "/"));
-
+  export let slug;
+  let isHome = slug == "/";
   let opened;
 </script>
 
@@ -50,12 +49,14 @@
     z-index: 29;
     top: 3.5rem;
     overflow: auto;
+    padding-left: 0;
   }
   menu a {
     text-decoration: none;
     font-family: Killarney;
     font-size: 2.5rem;
-    padding: 1rem;
+    margin: 1rem;
+    margin-left: 4rem;
     font-weight: 500;
   }
 
@@ -96,7 +97,40 @@
     font-size: 1.5rem;
     padding: 0.5rem 0;
     user-select: none;
+  }
+
+  .social {
     display: flex;
+    flex-flow: column;
+    place-items: center;
+    margin-top: 2rem;
+  }
+  .social h2 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .social-icons img {
+    width: 3rem;
+  }
+
+  /* Desktop dimensions */
+  @media (min-width: 720px) {
+    /* hide mobile items */
+    nav,
+    button,
+    menu,
+    .cart {
+      display: none;
+    }
+    .logo {
+      margin-left: 2rem;
+    }
   }
 </style>
 
@@ -134,15 +168,26 @@
     <path d="M16.3093 10C16.3093 11.0609 15.8879 12.0783 15.1378 12.8284C14.3876 13.5786 13.3702 14 12.3093 14C11.2485 14 10.231 13.5786 9.4809 12.8284C8.73075 12.0783 8.30933 11.0609 8.30933 10" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   </button>
+
+  <HeaderDNav {slug} />
 </header>
 
 <!-- Burger menu dropdown -->
 {#if opened}
   <menu transition:fly={{ duration: 200, y: -200 }}>
-    <a href="/beans">Beans</a>
-    <a href="/brew-guides">Brew Guides</a>
-    <a href="/about">About</a>
-    <a href="/faq">FAQ</a>
+    <a href="/beans/">Beans</a>
+    <a href="/brew-guides/">Brew Guides</a>
+    <a href="/about/">About</a>
+    <a href="/faq/">FAQ</a>
+    <div class="social">
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <img src="/images/footer/facebook.svg" alt="Facebook" />
+        <img src="/images/footer/instagram.svg" alt="Instagram" />
+        <img src="/images/footer/twitter.svg" alt="Twitter" />
+        <img src="/images/footer/youtube.svg" alt="YouTube" />
+      </div>
+    </div>
     <!-- TODO: Follow Us section -->
   </menu>
 {/if}

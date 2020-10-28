@@ -82,7 +82,7 @@
 		Follow along with our experts and brew up a perfect cup of your favorite
 		bean.
 	</h2>
-	<div class="card chemex" onclick="location.href='/brew-guides/chemex/'">
+	<div class="card chemex" onclick="location.href='/brew-guides/chemex-guide'">
 		<div class="image-box img-box1">
 			<img src="images/chemex1.jpg" alt="" />
 		</div>
@@ -90,7 +90,9 @@
 			<img src="images/chemex2.jpg" alt="" />
 		</div>
 	</div>
-	<div class="card aeropress" onclick="location.href='/brew-guides/aeropress/'">
+	<div
+		class="card aeropress"
+		onclick="location.href='/brew-guides/aeropress-guide'">
 		<div class="image-box img-box1">
 			<img src="images/chemex1.jpg" alt="" />
 		</div>
@@ -98,7 +100,9 @@
 			<img src="images/chemex2.jpg" alt="" />
 		</div>
 	</div>
-	<div class="card pour-over" onclick="location.href='/brew-guides/pourover/'">
+	<div
+		class="card pour-over"
+		onclick="location.href='/brew-guides/pour-over-guide'">
 		<div class="image-box img-box1">
 			<img src="images/chemex1.jpg" alt="" />
 		</div>

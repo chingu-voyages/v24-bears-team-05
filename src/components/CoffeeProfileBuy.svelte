@@ -52,6 +52,8 @@
     font-weight: 400;
     font-size: 2.2rem;
     text-align: right;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   /* remove input number arrows */
@@ -92,13 +94,14 @@
     align-items: center;
   }
   .cart-add-btn {
+    white-space: nowrap;
     background: white;
     border: none;
-    height: 3rem;
+    height: 2rem;
     font-family: Killarney;
     font-weight: 400;
-    font-size: 2.5rem;
-    padding: 0 0.75rem;
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
   }
 </style>
 
