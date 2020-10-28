@@ -87,7 +87,7 @@
     </div>
     <div class="d-col">
       <h2>About</h2>
-      <a href="/fag">FAQ</a>
+      <a href="/faq">FAQ</a>
       <a href="/about">About Us</a>
     </div>
     <div class="social">
