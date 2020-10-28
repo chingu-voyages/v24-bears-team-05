@@ -32,6 +32,36 @@ const hooks = [
     description: "Hook that makes product data available on all routes.",
     priority: 50,
     run: async ({ data }) => {
+      /* 
+      move this require to the top
+      // const stripe = require("stripe")(process.env.STRIPE_KEY);
+      // async function getProducts() {
+      //   let { data } = await stripe.products.list();
+      //   products = data.map(({ id, name, metadata: { type }, images }) => {
+      //     return {
+      //       id,
+      //       image: images[0],
+      //       name,
+      //       type,
+      //     };
+      //   });
+      // }
+      // getProducts();
+
+      // Products API obj example: https://stripe.com/docs/api/products/list?lang=node 
+      // after processing:
+      // [
+      //   {
+      //     id: "prod_IGmBRVQ5m7HrTY",
+      //     image: 'https://files.stripe.com/links/fl_test_V6ki3407yCpFYQfOU6LVRh4o',
+      //     name: 'Kenya',
+      //     type: 'Bungoma'
+      //   }
+      // ]
+
+      // TODO: Get prices and match to products. See:
+      // https://stripe.com/docs/api/prices/list
+      */
       let products = [
         // Mock data if Stripe not connected and undefined.
         // The first entry represents a good example of the full data structure after processing
