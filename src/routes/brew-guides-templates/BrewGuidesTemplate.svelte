@@ -1,19 +1,48 @@
 <script>
 	export let data;
-	const { guide } = data;
-	const { name } = guide;
-	// get stuff from product
+	const { guides } = data;
+	const { name, description, steps, qualities } = guides;
 </script>
 
 <style>
+	main {
+		padding-top: 5em;
+		width: 90vw;
+		margin: 0 auto;
+	}
+	span {
+		font-family: Helvetica, sans-serif;
+		font-size: 0.75em;
+	}
+	.header > * {
+		margin: 0;
+		text-align: center;
+	}
+	.description {
+		margin: 2em 0;
+	}
+	img {
+		height: 350px;
+		width: 100%;
+		object-fit: cover;
+	}
 </style>
 
-<section>
-	<div class="container" />
-	<h1>{name}</h1>
-	<h1>{name}</h1>
-	<h1>{name}</h1>
-	<h1>{name}</h1>
-	<h1>{name}</h1>
-	<button onclick="location.href='/brew-guides'">BACK</button>
-</section>
+<svelte:head>
+	<title>Bear Coffee Beans</title>
+</svelte:head>
+<main>
+	<div class="header">
+		<p class="decoration">Learn with the Bears</p>
+		<h1 class="title">{name}</h1>
+		<h2>Great For <br /><span>{qualities}</span></h2>
+		<p class="description">{description}</p>
+	</div>
+	{#each steps as step}
+		<div class="instructions step{step.id}">
+			<img src={step.img} alt="step {step.id}" />
+			<h3>{step.title}</h3>
+			<p>{step.step}</p>
+		</div>
+	{/each}
+</main>
