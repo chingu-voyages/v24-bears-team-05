@@ -4,6 +4,7 @@
     flex-flow: column nowrap;
     align-items: center;
     padding: 0;
+    margin-bottom: 2rem;
   }
   h2 {
     text-align: left;

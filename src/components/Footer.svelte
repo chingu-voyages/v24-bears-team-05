@@ -4,6 +4,23 @@
     flex-flow: column;
     place-items: center;
   }
+
+  .social {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    width: 10rem;
+  }
+
+  .logo {
+    font-family: "Killarney";
+    text-decoration: none;
+    text-align: center;
+    line-height: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    user-select: none;
+  }
 </style>
 
 <footer>
@@ -14,4 +31,5 @@
     <img src="/images/footer/twitter.svg" alt="Twitter" />
     <img src="/images/footer/youtube.svg" alt="YouTube" />
   </div>
+  <h2 class="logo">Bear<br />Coffee</h2>
 </footer>
