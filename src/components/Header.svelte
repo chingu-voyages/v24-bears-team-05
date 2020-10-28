@@ -1,4 +1,6 @@
 <script>
+  import HeaderDNav from "./HeaderDNav.svelte";
+
   import { fly } from "svelte/transition";
   import { onMount } from "svelte";
   let isHome;
@@ -97,6 +99,20 @@
     padding: 0.5rem 0;
     user-select: none;
   }
+
+  /* Desktop dimensions */
+  @media (min-width: 720px) {
+    /* hide mobile items */
+    nav,
+    button,
+    menu,
+    .cart {
+      display: none;
+    }
+    .logo {
+      margin-left: 2rem;
+    }
+  }
 </style>
 
 <header>
@@ -133,6 +149,8 @@
     <path d="M16.3093 10C16.3093 11.0609 15.8879 12.0783 15.1378 12.8284C14.3876 13.5786 13.3702 14 12.3093 14C11.2485 14 10.231 13.5786 9.4809 12.8284C8.73075 12.0783 8.30933 11.0609 8.30933 10" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   </button>
+
+  <HeaderDNav />
 </header>
 
 <!-- Burger menu dropdown -->
