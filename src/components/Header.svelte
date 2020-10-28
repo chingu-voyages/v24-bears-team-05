@@ -49,12 +49,14 @@
     z-index: 29;
     top: 3.5rem;
     overflow: auto;
+    padding-left: 0;
   }
   menu a {
     text-decoration: none;
     font-family: Killarney;
     font-size: 2.5rem;
-    padding: 1rem;
+    margin: 1rem;
+    margin-left: 4rem;
     font-weight: 500;
   }
 
@@ -95,6 +97,26 @@
     font-size: 1.5rem;
     padding: 0.5rem 0;
     user-select: none;
+  }
+
+  .social {
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+    margin-top: 2rem;
+  }
+  .social h2 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .social-icons img {
+    width: 3rem;
   }
 
   /* Desktop dimensions */
@@ -157,6 +179,15 @@
     <a href="/brew-guides/">Brew Guides</a>
     <a href="/about/">About</a>
     <a href="/faq/">FAQ</a>
+    <div class="social">
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <img src="/images/footer/facebook.svg" alt="Facebook" />
+        <img src="/images/footer/instagram.svg" alt="Instagram" />
+        <img src="/images/footer/twitter.svg" alt="Twitter" />
+        <img src="/images/footer/youtube.svg" alt="YouTube" />
+      </div>
+    </div>
     <!-- TODO: Follow Us section -->
   </menu>
 {/if}
