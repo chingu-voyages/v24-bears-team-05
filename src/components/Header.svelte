@@ -1,11 +1,8 @@
 <script>
   import HeaderDNav from "./HeaderDNav.svelte";
-
   import { fly } from "svelte/transition";
-  import { onMount } from "svelte";
-  let isHome;
-  onMount(() => (isHome = location.pathname == "/"));
-
+  export let slug;
+  let isHome = slug == "/";
   let opened;
 </script>
 
@@ -150,7 +147,7 @@
   </svg>
   </button>
 
-  <HeaderDNav />
+  <HeaderDNav {slug} />
 </header>
 
 <!-- Burger menu dropdown -->

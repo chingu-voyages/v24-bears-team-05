@@ -1,3 +1,7 @@
+<script>
+  export let slug;
+</script>
+
 <style>
   nav {
     display: none;
@@ -14,14 +18,21 @@
       font-size: 1.5rem;
       text-decoration: none;
       margin-left: 3rem;
+      text-align: center;
+    }
+    .curpath {
+      /* padding-left: 0.3rem;
+      padding-right: 0.3rem; */
+      transition: border 1s linear 300ms;
+      border-bottom: 3px solid #222;
     }
   }
 </style>
 
 <nav>
-  <a href="/beans">Beans</a>
-  <a href="/brew-guides">Brew Guides</a>
-  <a href="/about">About</a>
-  <a href="/cart">Cart</a>
-  <a href="/login">Login</a>
+  <a href="/beans" class:curpath={'/beans' == slug}>Beans</a>
+  <a href="/brew-guides" class:curpath={'/brew-guides' == slug}>Brew Guides</a>
+  <a href="/about" class:curpath={'/about' == slug}>About</a>
+  <a href="/cart" class:curpath={'/cart' == slug}>Cart</a>
+  <a href="/login" class:curpath={'/login' == slug}>Login</a>
 </nav>
