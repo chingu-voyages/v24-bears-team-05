@@ -34,9 +34,9 @@
 </style>
 
 <nav>
-  <a href="/beans" class:curpath={'beans' == slug}>Beans</a>
-  <a href="/brew-guides" class:curpath={'brew-guides' == slug}>Brew Guides</a>
-  <a href="/about" class:curpath={'about' == slug}>About</a>
-  <a href="/cart" class:curpath={'cart' == slug}>Cart</a>
-  <a href="/login" class:curpath={'login' == slug}>Login</a>
+  <a href="/beans/" class:curpath={'beans' == slug}>Beans</a>
+  <a href="/brew-guides/" class:curpath={'brew-guides' == slug}>Brew Guides</a>
+  <a href="/about/" class:curpath={'about' == slug}>About</a>
+  <a href="/cart/" class:curpath={'cart' == slug}>Cart</a>
+  <a href="/login/" class:curpath={'login' == slug}>Login</a>
 </nav>
