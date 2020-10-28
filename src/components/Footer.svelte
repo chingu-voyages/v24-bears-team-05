@@ -21,6 +21,10 @@
     padding: 0.5rem 0;
     user-select: none;
   }
+
+  /* Desktop dimensions */
+  @media (min-width: 720px) {
+  }
 </style>
 
 <footer>
