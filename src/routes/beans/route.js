@@ -1,5 +1,4 @@
 const stripe = require("stripe")(process.env.STRIPE_KEY);
-let products;
 // async function getProducts() {
 //   let { data } = await stripe.products.list();
 //   products = data.map(({ id, name, metadata: { type }, images }) => {
@@ -31,7 +30,7 @@ after processing:
 module.exports = {
   all: async () => [{ slug: "/beans/" }],
   permalink: ({ request }) => request.slug,
-  data: async () => {
+  data: async ({ data: { products } }) => {
     return { products };
   },
 };
