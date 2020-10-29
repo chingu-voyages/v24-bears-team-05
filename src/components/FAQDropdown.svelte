@@ -7,6 +7,9 @@
 </script>
 
 <style>
+	main {
+		padding-top: 2em;
+	}
 	hr {
 		margin: 2em auto;
 	}
@@ -35,7 +38,7 @@
 	.faq-item > .question::before {
 		content: "✕";
 		position: absolute;
-		right: 30px;
+		right: -10px;
 		top: 0;
 		transform: rotate(45deg);
 		cursor: pointer;
@@ -43,7 +46,7 @@
 	.faq-item > .question.open::before {
 		content: "✕";
 		position: absolute;
-		right: 30px;
+		right: -10px;
 		top: 0;
 		transform: rotate(0deg);
 		cursor: pointer;

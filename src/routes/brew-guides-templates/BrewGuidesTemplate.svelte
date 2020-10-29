@@ -6,8 +6,9 @@
 
 <style>
 	main {
-		padding-top: 5em;
+		padding: 5em 0em 2em;
 		width: 90vw;
+		max-width: 1200px;
 		margin: 0 auto;
 	}
 	span {
@@ -21,9 +22,19 @@
 	.description {
 		margin: 2em 0;
 	}
+	.instructions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.box {
+		flex: 1 300px;
+		padding: 1em 1.5em;
+	}
 	img {
-		height: 350px;
+		height: 400px;
 		width: 100%;
+		max-width: 450px;
 		object-fit: cover;
 	}
 </style>
@@ -40,9 +51,11 @@
 	</div>
 	{#each steps as step}
 		<div class="instructions step{step.id}">
-			<img src={step.img} alt="step {step.id}" />
-			<h3>{step.title}</h3>
-			<p>{step.step}</p>
+			<img src={step.img} alt="step {step.id}" class="box" />
+			<div class="box">
+				<h2>{step.title}</h2>
+				<p>{step.step}</p>
+			</div>
 		</div>
 	{/each}
 </main>
