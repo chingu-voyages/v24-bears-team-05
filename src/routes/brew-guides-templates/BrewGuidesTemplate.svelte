@@ -32,7 +32,7 @@
 		padding: 1em 1.5em;
 	}
 	img {
-		height: 400px;
+		height: 350px;
 		width: 100%;
 		max-width: 450px;
 		object-fit: cover;
