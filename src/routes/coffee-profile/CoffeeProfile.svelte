@@ -1,6 +1,7 @@
 <script>
   import CoffeeProfileBuy from "../../components/CoffeeProfileBuy.svelte";
   import CoffeeProfileSuggest from "../../components/CoffeeProfileSuggest.svelte";
+
   export let data;
   const { product } = data;
   let {
@@ -29,12 +30,14 @@
     flex-direction: column;
     align-items: center;
   }
+
   article {
     max-width: 24rem;
     padding: 1.5rem;
     padding-bottom: 0.5rem;
     width: 90%;
   }
+
   h1 {
     margin: 0;
     text-align: center;
@@ -42,6 +45,7 @@
   hr {
     margin-bottom: 4rem;
   }
+
   article img {
     max-width: 15rem;
     margin-bottom: 1rem;
@@ -50,6 +54,7 @@
   }
   /* TODO: When image hasn't loaded yet, causes negative margin to make text float up. Use static imagery with 
     Elder's Svelte plugin*/
+
   .desc {
     font-weight: 500;
     line-height: 1.3;
