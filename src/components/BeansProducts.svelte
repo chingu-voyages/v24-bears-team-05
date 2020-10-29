@@ -47,7 +47,8 @@
     place-items: center;
   }
   article img {
-    max-width: 11em;
+    min-height: 15.1rem;
+    width: 11rem;
     margin-bottom: 1rem;
   }
   article h2 {
