@@ -7,13 +7,22 @@
 </script>
 
 <style>
+	hr {
+		margin: 2em auto;
+	}
+	.heading {
+		text-align: center;
+		font-size: 2.5em;
+	}
 	.answer {
 		display: block;
 		opacity: 0;
 		height: 0px;
-		transition: 0.1s ease-out;
+		transition: 0.3s ease-out;
 	}
 	.answer.open {
+		background-color: #f9e9e7;
+		padding: 2em 1em;
 		display: block;
 		opacity: 1;
 		height: 100%;
@@ -42,6 +51,7 @@
 </style>
 
 <main>
+	<h2 class="heading">Coffee Questions</h2>
 	{#each coffeeQ as { open, ...coffee }, i}
 		<div
 			class="faq-item faq-item{coffee.id}"
@@ -49,11 +59,12 @@
 				coffeeQ[i].open = !coffeeQ[i].open;
 				coffeeQ = [...coffeeQ];
 			}}>
-			<h3 class="question" class:open>{coffee.question}</h3>
+			<h2 class="question" class:open>{coffee.question}</h2>
 			<p class="answer" class:open>{coffee.answer}</p>
 		</div>
 	{/each}
 	<hr />
+	<h2 class="heading">Shipping Questions</h2>
 	{#each orderingQ as { open, ...ordering }, i}
 		<div
 			class="faq-item faq-item{ordering.id}"
@@ -61,7 +72,7 @@
 				orderingQ[i].open = !orderingQ[i].open;
 				orderingQ = [...orderingQ];
 			}}>
-			<h3 class="question">{ordering.question}</h3>
+			<h2 class="question">{ordering.question}</h2>
 			<p class="answer" class:open>{ordering.answer}</p>
 		</div>
 	{/each}

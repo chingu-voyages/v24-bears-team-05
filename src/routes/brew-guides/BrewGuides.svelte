@@ -3,17 +3,27 @@
 		box-sizing: border-box;
 	}
 	main {
-		margin: 0 auto;
 		width: 85%;
-		padding: 0;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 5em 0em 2em;
 		text-align: center;
 	}
 
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
 	.card {
-		margin: 2.5em 0;
+		flex: 0 1 350px;
+		max-width: 350px;
+		margin: 2.5em auto;
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
 		grid-template-rows: repeat(2, 1fr);
+		justify-items: center;
 		position: relative;
 		overflow: hidden;
 		cursor: pointer;
@@ -82,28 +92,30 @@
 		Follow along with our experts and brew up a perfect cup of your favorite
 		bean.
 	</h2>
-	<a class="card chemex" href="/brew-guides/aeropress">
-		<div class="image-box img-box1">
-			<img src="/images/chemex1.jpg" alt="" />
-		</div>
-		<div class="image-box img-box2">
-			<img src="/images/chemex2.jpg" alt="" />
-		</div>
-	</a>
-	<a class="card aeropress" href="/brew-guides/aeropress">
-		<div class="image-box img-box1">
-			<img src="/images/chemex1.jpg" alt="" />
-		</div>
-		<div class="image-box img-box2">
-			<img src="/images/chemex2.jpg" alt="" />
-		</div>
-	</a>
-	<a class="card pour-over" href="/brew-guides/pourover">
-		<div class="image-box img-box1">
-			<img src="/images/chemex1.jpg" alt="" />
-		</div>
-		<div class="image-box img-box2">
-			<img src="/images/chemex2.jpg" alt="" />
-		</div>
-	</a>
+	<div class="container">
+		<a class="card chemex" href="/brew-guides/aeropress">
+			<div class="image-box img-box1">
+				<img src="/images/chemex1.jpg" alt="" />
+			</div>
+			<div class="image-box img-box2">
+				<img src="/images/chemex2.jpg" alt="" />
+			</div>
+		</a>
+		<a class="card aeropress" href="/brew-guides/aeropress">
+			<div class="image-box img-box1">
+				<img src="/images/chemex1.jpg" alt="" />
+			</div>
+			<div class="image-box img-box2">
+				<img src="/images/chemex2.jpg" alt="" />
+			</div>
+		</a>
+		<a class="card pour-over" href="/brew-guides/pourover">
+			<div class="image-box img-box1">
+				<img src="/images/chemex1.jpg" alt="" />
+			</div>
+			<div class="image-box img-box2">
+				<img src="/images/chemex2.jpg" alt="" />
+			</div>
+		</a>
+	</div>
 </main>
