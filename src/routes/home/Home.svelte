@@ -12,6 +12,11 @@
   main {
     margin-top: 3.5rem;
   }
+  @media (min-width: 720px) {
+    :global(body) {
+      background-color: white;
+    }
+  }
 </style>
 
 <svelte:head>
