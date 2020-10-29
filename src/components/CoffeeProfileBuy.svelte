@@ -123,5 +123,5 @@
     <input type="number" bind:value={quantity} />
     <button on:click={() => (quantity = Number(quantity) + 1)}>+</button>
   </div>
-  <button class="cart-add-btn">Add To Cart</button>
+  <button class="cart-add-btn" on:click={()=>addToCart()}>Add To Cart</button>
 </div>
