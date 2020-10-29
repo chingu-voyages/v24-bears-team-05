@@ -9,6 +9,7 @@
     "build:html": "node ./src/build.js",
     "dev:rollup": "rollup  -c -w --no-watch.clearScreen",
     "dev:server": "nodemon",
+    "start:lambda": "netlify-lambda serve src/lambda",
     "eslint": "eslint --ext .js .",
     "eslint:fix": "eslint --fix --ext .js .",
     "prettier:svelte": "prettier --write --plugin-search-dir=. ./**/*.svelte"
@@ -26,6 +27,7 @@
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
+    "http-proxy-middleware": "^1.0.6",
     "intersection-observer": "^0.11.0",
     "markdown-js": "^0.0.4",
     "polka": "^0.5.2",
@@ -45,6 +47,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/runtime": "^7.12.1",
     "autoprefixer": "^10.0.1",
+    "netlify-lambda": "^2.0.1",
     "nodemon": "^2.0.6",
     "rollup": "^2.32.1"
   }
