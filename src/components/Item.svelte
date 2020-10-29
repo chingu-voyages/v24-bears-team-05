@@ -68,7 +68,8 @@
         </div>
     </div>
     <div style="width: 15%">
-        <p on:click={() => removeItem(item.id)}>X</p>
+        <p on:click={() => removeItem(item.id)} 
+        style="cursor:pointer">X</p>
         <p>${total}</p>
     </div>
 
