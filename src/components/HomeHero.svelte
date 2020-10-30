@@ -157,12 +157,12 @@
     .right-grid img:first-child {
       transform: rotate(-21.74deg);
       margin-right: 49%;
-      margin-bottom: 0%;
+      margin-bottom: 1%;
       width: 38%;
     }
     .right-grid img:nth-child(2) {
       transform: rotate(19.66deg);
-      margin-bottom: -1%;
+      margin-bottom: 1%;
       margin-right: -10%;
       width: 38%;
     }
