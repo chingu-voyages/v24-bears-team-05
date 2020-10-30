@@ -75,7 +75,7 @@
 				orderingQ[i].open = !orderingQ[i].open;
 				orderingQ = [...orderingQ];
 			}}>
-			<h2 class="question">{ordering.question}</h2>
+			<h2 class="question" class:open>{ordering.question}</h2>
 			<p class="answer" class:open>{ordering.answer}</p>
 		</div>
 	{/each}
