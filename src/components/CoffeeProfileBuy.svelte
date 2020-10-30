@@ -1,9 +1,20 @@
 <script>
   export let price;
+  export let name;
+  export let src;
+  export let roastProfile;
   let sizeSelect = "10oz";
   const sizes = ["10oz", "2lbs", "5lbs"];
   let quantity = 1;
   let actualQuantity = 1;
+
+  /* get size data, get quantity, and  get price for the product
+    at the end, on click btn add new item  to user's cart. 
+      -create an object whos property values are equal to the value of size, quantity , price, name
+        -- if 
+      - push created object to localStorage array
+      */
+
   // Validate quantity input
   $: quantity =
     quantity == null
@@ -11,7 +22,39 @@
       : quantity > 0 && quantity < 1000
       ? (actualQuantity = quantity && quantity)
       : actualQuantity;
+
+      let itemsInCart = [];
+   
+    const addToCart = () => {
+        let newItem = {
+          name,
+          roastProfile,
+          src,
+          price,
+          quantity,
+          sizeSelect
+        }
+        console.log(newItem)
+        itemsInCart = [...JSON.parse(localStorage.getItem('session')) || []];
+        const itemInCart = itemsInCart.find(item => item.roastProfile === newItem.roastProfile);
+
+
+          if(itemInCart){
+                  var updatedItemsInCart = itemsInCart.map(item => {
+                      const updateItems = item.roastProfile === itemInCart.roastProfile ? ({...itemInCart, quantity: item.quantity + newItem.quantity}) : {...item}
+                      return updateItems
+                  })
+                  localStorage.setItem('session', JSON.stringify(updatedItemsInCart));
+              }
+          else{
+              itemsInCart.push(newItem)
+              localStorage.setItem('session', JSON.stringify(itemsInCart));
+          }
+         console.log(JSON.parse( localStorage.getItem( 'session' )));
+    };
+
 </script>
+
 
 <style>
   /* select hydrated component self div */
@@ -123,5 +166,5 @@
     <input type="number" bind:value={quantity} />
     <button on:click={() => (quantity = Number(quantity) + 1)}>+</button>
   </div>
-  <button class="cart-add-btn" on:click={()=>addToCart()}>Add To Cart</button>
+  <button class="cart-add-btn" on:click={addToCart}>Add To Cart</button>
 </div>

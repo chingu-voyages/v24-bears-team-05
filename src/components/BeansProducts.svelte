@@ -1,8 +1,6 @@
 <script>
   export let products
-
   const originalList = products;
-
   function filterBungoma() {
     products = originalList;
     products = products.filter((product) => product.roastProfile === "Bungoma");
@@ -23,7 +21,6 @@
   section {
     padding: 0 1rem;
   }
-
   .container {
     display: flex;
     flex-direction: column;
@@ -61,7 +58,6 @@
     margin-right: -0.5rem;
     margin-bottom: 0.5rem;
   }
-
   .dropdown {
     font-family: Killarney;
     border: 2px solid #222222;
@@ -72,7 +68,6 @@
     align-self: flex-end;
     margin-bottom: 1.5rem;
   }
-
   .dropdown-content {
     display: none;
     position: absolute;
@@ -81,22 +76,18 @@
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-
   .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
-
   .dropdown-content a:hover {
     background-color: #ddd;
   }
-
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
   .dropdown:hover .dropbtn {
     background-color: #ddd;
   }

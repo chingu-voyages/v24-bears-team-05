@@ -34,12 +34,12 @@
     border-bottom: 1px solid #61F2C2;
     padding: 1rem;
 ">
-    <img src={item.url} alt={item.name} style = "width: 15%; min-width: 150px"/>
+    <img src={item.src} alt={item.name} style = "width: 15%; min-width: 150px"/>
 
     <div style="width: 70%">
         <h3 style="
             font-weight: bold;
-        ">{item.name}</h3>
+        ">{item.roastProfile}</h3>
         <h4>10oz</h4>
         <div style="
             width: 80px;

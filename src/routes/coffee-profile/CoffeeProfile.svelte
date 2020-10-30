@@ -85,7 +85,7 @@
         all coffee needs.
       </p>
 
-      <CoffeeProfileBuy hydrate-client={{ price }} />
+      <CoffeeProfileBuy hydrate-client={{ price, name, src, roastProfile }} />
     </article>
   </section>
   <CoffeeProfileSuggest />
