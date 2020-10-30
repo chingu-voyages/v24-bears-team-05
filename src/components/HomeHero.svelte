@@ -116,7 +116,7 @@
     }
     .img-grid:nth-child(2) {
       place-items: flex-end;
-      place-content: flex-start;
+      place-content: flex-end;
     }
     .d img {
       grid-area: 2/1/2;
