@@ -59,6 +59,24 @@
     font-weight: 500;
     line-height: 1.3;
   }
+
+  /* Desktop */
+  @media (min-width: 720px) {
+    hr {
+      display: none;
+    }
+    article {
+      display: grid;
+      grid-template-areas:
+        "20rem 1fr"
+        "20rem 1fr";
+      width: 90%;
+      max-width: 60rem;
+    }
+    article img {
+      grid-row: 1 / 3;
+    }
+  }
 </style>
 
 <svelte:head>
