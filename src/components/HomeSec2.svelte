@@ -78,6 +78,7 @@
     a {
       border: 4px solid #222;
       padding: 0.4rem 1.5rem;
+      white-space: nowrap;
     }
   }
 </style>
