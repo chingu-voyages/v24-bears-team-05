@@ -50,6 +50,7 @@
       justify-content: center;
       gap: 2rem;
       padding-left: 1rem;
+      margin-bottom: 5rem;
     }
     h2 {
       font-size: 3rem;
