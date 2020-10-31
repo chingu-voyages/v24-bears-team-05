@@ -32,6 +32,22 @@
   hr {
     width: 7.8rem;
   }
+
+  /* Desktop */
+  .m {
+    display: none;
+  }
+  @media (min-width: 720px) {
+    .d {
+      display: unset;
+    }
+    p {
+      max-width: 80%;
+    }
+    h1 br {
+      display: none;
+    }
+  }
 </style>
 
 <svelte:head>
@@ -40,7 +56,7 @@
 
 <main>
   <section>
-    <h1>Choose<br />Your Beans</h1>
+    <h1>Choose <br />Your Beans</h1>
     <hr />
     <p>
       Choose from a wide variety of coffee from the top roasters in the US. All
