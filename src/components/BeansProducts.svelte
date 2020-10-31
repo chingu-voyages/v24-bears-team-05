@@ -91,18 +91,40 @@
   .dropdown:hover .dropbtn {
     background-color: #ddd;
   }
+
+  /* Desktop */
+  @media(min-width: 720px) {
+    .container {
+      max-width: 80rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+      row-gap: 13rem;
+      column-gap: 2rem;
+      justify-items: center;
+    }
+    article {
+      width: 20rem;
+      height: 30rem;
+    }
+    article img {
+      margin-bottom: 4rem;
+    }
+    a {
+      margin-bottom: 1.5rem;
+    }
+  }
 </style>
 
 <section>
-  <div class="container">
-    <div class="dropdown">
-      Filter
-      <div class="dropdown-content">
-        <a href="#" on:click={filterBungoma}>Bungoma</a>
-        <a href="#" on:click={filterEthipiaRaro}>Ethipia Raro</a>
-        <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
-      </div>
+  <div class="dropdown">
+    Filter
+    <div class="dropdown-content">
+      <a href="#" on:click={filterBungoma}>Bungoma</a>
+      <a href="#" on:click={filterEthipiaRaro}>Ethipia Raro</a>
+      <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
     </div>
+  </div>
+  <div class="container">
     {#each products as { name, origin, roastProfile, src, color = "lightgray", price = "N/A", slug="#" }}
     <article style="background-color: {color};">
         <a class="link-wrapper" href={slug} alt={name}>
