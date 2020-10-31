@@ -38,11 +38,52 @@
     max-width: 410px;
     width: 100%;
   }
+
+  /* Desktop dimensions */
+  @media (min-width: 720px) {
+    br {
+      display: none;
+    }
+    section {
+      display: grid;
+      grid-template-areas: "img article";
+      justify-content: center;
+      gap: 2rem;
+      padding-left: 1rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    article {
+      grid-area: article;
+      margin-bottom: 0;
+      width: 34rem;
+      display: flex;
+      flex-flow: column;
+      place-items: center;
+    }
+    img {
+      grid-area: img;
+      height: 100%;
+      max-width: 90%;
+      width: 33rem;
+      object-fit: cover;
+    }
+    h2,
+    p,
+    a {
+      text-align: center;
+    }
+    a {
+      border: 4px solid #222;
+      padding: 0.4rem 1.5rem;
+    }
+  }
 </style>
 
 <section>
   <article>
-    <h2>Small Roasts.<br />Big Impact.</h2>
+    <h2>Small Roasts.<br /> Big Impact.</h2>
     <p>
       Each batch of coffee is roasted with the intent of creating a connection.
       We recognize the hands that harvested the beans and the consumer who
