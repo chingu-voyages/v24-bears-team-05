@@ -85,6 +85,8 @@
       padding: 0.2rem 1.5rem;
       text-decoration: none;
       z-index: 2;
+      white-space: nowrap;
+      text-align: center;
     }
 
     section {
