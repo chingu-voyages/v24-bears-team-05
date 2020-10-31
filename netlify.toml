@@ -3,7 +3,7 @@
   publish = "public/"
   functions = "functions"
 [build.environment]
-  NODE_VERSION = "14"
+  NODE_VERSION = "15"
 
 [[headers]]
   for = "/svelte/*"
