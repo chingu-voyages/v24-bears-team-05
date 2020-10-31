@@ -1,5 +1,5 @@
 module.exports = {
-  origin: "",
+  origin: "", // TODO: Set origin to https://bearcoffee.netlify.app/ on final prod
   srcDir: "src",
   distDir: "public",
   rootDir: process.cwd(),
