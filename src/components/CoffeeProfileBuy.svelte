@@ -23,38 +23,39 @@
       ? (actualQuantity = quantity && quantity)
       : actualQuantity;
 
-      let itemsInCart = [];
-   
-    const addToCart = () => {
-        let newItem = {
-          name,
-          roastProfile,
-          src,
-          price,
-          quantity,
-          sizeSelect
-        }
-        console.log(newItem)
-        itemsInCart = [...JSON.parse(localStorage.getItem('session')) || []];
-        const itemInCart = itemsInCart.find(item => item.roastProfile === newItem.roastProfile);
+  let itemsInCart = [];
 
-
-          if(itemInCart){
-                  var updatedItemsInCart = itemsInCart.map(item => {
-                      const updateItems = item.roastProfile === itemInCart.roastProfile ? ({...itemInCart, quantity: item.quantity + newItem.quantity}) : {...item}
-                      return updateItems
-                  })
-                  localStorage.setItem('session', JSON.stringify(updatedItemsInCart));
-              }
-          else{
-              itemsInCart.push(newItem)
-              localStorage.setItem('session', JSON.stringify(itemsInCart));
-          }
-         console.log(JSON.parse( localStorage.getItem( 'session' )));
+  const addToCart = () => {
+    let newItem = {
+      name,
+      roastProfile,
+      src,
+      price,
+      quantity,
+      sizeSelect,
     };
+    console.log(newItem);
+    itemsInCart = [...(JSON.parse(localStorage.getItem("session")) || [])];
+    const itemInCart = itemsInCart.find(
+      (item) => item.roastProfile === newItem.roastProfile
+    );
 
+    if (itemInCart) {
+      var updatedItemsInCart = itemsInCart.map((item) => {
+        const updateItems =
+          item.roastProfile === itemInCart.roastProfile
+            ? { ...itemInCart, quantity: item.quantity + newItem.quantity }
+            : { ...item };
+        return updateItems;
+      });
+      localStorage.setItem("session", JSON.stringify(updatedItemsInCart));
+    } else {
+      itemsInCart.push(newItem);
+      localStorage.setItem("session", JSON.stringify(itemsInCart));
+    }
+    console.log(JSON.parse(localStorage.getItem("session")));
+  };
 </script>
-
 
 <style>
   /* select hydrated component self div */
@@ -145,6 +146,19 @@
     font-weight: 400;
     font-size: 1.5rem;
     padding: 0 0.5rem;
+  }
+
+  /* Desktop */
+  @media (min-width: 720px) {
+    .quantity {
+      margin-right: 1rem;
+    }
+    .cart-add {
+      place-content: flex-end;
+    }
+    .select p {
+      margin-right: unset;
+    }
   }
 </style>
 
