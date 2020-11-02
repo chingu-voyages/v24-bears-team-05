@@ -1,6 +1,6 @@
 <script>
-  export let slug;
-  slug = slug.split("/")[1]; // remove all slashes and get first valid route name
+  export let permalink;
+  permalink = permalink.split("/").filter(Boolean)[0]; // get arr of current path names
 </script>
 
 <style>
@@ -34,9 +34,9 @@
 </style>
 
 <nav>
-  <a href="/beans/" class:curpath={'beans' == slug}>Beans</a>
-  <a href="/brew-guides/" class:curpath={'brew-guides' == slug}>Brew Guides</a>
-  <a href="/about/" class:curpath={'about' == slug}>About</a>
-  <a href="/cart/" class:curpath={'cart' == slug}>Cart</a>
-  <a href="/login/" class:curpath={'login' == slug}>Login</a>
+  <a href="/beans/" class:curpath={'beans' == permalink}>Beans</a>
+  <a href="/brew-guides/" class:curpath={'brew-guides' == permalink}>Brew Guides</a>
+  <a href="/about/" class:curpath={'about' == permalink}>About</a>
+  <a href="/cart/" class:curpath={'cart' == permalink}>Cart</a>
+  <a href="/login/" class:curpath={'login' == permalink}>Login</a>
 </nav>

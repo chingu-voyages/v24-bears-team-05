@@ -18,7 +18,7 @@
 </svelte:head>
 <div class="container">
   <Header
-    hydrate-client={{ slug: request.slug }}
+    hydrate-client={{ permalink: request.permalink }}
     hydrate-options={{ loading: 'eager' }} />
   {@html templateHtml}
   <Footer />
