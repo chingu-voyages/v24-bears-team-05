@@ -14,7 +14,7 @@
     "prettier:svelte": "prettier --write --plugin-search-dir=. ./**/*.svelte"
   },
   "dependencies": {
-    "@elderjs/elderjs": "^1.1.6",
+    "@elderjs/elderjs": "^1.1.7",
     "@elderjs/plugin-browser-reload": "^0.1.14",
     "@elderjs/plugin-markdown": "^0.1.14",
     "body-parser": "^1.19.0",
@@ -34,8 +34,7 @@
     "sirv": "^1.0.7",
     "stripe": "^8.119.0",
     "svelte": "^3.29.4",
-    "svelte-preprocess": "^4.5.2",
-    "systemjs": "^6.7.1"
+    "svelte-preprocess": "^4.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -45,6 +44,6 @@
     "@babel/runtime": "^7.12.1",
     "autoprefixer": "^10.0.1",
     "nodemon": "^2.0.6",
-    "rollup": "^2.33.0"
+    "rollup": "^2.33.1"
   }
 }
