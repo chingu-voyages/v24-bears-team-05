@@ -1,0 +1,20 @@
+CreateCollection({name: "Users"})
+
+Create(
+  Collection("Users"),
+  {
+    data: {
+      email: "test_user@test.com"
+    },
+    credentials: {
+      password: "testcoffeeorsleep"
+    }
+  }
+)
+
+CreateIndex({
+  name: "Users_by_email",
+  source: Collection("Users"),
+  terms: [{field: ["data", "email"]}],
+  unique: true
+})
