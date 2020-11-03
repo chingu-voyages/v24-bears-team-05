@@ -1,8 +1,7 @@
 <script>
-  export let price;
+  export let prices;
   export let name;
-  export let src;
-  export let roastProfile;
+  export let roaster;
   let sizeSelect = "10oz";
   const sizes = ["10oz", "2lbs", "5lbs"];
   let quantity = 1;
@@ -28,9 +27,9 @@
   const addToCart = () => {
     let newItem = {
       name,
-      roastProfile,
+      roaster,
       src,
-      price,
+      prices,
       quantity,
       sizeSelect,
     };
@@ -171,7 +170,7 @@
   {/each}
 </div>
 
-<p class="price">{price}</p>
+<p class="price">${prices[sizeSelect] * 0.01}</p>
 
 <div class="cart-add">
   <div class="quantity">

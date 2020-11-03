@@ -7,11 +7,11 @@
   let {
     name,
     origin,
-    roastProfile,
+    roaster,
+    type,
     description = "",
     color = "lightgray",
-    price = "N/A",
-    src,
+    prices = "N/A",
   } = product;
 </script>
 
@@ -81,16 +81,16 @@
 
 <svelte:head>
   <title>
-    {`${name != 'Bear Coffee' ? `Bear Coffee | ${name}` : name} — ${origin} ${roastProfile}`}
+    {`${roaster != 'Bear Coffee' ? `Bear Coffee | ${roaster}` : roaster} — ${origin} ${type}`}
   </title>
 </svelte:head>
 
 <main>
   <section>
-    <h1>{roastProfile}</h1>
+    <h1>{type}</h1>
     <hr />
     <article style="background-color: {color};">
-      <img {src} alt={roastProfile} />
+      <img src="/images/coffees/{name}.png" alt="{roaster} - {origin}" />
       <!-- TODO: currently hardcoded, use {description} when available -->
       <p class="desc">
         Tropical Weather embodies everything we love about specialty coffee and
@@ -103,7 +103,7 @@
         all coffee needs.
       </p>
 
-      <CoffeeProfileBuy hydrate-client={{ price, name, src, roastProfile }} />
+      <CoffeeProfileBuy hydrate-client={{ prices, name, roaster }} />
     </article>
   </section>
   <CoffeeProfileSuggest />

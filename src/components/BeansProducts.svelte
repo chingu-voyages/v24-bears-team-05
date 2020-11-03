@@ -2,11 +2,10 @@
   export let products
   const originalList = products;
 
-
-  function getRoastProfileFilter(str) {
+  function getRoasterFilter(str) {
     return function filterHandler() {
       products = originalList;
-      products = products.filter((product) => product.roastProfile === str);
+      products = products.filter((product) => product.roaster === str);
     }
   }
 
@@ -16,9 +15,6 @@
       products = products.filter((product) => product.origin === str);
     }
   }
-
-
-
 </script>
 
 <style>
@@ -123,8 +119,8 @@
   <div class="dropdown">
     Roast Filter   
     <div class="dropdown-content">
-      {#each originalList as {roastProfile}}
-      <a href="#" on:click={getRoastProfileFilter(roastProfile)}>{roastProfile}</a>
+      {#each originalList as { roaster }}
+      <a href="#" on:click={getRoasterFilter(roaster)}>{roaster}</a>
       {/each}
     </div>
     
@@ -136,17 +132,17 @@
       <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
       {/each}
     </div>
-    
+
   </div>
   <div class="container">
-    {#each products as { name, origin, roastProfile, src, color = "lightgray", price = "N/A", slug="#" }}
-    <article style="background-color: {color};">
-        <a class="link-wrapper" href={slug} alt={name}>
-          <img {src} alt="{name} - {origin}" />
-          <h2>{name} — {origin}</h2>
-          <h2>{roastProfile}</h2>
+    {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
+      <article style="background-color: {color};">
+        <a class="link-wrapper" href="/beans/{name}">
+          <img src="/images/coffees/{name}.png" alt="{roaster} - {origin}" />
+          <h2>{roaster} — {origin}</h2>
+          <h2>{type}</h2>
         </a>
-        <h2 class="price">{price}</h2>
+        <h2 class="price">${prices["10oz"] * 0.01}</h2>
       </article>
     {/each}
   </div>

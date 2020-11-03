@@ -3,6 +3,8 @@ const glob = require("glob");
 const fs = require("fs-extra");
 const os = require("os");
 
+const stripe = require("stripe")(process.env.STRIPE_KEY);
+
 /**
  * Hooks! 
  * 
@@ -32,75 +34,180 @@ const hooks = [
     description: "Hook that makes product data available on all routes.",
     priority: 50,
     run: async ({ data }) => {
-      /* 
-      move this require to the top
-      // const stripe = require("stripe")(process.env.STRIPE_KEY);
-      // async function getProducts() {
-      //   let { data } = await stripe.products.list();
-      //   products = data.map(({ id, name, metadata: { type }, images }) => {
+      // // Get the products
+      // var { data: products } = await stripe.products.list();
+      // products = products.map(
+      //   ({
+      //     name,
+      //     description,
+      //     id,
+      //     metadata: { type, roaster, origin, decaf, notes, color },
+      //   }) => {
       //     return {
-      //       id,
-      //       image: images[0],
       //       name,
+      //       description,
+      //       id,
       //       type,
+      //       roaster,
+      //       origin,
+      //       decaf,
+      //       notes,
+      //       color,
+      //       prices: {},
       //     };
-      //   });
-      // }
-      // getProducts();
+      //   }
+      // );
 
+      // // Get and add prices to products
+      // const { data: prices } = await stripe.prices.list({ limit: 100 });
+      // prices.forEach(({ product, nickname, unit_amount }) => {
+      //   prodIndex = products.findIndex(({ id }) => id == product);
+      //   if (prodIndex != -1) {
+      //     products[prodIndex].prices[nickname] = unit_amount;
+      //   }
+      // });
+
+      /* 
       // Products API obj example: https://stripe.com/docs/api/products/list?lang=node 
       // after processing:
       // [
-      //   {
-      //     id: "prod_IGmBRVQ5m7HrTY",
-      //     image: 'https://files.stripe.com/links/fl_test_V6ki3407yCpFYQfOU6LVRh4o',
-      //     name: 'Kenya',
-      //     type: 'Bungoma'
-      //   }
+      //  {
+            name: 'tucan-mexico-paraiso_mexicano',
+            id: 'prod_IJXaa5F9JfnzXJ',
+            type: 'Paraiso Mexicano',
+            roaster: 'Tucan',
+            origin: 'Mexico',
+            decaf: 'No',
+            notes: 'Cocoa, Cane Sugar, Maple'
+          }
       // ]
 
-      // TODO: Get prices and match to products. See:
-      // https://stripe.com/docs/api/prices/list
+      // Prices API obj example: https://stripe.com/docs/api/prices/list
       */
-      let products = [
+
+      var products =
         // Mock data if Stripe not connected and undefined.
         // The first entry represents a good example of the full data structure after processing
-        {
-          name: "Bear Coffee",
-          origin: "Kenya",
-          roastProfile: "Bungoma",
-          color: "rgba(83, 77, 86, 0.5)",
-          price: "$18",
-          src:
-            "https://s3-alpha-sig.figma.com/img/d2ae/6b35/e3da824053ae97882387329125ede01e?Expires=1604275200&Signature=E~CLe6rZqmWG6wnf1SqQEU8i-CTkzoa-0PUlepqbWbW4Tno~i2oWUXovgnxgDKx70lBK3ikBN7KpF4KeNVQXrZPhufShj6stjjR3KQ~Ceo9-hG3miOVEXN0N2TPlqFDhjUREINGwrz8UPLLc2-9jvJcU~oyogWbU~2nb-KCnikvcX33Oo957pvjFE1Jk1TZjX9LaUdUvjkyxgJCROSOuWc2hFeh-Hu-mUg8ja1G~ybqugbsGWVGKhRvDTvnm7KvLMQq-YEvgXDcQOritsBI-O-~T7eiJIuQD50l~liq7BfzspMZmxhFaVgWyv4hdi~Of3JdwGoTn5tYrsuOTuczLBg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-        },
-        {
-          name: "Tucan",
-          origin: "Ethiopia",
-          roastProfile: "Ethiopia Raro",
-          color: "hsl(57,87%,68%,0.5)",
-          price: "$22",
-          src:
-            "https://s3-alpha-sig.figma.com/img/7251/70b5/9a04f258af1c509301eb717292e55b04?Expires=1604275200&Signature=ZRH-s9Y238OEW9NUvNEai2kutIY3y~5Kz7evubJf4XRmE77QkVsWZdHaC7mbjIBT3uBXoCnL5G4PZ8dGbtx8SwQTUJ2m80fScvRRmACNVIJJP~clcMHufgZ~XMdzYSAyyoGIWkTngE9R52znv2w1d4CrOOX-ocFg~Z7xtilvq1ywVW2y1DKKGIDfPphyosiCjZ85HVC4jqZ2qyEzEKS4eMNNBF6Gsw7S9~ZENZ71Y0-TD7Ifs5JhJTmED9uGA997bhmY-RCUPkfBkJkSuBr0n6-IK~EJwl82IbFniRZBIR5y92T6grPzneFHUwjWz1odxWKsPIaXt8APskv70-oeUQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-        },
-        {
-          name: "Tucan",
-          origin: "Mexico",
-          roastProfile: "Paraiso Veracruz",
-          color: "hsl(191,35%,50%,0.5)",
-          price: "$20",
-          src:
-            "https://s3-alpha-sig.figma.com/img/54db/e45d/f6775d54a23be2a8723bbb8fb392ecab?Expires=1604275200&Signature=bJ-Gwz7r82O~UgqiQgnNp8OJZMihA9VyJo3om2elrItXm30ea9AUPJLPENDYcipm7I6H~H3-8wZfhP7nJr85~wAamSDhnGUggGweb-uTot4WItAZAsDDLq76h9n0oEd8j~y6v-liJwosdE0qk2JWgJNHxhbdG6ceX7ITjP387rNh2yr5eC5XJleXhg9id1k64qY8C0QR-NsEO3XnVfq56CqpPyRW7ZbBJxsyFnXblQHpGz2YeYwPfZOIasJG5p-PysXsop8nw7UGCYVYr4Wrz7UKnelzcMDf~TB2Fl4zhZeQvarw7XobC16QyFix5NfVmBUeLC1cNzbu2qU041r1Fw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-        },
-      ];
-      // Generate slugs
-      products = products.map((product) => {
-        let { name, origin, roastProfile } = product;
-        [name, origin, roastProfile] = [name, origin, roastProfile].map((str) =>
-          str.replace(/\s+/g, "-").toLowerCase()
-        );
-        return { ...product, slug: `/beans/${name}/${origin}/${roastProfile}` };
-      });
+        [
+          {
+            name: "tucan-mexico-paraiso_mexicano",
+            description:
+              "Notes of ripe pinot grape and dried dates squabble with fresh raspberry and wild honeycomb to conclude in hazelnut or chocolate. This is wild balance and tastes just like you always imagined.",
+            id: "prod_IJXaa5F9JfnzXJ",
+            type: "Paraiso Mexicano",
+            roaster: "Tucan",
+            origin: "Mexico",
+            decaf: "No",
+            notes: "Cocoa, Cane Sugar, Maple",
+            color: "rgba(113,171,184,0.55)",
+            prices: { "5lbs": 3500, "2lbs": 2200, "10oz": 1800 },
+          },
+          {
+            name: "tucan-ethiopia-ethiopia_raro",
+            description:
+              "Huge, juicy orchard fruits and candied citrus swirl around a gianduia center and end with notes of sweet pomegranate and grains of paradise. This is a laughing abandon of the status quo and leaves you happily in the jaws of the beast.",
+            id: "prod_IJXXqtrBQqsmht",
+            type: "Ethiopia Raro",
+            roaster: "Tucan",
+            origin: "Ethipia",
+            decaf: "No",
+            notes: "Raspberry, Mango, Peach",
+            color: "rgba(247,242,142,0.5)",
+            prices: { "5lbs": 3700, "2lbs": 2600, "10oz": 2200 },
+          },
+          {
+            name: "tucan-east_timor-tropical_weather",
+            description:
+              "Warm and creamy caramel notes and a snakebite of huckleberry acidity finishes in toasted filberts. Named after our neighborhood volcano. Created to wake the sleeping giant.",
+            id: "prod_IJXUil0aJmSBwr",
+            type: "Tropical Weather",
+            roaster: "Tucans",
+            origin: "East Minor",
+            decaf: "No",
+            notes: "Dark Chocolate, Tobacco, Marshmallow",
+            color: "rgba(202,225,148,0.5)",
+            prices: { "5lbs": 3600, "2lbs": 2500, "10oz": 1800 },
+          },
+          {
+            name: "geckos-rwanda-nyaruguru",
+            description:
+              "For the drop-ins, big gatherings, quiet moments and long conversations. Sweet, bing cherry and black tea petals invite you to sink into the warmth of smooth chocolate. ",
+            id: "prod_IIkua3c39bxR94",
+            type: "Nyaruguru",
+            roaster: "Geckos",
+            origin: "Rwanda",
+            decaf: "No",
+            notes: "Bing Cherry, Black Tea, Dark Chocolate",
+            color: "rgba(139,193,80,0.43)",
+            prices: { "5lbs": 3600, "2lbs": 2200, "10oz": 1700 },
+          },
+          {
+            name: "geckos-honduras-decaf_honduras",
+            description:
+              "This is unabashedly sunny and as refreshing as skinny dipping with strangers. A floral chorus of chamomile and elderberry petals dance with lemon-lime acidity and finish with a bite of milk chocolate.",
+            id: "prod_IIkryLigwjBTLk",
+            type: "El Paraiso",
+            roaster: "Geckos",
+            origin: "Honduras",
+            decaf: "Yes",
+            notes: "Chocolate, Marshmallow, Cherry",
+            color: "rgba(139,193,80,0.4)",
+            prices: { "5lbs": 4000, "2lbs": 2500, "10oz": 2000 },
+          },
+          {
+            name: "geckos-ethiopia-bensa_shantawene",
+            description:
+              "Warm and creamy caramel notes and a snakebite of huckleberry acidity finishes in toasted filberts. Named after our neighborhood volcano. Created to wake the sleeping giant.",
+            id: "prod_IIkp43DGleP7il",
+            type: "Bensa Shantawene",
+            roaster: "Geckos",
+            origin: "Ethiopia",
+            decaf: "No",
+            notes: "Peach Tea, Hibiscus, Floral",
+            color: "rgba(111,69,143,0.37)",
+            prices: { "5lbs": 2900, "2lbs": 2000, "10oz": 1500 },
+          },
+          {
+            name: "bear-peru-la_tierra",
+            description:
+              "This is unabashedly sunny and as refreshing as skinny dipping with strangers. A floral chorus of chamomile and elderberry petals dance with lemon-lime acidity and finish with a bite of milk chocolate.",
+            id: "prod_IIkmvdIf7D5Cfn",
+            type: "San Martin",
+            roaster: "Bear Coffee",
+            origin: "Peru",
+            decaf: "Yes",
+            notes: "Brown Sugar, Pecan Pie, Maple",
+            color: "rgba(240,122,140,0.5)",
+            prices: { "5lbs": 4000, "2lbs": 2700, "10oz": 2200 },
+          },
+          {
+            name: "bear-mexico-chiapas",
+            description:
+              "Natural black honey processed from Chiapas, Mexico. Tasting notes of Dark Chocolate, Cane Sugar, Plum",
+            id: "prod_IIkgEVM3gFn3vM",
+            type: "Chiapas",
+            roaster: "Bear Coffee",
+            origin: "Mexico",
+            decaf: "No",
+            notes: "Dark Chocolate, Cane Sugar, Plum",
+            color: "rgba(52,54,85,0.45)",
+            prices: { "5lbs": 3400, "2lbs": 2400, "10oz": 2000 },
+          },
+          {
+            name: "bear-kenya-bungoma",
+            description:
+              "Huge, juicy orchard fruits and candied citrus swirl around a gianduia center and end with notes of sweet pomegranate and grains of paradise. This is a laughing abandon of the status quo and leaves you happily in the jaws of the beast.",
+            id: "prod_IGmBRVQ5m7HrTY",
+            type: "Bungoma",
+            roaster: "Bear Coffee",
+            origin: "Kenya",
+            decaf: "No",
+            notes: "Brown Sugar, Lemon, Melon",
+            color: "rgba(246,246,246,1)",
+            prices: { "5lbs": 3200, "2lbs": 2200, "10oz": 1800 },
+          },
+        ];
+
       return {
         data: {
           ...data,
