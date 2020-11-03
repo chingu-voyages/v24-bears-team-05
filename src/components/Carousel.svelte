@@ -1,61 +1,36 @@
 <script>
   // Props
   export let slideIndex = 0;
+  export let paginationFactor = 1000;
   export let images = [
     "./images/carousel/1.jpg",
     "./images/carousel/2.jpg",
     "./images/carousel/3.jpg",
   ];
 
-  const paginationFactor = 450;
-
   $: offset = 0;
 
-  const showSlides = (slideIndex) => {
+  let showSlides = (slideIndex) => {
     offset = slideIndex * paginationFactor;
   };
 
-  const currentSlide = (n) => {
+  let currentSlide = (n) => {
     showSlides((slideIndex = n));
   };
 </script>
 
 <style>
-  main {
-    width: 450px;
+  .slide-container {
+    max-width: 1100px;
     overflow: hidden;
-    position: relative;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .items {
+  .slide {
     display: flex;
     transition: transform 0.4s ease-in-out;
     transform: translateX(0px);
-  }
-
-  .item {
-    min-width: 450px;
-    height: 200px;
-
-    background-color: #ef4322;
-
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 10rem;
-    user-select: none;
-    overflow: hidden;
-  }
-
-  .items .item:first-child {
-    margin-left: 0;
-  }
-
-  .items .item:last-child {
-    margin-right: 0;
   }
 
   .dot {
@@ -81,11 +56,11 @@
   }
 </style>
 
-<main>
-  <div class="items" style="transform: translateX({offset}px);">
-    {#each images as image}<img src={image} class="item" />{/each}
+<div class="slide-container">
+  <div class="slide" style="transform: translateX({offset}px);">
+    {#each images as image}<img src={image} />{/each}
   </div>
-</main>
+</div>
 
 <div style="text-align:center">
   {#each images as image, i}

@@ -1,20 +1,24 @@
 <script>
   export let products
   const originalList = products;
-  function filterBungoma() {
-    products = originalList;
-    products = products.filter((product) => product.roastProfile === "Bungoma");
+
+
+  function getRoastProfileFilter(str) {
+    return function filterHandler() {
+      products = originalList;
+      products = products.filter((product) => product.roastProfile === str);
+    }
   }
-  function filterEthipiaRaro() {
-    products = originalList;
-    products = products.filter((product) => product.roastProfile === "Ethiopia Raro");
+
+  function getOriginFilter(str) {
+    return function filterHandler() {
+      products = originalList;
+      products = products.filter((product) => product.origin === str);
+    }
   }
-  function filterParaisoVeracruz() {
-    products = originalList;
-    products = products.filter(
-      (product) => product.roastProfile === "Paraiso Veracruz"
-    );
-  }
+
+
+
 </script>
 
 <style>
@@ -91,7 +95,7 @@
   .dropdown:hover .dropbtn {
     background-color: #ddd;
   }
-
+  
   /* Desktop */
   @media(min-width: 720px) {
     .container {
@@ -117,12 +121,22 @@
 
 <section>
   <div class="dropdown">
-    Filter
+    Roast Filter   
     <div class="dropdown-content">
-      <a href="#" on:click={filterBungoma}>Bungoma</a>
-      <a href="#" on:click={filterEthipiaRaro}>Ethipia Raro</a>
-      <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
+      {#each originalList as {roastProfile}}
+      <a href="#" on:click={getRoastProfileFilter(roastProfile)}>{roastProfile}</a>
+      {/each}
     </div>
+    
+  </div>
+    <div class="dropdown">
+    Origin Filter
+    <div class="dropdown-content">
+      {#each originalList as {origin}}
+      <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
+      {/each}
+    </div>
+    
   </div>
   <div class="container">
     {#each products as { name, origin, roastProfile, src, color = "lightgray", price = "N/A", slug="#" }}
