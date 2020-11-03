@@ -19,6 +19,6 @@ exports.handler = async (event) => {
       }
     : {
         statusCode: 400,
-        body: "Invalid password!",
+        body: "Not found or invalid password!",
       };
 };
