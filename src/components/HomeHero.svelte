@@ -32,6 +32,9 @@
     position: absolute;
     max-height: 20rem;
   }
+  picture {
+    display: contents;
+  }
   img {
     display: inline-block;
   }
@@ -205,7 +208,7 @@
         alt="Tucan Coffee Bag"
         class="tucan" />
     </picture>
-
+    picture
     <img
       loading="lazy"
       src="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
