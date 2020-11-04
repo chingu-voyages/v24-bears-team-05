@@ -40,20 +40,32 @@
     outline-color: #4178be;
     outline-offset: -1px;
   }
+
+  div[role="dialog"] {
+    display: flex;
+  }
 </style>
+
+<div role="dialog"><button>Sign up</button> <button>Log in</button></div>
 
 <form on:submit={submitHandler}>
   <input
     type="email"
+    name="email"
     required
     pattern=".+@.+.com"
     maxlength="20"
     bind:value={user}
     placeholder="Email" />
-  <input
-    type="password"
-    required
-    maxlength="30"
-    bind:value={pass}
-    placeholder="Password" />
+
+  <label>
+    <input
+      type="password"
+      required
+      maxlength="30"
+      bind:value={pass}
+      placeholder="Password" />
+  </label>
+
+  <button type="submit">Log in</button>
 </form>
