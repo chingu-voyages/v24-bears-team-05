@@ -1,14 +1,28 @@
 <script>
-  let user;
-  let pass;
+  let email;
+  let password;
+
+  let logIn = true;
 
   async function submitHandler() {
-    // TODO: Fetch from serverless func that will log the user in.
+    // Fetch from serverless func that will log the user in.
+    function req() {
+      return fetch(`/.netlify/functions/${logIn ? "login" : "register"}`, {
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+    }
+
+    var res = await req();
+    console.log(await res.json());
   }
 </script>
 
 <style>
-  form {
+  section {
     display: grid;
     place-items: center;
     padding: 1rem;
@@ -41,31 +55,44 @@
     outline-offset: -1px;
   }
 
-  div[role="dialog"] {
+  .switch {
     display: flex;
+  }
+
+  .switch button {
+    border: none;
+    background: none;
+  }
+  .switch .active {
+    border-bottom: 2px solid black;
   }
 </style>
 
-<div role="dialog"><button>Sign up</button> <button>Log in</button></div>
+<section>
+  <div class="switch">
+    <button class:active={!logIn} on:click={() => (logIn = false)}>Sign up</button>
+    <button class:active={logIn} on:click={() => (logIn = true)}>Log in</button>
+  </div>
 
-<form on:submit={submitHandler}>
-  <input
-    type="email"
-    name="email"
-    required
-    pattern=".+@.+.com"
-    maxlength="20"
-    bind:value={user}
-    placeholder="Email" />
-
-  <label>
+  <form on:submit|preventDefault={submitHandler}>
     <input
-      type="password"
+      type="email"
+      name="email"
       required
-      maxlength="30"
-      bind:value={pass}
-      placeholder="Password" />
-  </label>
+      pattern=".+@.+.com"
+      maxlength="20"
+      bind:value={email}
+      placeholder="Email" />
 
-  <button type="submit">Log in</button>
-</form>
+    <label>
+      <input
+        type="password"
+        required
+        maxlength="30"
+        bind:value={password}
+        placeholder="Password" />
+    </label>
+
+    <button type="submit">{logIn ? 'Log in' : 'Sign up'}</button>
+  </form>
+</section>

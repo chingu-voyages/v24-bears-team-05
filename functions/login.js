@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   return login?.secret
     ? {
         statusCode: 200,
-        body: login.secret,
+        body: JSON.stringify({ secret: login.secret }),
       }
     : {
         statusCode: 400,
