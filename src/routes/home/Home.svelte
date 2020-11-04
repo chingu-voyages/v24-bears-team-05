@@ -21,6 +21,9 @@
 
 <svelte:head>
   <title>Bear Coffee</title>
+  <meta
+    name="description"
+    content="With Bear Coffee, finding your next favorite brew is faster than brewing a cup of coffee!" />
 </svelte:head>
 
 <main>

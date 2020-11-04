@@ -58,7 +58,9 @@
 
 <div class="slide-container">
   <div class="slide" style="transform: translateX({offset}px);">
-    {#each images as image}<img src={image} />{/each}
+    {#each images as image, i}
+      <img src={image} alt="Carousel option {i}" />
+    {/each}
   </div>
 </div>
 

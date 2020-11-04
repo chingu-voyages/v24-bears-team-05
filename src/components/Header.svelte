@@ -100,6 +100,10 @@
     font-size: 1.5rem;
     padding: 0.5rem 0;
     user-select: none;
+    margin-bottom: 0;
+  }
+  .hidden {
+    display: none;
   }
 
   .social {
@@ -164,7 +168,8 @@
     </div>
     -->
   </nav>
-  <a class="logo" href={!isHome ? '/' : null}> Bear<br />Coffee </a>
+  <a class="logo" class:hidden={isHome} href="/"> Bear<br />Coffee </a>
+  <h6 class="logo" class:hidden={!isHome}>Bear<br />Coffee</h6>
 
   <button
     class="cart"
