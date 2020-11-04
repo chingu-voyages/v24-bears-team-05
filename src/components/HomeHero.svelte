@@ -195,11 +195,17 @@
   </h1>
   <h2 class="m subscribe">Subscribe to Save 15%</h2>
   <div class="m">
-    <img
-      loading="lazy"
-      src="/images/coffees/tucan-mexico-paraiso_mexicano.avif"
-      alt="Tucan Coffee Bag"
-      class="tucan" />
+    <picture>
+      <source
+        srcset="/images/coffees/tucan-mexico-paraiso_mexicano.avif"
+        type="image/avif" />
+      <img
+        loading="lazy"
+        src="/images/coffees/tucan-mexico-paraiso_mexicano.webp"
+        alt="Tucan Coffee Bag"
+        class="tucan" />
+    </picture>
+
     <img
       loading="lazy"
       src="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
