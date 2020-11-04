@@ -94,5 +94,8 @@
     <a href="/beans">Shop Our Beans</a>
   </article>
 
-  <img src="/images/home/action_coffee.jpg" alt="Pouring Coffee" />
+  <img
+    loading="lazy"
+    src="/images/home/action_coffee.avif"
+    alt="Pouring Coffee" />
 </section>

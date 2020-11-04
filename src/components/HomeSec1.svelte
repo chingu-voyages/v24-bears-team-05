@@ -134,7 +134,11 @@
 </style>
 
 <section>
-  <img class="scale" src="/images/home/plant.jpg" alt="Coffee Plant" />
+  <img
+    loading="lazy"
+    class="scale"
+    src="/images/home/plant.avif"
+    alt="Coffee Plant" />
   <h2>
     Only the Best<br />
     Quality
@@ -145,25 +149,44 @@
 
   <div class="icon-box">
     <div class="bean">
-      <img class="icon bean" src="/images/home/bean_icon.png" alt="Bean Icon" />
+      <img
+        loading="lazy"
+        class="icon bean"
+        src="/images/home/bean_icon.png"
+        alt="Bean Icon" />
       <p>Roasted Weekly</p>
     </div>
     <div>
-      <img class="icon" src="/images/home/sun_icon.png" alt="Sun Icon" />
+      <img
+        loading="lazy"
+        class="icon"
+        src="/images/home/sun_icon.png"
+        alt="Sun Icon" />
       <p>Small <br class="d" />Harvests</p>
     </div>
     <div>
-      <img class="icon" src="/images/home/sprout_icon.png" alt="Sprout Icon" />
+      <img
+        loading="lazy"
+        class="icon"
+        src="/images/home/sprout_icon.png"
+        alt="Sprout Icon" />
       <p>Sustainably Harvested</p>
     </div>
     <div>
-      <img class="icon" src="/images/home/person_icon.png" alt="Person Icon" />
+      <img
+        loading="lazy"
+        class="icon"
+        src="/images/home/person_icon.png"
+        alt="Person Icon" />
       <p>Fair Wages <br class="d" />to Farmers</p>
     </div>
   </div>
 
   <div class="img-box m">
-    <img src="/images/home/bean_sorting.jpg" alt="Bean sorting" />
-    <img src="/images/home/bean_mixing.jpg" alt="Bean mixing" />
+    <img
+      loading="lazy"
+      src="/images/home/bean_sorting.avif"
+      alt="Bean sorting" />
+    <img loading="lazy" src="/images/home/bean_mixing.avif" alt="Bean mixing" />
   </div>
 </section>
