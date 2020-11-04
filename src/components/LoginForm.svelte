@@ -6,17 +6,16 @@
 
   async function submitHandler() {
     // Fetch from serverless func that will log the user in.
-    function req() {
-      return fetch(`/.netlify/functions/${logIn ? "login" : "register"}`, {
+    var res = await fetch(
+      `/.netlify/functions/${logIn ? "login" : "register"}`,
+      {
         method: "POST",
         body: JSON.stringify({
           email,
           password,
         }),
-      });
-    }
-
-    var res = await req();
+      }
+    );
     console.log(await res.json());
   }
 </script>
