@@ -52,6 +52,9 @@
     margin-top: -4.5rem;
     transform: rotate(-11.77deg);
   }
+  picture {
+    display: contents;
+  }
   /* TODO: When image hasn't loaded yet, causes negative margin to make text float up. Use static imagery with 
     Elder's Svelte plugin*/
 
@@ -90,7 +93,10 @@
     <h1>{type}</h1>
     <hr />
     <article style="background-color: {color};">
-      <img src="/images/coffees/{name}.avif" alt="{roaster} - {origin}" />
+      <picture>
+        <source srcset="/images/coffees/{name}.avif" type="image/avif" />
+        <img src="/images/coffees/{name}.webp" alt="{roaster} - {origin}" />
+      </picture>
       <!-- TODO: currently hardcoded, use {description} when available -->
       <p class="desc">
         Tropical Weather embodies everything we love about specialty coffee and

@@ -62,11 +62,14 @@
     position: absolute;
     object-fit: cover;
   }
-  .img-box img:first-of-type {
+  picture {
+    display: contents;
+  }
+  .img-1 {
     margin-top: 10rem;
     margin-left: 10rem;
   }
-  .img-box img:last-of-type {
+  .img-2 {
     margin-right: 10rem;
   }
 
@@ -183,10 +186,21 @@
   </div>
 
   <div class="img-box m">
-    <img
-      loading="lazy"
-      src="/images/home/bean_sorting.avif"
-      alt="Bean sorting" />
-    <img loading="lazy" src="/images/home/bean_mixing.avif" alt="Bean mixing" />
+    <picture>
+      <source srcset="/images/home/bean_sorting.avif" type="image/avif" />
+      <img
+        class="img-1"
+        loading="lazy"
+        src="/images/home/bean_sorting.webp"
+        alt="Bean sorting" />
+    </picture>
+    <picture>
+      <source srcset="/images/home/bean_mixing.avif" type="image/avif" />
+      <img
+        class="img-2"
+        loading="lazy"
+        src="/images/home/bean_mixing.webp"
+        alt="Bean mixing" />
+    </picture>
   </div>
 </section>

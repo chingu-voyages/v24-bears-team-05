@@ -48,6 +48,9 @@
     width: 11rem;
     margin-bottom: 1rem;
   }
+  picture {
+    display: contents;
+  }
   article h2 {
     font-size: 2rem;
     margin-bottom: 0;
@@ -138,7 +141,10 @@
     {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
       <article style="background-color: {color};">
         <a class="link-wrapper" href="/beans/{name}">
-          <img src="/images/coffees/{name}.avif" alt="{roaster} - {origin}" />
+          <picture>
+            <source srcset="/images/coffees/{name}.avif" type="image/avif" />
+            <img src="/images/coffees/{name}.webp" alt="{roaster} - {origin}" />
+          </picture>
           <h2>{roaster} — {origin}</h2>
           <h2>{type}</h2>
         </a>

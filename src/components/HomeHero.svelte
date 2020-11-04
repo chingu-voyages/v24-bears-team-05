@@ -208,22 +208,34 @@
         alt="Tucan Coffee Bag"
         class="tucan" />
     </picture>
-    picture
-    <img
-      loading="lazy"
-      src="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
-      alt="Geckos Coffee Bag"
-      class="geckos" />
-    <img
-      loading="lazy"
-      src="/images/home/beans.avif"
-      alt="Coffee beans"
-      class="beans" />
-    <img
-      loading="lazy"
-      src="/images/coffees/bear-peru-la_tierra.avif"
-      alt="Bear Coffee Bag"
-      class="bear" />
+    <picture>
+      <source
+        srcset="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
+        type="image/avif" />
+      <img
+        loading="lazy"
+        src="/images/coffees/geckos-ethiopia-bensa_shantawene.webp"
+        alt="Geckos Coffee Bag"
+        class="geckos" />
+    </picture>
+    <picture>
+      <source srcset="/images/home/beans.avif" type="image/avif" />
+      <img
+        loading="lazy"
+        src="/images/home/beans.webp"
+        alt="Coffee beans"
+        class="beans" />
+    </picture>
+    <picture>
+      <source
+        srcset="/images/coffees/bear-peru-la_tierra.avif"
+        type="image/avif" />
+      <img
+        loading="lazy"
+        src="/images/coffees/bear-peru-la_tierra.webp"
+        alt="Bear Coffee Bag"
+        class="bear" />
+    </picture>
   </div>
   <a class="d" href="/beans">Get Matched</a>
   <div class="d row">

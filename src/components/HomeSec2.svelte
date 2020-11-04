@@ -38,6 +38,9 @@
     max-width: 410px;
     width: 100%;
   }
+  picture {
+    display: contents;
+  }
 
   /* Desktop dimensions */
   @media (min-width: 720px) {
@@ -94,8 +97,11 @@
     <a href="/beans">Shop Our Beans</a>
   </article>
 
-  <img
-    loading="lazy"
-    src="/images/home/action_coffee.avif"
-    alt="Pouring Coffee" />
+  <picture>
+    <source srcset="/images/home/action_coffee.avif" type="image/avif" />
+    <img
+      loading="lazy"
+      src="/images/home/action_coffee.webp"
+      alt="Pouring Coffee" />
+  </picture>
 </section>
