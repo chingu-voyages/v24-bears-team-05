@@ -32,6 +32,9 @@
     position: absolute;
     max-height: 20rem;
   }
+  img {
+    display: inline-block;
+  }
   .beans {
     width: 18rem;
   }
@@ -192,26 +195,60 @@
   </h1>
   <h2 class="m subscribe">Subscribe to Save 15%</h2>
   <div class="m">
-    <img src="/images/home/tucan.png" alt="Tucan Coffee Bag" class="tucan" />
-    <img src="/images/home/geckos.png" alt="Geckos Coffee Bag" class="geckos" />
-    <img src="/images/home/beans.png" alt="Coffee beans" class="beans" />
-    <img src="/images/home/bear.png" alt="Bear Coffee Bag" class="bear" />
+    <img
+      loading="lazy"
+      src="/images/coffees/tucan-mexico-paraiso_mexicano.avif"
+      alt="Tucan Coffee Bag"
+      class="tucan" />
+    <img
+      loading="lazy"
+      src="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
+      alt="Geckos Coffee Bag"
+      class="geckos" />
+    <img
+      loading="lazy"
+      src="/images/home/beans.avif"
+      alt="Coffee beans"
+      class="beans" />
+    <img
+      loading="lazy"
+      src="/images/coffees/bear-peru-la_tierra.avif"
+      alt="Bear Coffee Bag"
+      class="bear" />
   </div>
   <a class="d" href="/beans">Get Matched</a>
   <div class="d row">
     <div class="d img-grid left-grid">
-      <img src="/images/home/bear_mexico.png" alt="" />
-      <img src="/images/home/geckos_honduras.png" alt="" />
-      <img src="/images/home/beans.png" alt="Top bean" />
-      <img src="/images/home/beans.png" alt="" />
-      <img src="/images/home/tucan_ethiopia.png" alt="" />
+      <img
+        loading="lazy"
+        src="/images/coffees/bear-mexico-chiapas.avif"
+        alt="" />
+      <img
+        loading="lazy"
+        src="/images/coffees/geckos-rwanda-nyaruguru.avif"
+        alt="" />
+      <img loading="lazy" src="/images/home/beans.avif" alt="Top bean" />
+      <img loading="lazy" src="/images/home/beans.avif" alt="" />
+      <img
+        loading="lazy"
+        src="/images/coffees/tucan-ethiopia-ethiopia_raro.avif"
+        alt="" />
     </div>
     <div class="d img-grid right-grid">
-      <img src="/images/home/geckos_ethiopia.png" alt="" />
-      <img src="/images/home/tucan.png" alt="" />
-      <img src="/images/home/beans.png" alt="Top bean" />
-      <img src="/images/home/beans.png" alt="" />
-      <img src="/images/home/bear_kenya.png" alt="" />
+      <img
+        loading="lazy"
+        src="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
+        alt="" />
+      <img
+        loading="lazy"
+        src="/images/coffees/tucan-mexico-paraiso_mexicano.avif"
+        alt="" />
+      <img loading="lazy" src="/images/home/beans.avif" alt="Top bean" />
+      <img loading="lazy" src="/images/home/beans.avif" alt="" />
+      <img
+        loading="lazy"
+        src="/images/coffees/bear-kenya-bungoma.avif"
+        alt="" />
     </div>
   </div>
 </section>
