@@ -90,7 +90,7 @@
     <h1>{type}</h1>
     <hr />
     <article style="background-color: {color};">
-      <img src="/images/coffees/{name}.png" alt="{roaster} - {origin}" />
+      <img src="/images/coffees/{name}.avif" alt="{roaster} - {origin}" />
       <!-- TODO: currently hardcoded, use {description} when available -->
       <p class="desc">
         Tropical Weather embodies everything we love about specialty coffee and

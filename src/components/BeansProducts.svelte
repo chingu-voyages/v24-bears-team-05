@@ -138,7 +138,7 @@
     {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
       <article style="background-color: {color};">
         <a class="link-wrapper" href="/beans/{name}">
-          <img src="/images/coffees/{name}.png" alt="{roaster} - {origin}" />
+          <img src="/images/coffees/{name}.avif" alt="{roaster} - {origin}" />
           <h2>{roaster} — {origin}</h2>
           <h2>{type}</h2>
         </a>
