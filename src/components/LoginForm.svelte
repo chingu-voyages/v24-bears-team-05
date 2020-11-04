@@ -1,7 +1,6 @@
 <script>
   let email;
   let password;
-
   let logIn = true;
 
   async function submitHandler() {
@@ -57,7 +56,6 @@
   .switch {
     display: flex;
   }
-
   .switch button {
     border: none;
     background: none;
@@ -83,14 +81,12 @@
       bind:value={email}
       placeholder="Email" />
 
-    <label>
-      <input
-        type="password"
-        required
-        maxlength="30"
-        bind:value={password}
-        placeholder="Password" />
-    </label>
+    <input
+      type="password"
+      required
+      maxlength="30"
+      bind:value={password}
+      placeholder="Password" />
 
     <button type="submit">{logIn ? 'Log in' : 'Sign up'}</button>
   </form>
