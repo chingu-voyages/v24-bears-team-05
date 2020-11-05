@@ -137,11 +137,14 @@
 </style>
 
 <section>
-  <img
-    loading="lazy"
-    class="scale"
-    src="/images/home/plant.avif"
-    alt="Coffee Plant" />
+  <picture>
+    <source srcset="/images/home/plant.avif" type="image/avif" />
+    <img
+      loading="lazy"
+      class="scale"
+      src="/images/home/plant.webp"
+      alt="Coffee Plant" />
+  </picture>
   <h2>
     Only the Best<br />
     Quality
