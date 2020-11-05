@@ -7,9 +7,14 @@
     margin-top: 3.5rem;
   }
 
-  h2 {
+  h2,
+  h3 {
     text-align: center;
     margin: 10rem auto 0 auto;
+  }
+  h3 {
+    margin-top: 1rem;
+    font-size: 2.5rem;
   }
 </style>
 
@@ -18,6 +23,7 @@
 </svelte:head>
 
 <main>
-  <h2>Join us to discover your new obsession<br />☕</h2>
+  <h2>Join us to discover your new obsession</h2>
+  <h3>☕</h3>
   <LoginForm hydrate-client={{}} />
 </main>

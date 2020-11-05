@@ -27,6 +27,7 @@
     display: grid;
     place-items: center;
     padding: 1rem;
+    margin-bottom: 5rem;
   }
 
   input {
@@ -58,6 +59,7 @@
 
   .switch {
     display: flex;
+    margin-bottom: 1rem;
   }
   .switch button {
     border: none;
@@ -65,6 +67,23 @@
   }
   .switch .active {
     border-bottom: 2px solid black;
+  }
+
+  button[type="submit"] {
+    background-color: #222;
+    border: none;
+    border-radius: 0.2rem;
+    color: white;
+    padding: 0.5rem;
+    font-weight: 700;
+  }
+
+  form {
+    display: grid;
+    place-items: center;
+  }
+  form input {
+    margin-bottom: 1rem;
   }
 </style>
 
@@ -75,7 +94,9 @@
   </div>
 
   <form on:submit|preventDefault={submitHandler}>
+    <!-- svelte-ignore a11y-autofocus -->
     <input
+      autofocus
       type="email"
       name="email"
       required
