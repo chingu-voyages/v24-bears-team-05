@@ -1,5 +1,5 @@
 <script>
-import Pict from "./Pict.svelte";
+  import Pict from "./Pict.svelte";
 
   export let products
   const originalList = products;
