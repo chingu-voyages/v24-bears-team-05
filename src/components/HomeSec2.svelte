@@ -1,3 +1,7 @@
+<script>
+  import Pict from "./Pict.svelte";
+</script>
+
 <style>
   section {
     display: flex;
@@ -37,9 +41,6 @@
   img {
     max-width: 410px;
     width: 100%;
-  }
-  picture {
-    display: contents;
   }
 
   /* Desktop dimensions */
@@ -96,12 +97,7 @@
     </p>
     <a href="/beans">Shop Our Beans</a>
   </article>
-
-  <picture>
-    <source srcset="/images/home/action_coffee.avif" type="image/avif" />
-    <img
-      loading="lazy"
-      src="/images/home/action_coffee.webp"
-      alt="Pouring Coffee" />
-  </picture>
+  <Pict path="/images/home/action_coffee" let:props>
+    <img alt="Pouring Coffee" {...props} />
+  </Pict>
 </section>

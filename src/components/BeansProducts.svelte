@@ -1,4 +1,6 @@
 <script>
+import Pict from "./Pict.svelte";
+
   export let products
   const originalList = products;
 
@@ -47,9 +49,6 @@
     min-height: 15.1rem;
     width: 11rem;
     margin-bottom: 1rem;
-  }
-  picture {
-    display: contents;
   }
   article h2 {
     font-size: 2rem;
@@ -141,10 +140,9 @@
     {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
       <article style="background-color: {color};">
         <a class="link-wrapper" href="/beans/{name}">
-          <picture>
-            <source srcset="/images/coffees/{name}.avif" type="image/avif" />
-            <img src="/images/coffees/{name}.webp" alt="{roaster} - {origin}" />
-          </picture>
+          <Pict path="/images/coffees/{name}" let:props>
+            <img alt="{roaster} - {origin}" {...props} />
+          </Pict>
           <h2>{roaster} — {origin}</h2>
           <h2>{type}</h2>
         </a>

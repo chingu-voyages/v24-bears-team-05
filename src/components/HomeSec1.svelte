@@ -1,3 +1,7 @@
+<script>
+  import Pict from "./Pict.svelte";
+</script>
+
 <style>
   section {
     display: flex;
@@ -61,9 +65,6 @@
     height: 14rem;
     position: absolute;
     object-fit: cover;
-  }
-  picture {
-    display: contents;
   }
   .img-1 {
     margin-top: 10rem;
@@ -137,14 +138,10 @@
 </style>
 
 <section>
-  <picture>
-    <source srcset="/images/home/plant.avif" type="image/avif" />
-    <img
-      loading="lazy"
-      class="scale"
-      src="/images/home/plant.webp"
-      alt="Coffee Plant" />
-  </picture>
+  <Pict path="/images/home/plant" let:props>
+    <img class="scale" alt="Coffee Plant" {...props} />
+  </Pict>
+
   <h2>
     Only the Best<br />
     Quality
@@ -189,21 +186,11 @@
   </div>
 
   <div class="img-box m">
-    <picture>
-      <source srcset="/images/home/bean_sorting.avif" type="image/avif" />
-      <img
-        class="img-1"
-        loading="lazy"
-        src="/images/home/bean_sorting.webp"
-        alt="Bean sorting" />
-    </picture>
-    <picture>
-      <source srcset="/images/home/bean_mixing.avif" type="image/avif" />
-      <img
-        class="img-2"
-        loading="lazy"
-        src="/images/home/bean_mixing.webp"
-        alt="Bean mixing" />
-    </picture>
+    <Pict path="/images/home/bean_sorting" let:props>
+      <img class="img-1" alt="Bean sorting" {...props} />
+    </Pict>
+    <Pict path="/images/home/bean_mixing" let:props>
+      <img class="img-2" alt="Bean mixing" {...props} />
+    </Pict>
   </div>
 </section>

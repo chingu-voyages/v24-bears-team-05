@@ -1,3 +1,7 @@
+<script>
+  import Pict from "./Pict.svelte";
+</script>
+
 <style>
   section {
     display: flex;
@@ -31,9 +35,6 @@
   div img {
     position: absolute;
     max-height: 20rem;
-  }
-  picture {
-    display: contents;
   }
   img {
     display: inline-block;
@@ -132,28 +133,28 @@
       z-index: 1;
     }
 
-    .left-grid img:first-child {
+    .left-grid picture:first-child img {
       transform: rotate(-10.28deg);
       width: 42%;
       margin-left: -15%;
     }
-    .left-grid img:nth-child(2) {
+    .left-grid picture:nth-child(2) img {
       margin-top: 17%;
       margin-left: 46%;
       transform: rotate(21.48deg);
       width: 34%;
     }
-    .d img:nth-child(3) {
+    .d picture:nth-child(3) img {
       grid-area: 1;
       width: 48%;
       margin-left: -7%;
     }
-    .left-grid img:nth-child(4) {
+    .left-grid picture:nth-child(4) img {
       width: 58%;
       margin-left: 8%;
       margin-top: -7%;
     }
-    .left-grid img:last-child {
+    .left-grid picture:last-child img {
       margin-left: 17%;
       width: 38%;
       margin-top: 13%;
@@ -162,28 +163,28 @@
     .right-grid {
       overflow: hidden;
     }
-    .right-grid img:first-child {
+    .right-grid picture:first-child img {
       transform: rotate(-21.74deg);
       margin-right: 49%;
       margin-bottom: 1%;
       width: 38%;
     }
-    .right-grid img:nth-child(2) {
+    .right-grid picture:nth-child(2) img {
       transform: rotate(19.66deg);
       margin-bottom: 1%;
       margin-right: -10%;
       width: 38%;
     }
-    .right-grid img:nth-child(3) {
+    .right-grid picture:nth-child(3) img {
       transform: rotate(150deg);
       width: 44%;
     }
-    .right-grid img:nth-child(4) {
+    .right-grid picture:nth-child(4) img {
       width: 59%;
       margin-right: 9%;
       margin-bottom: 14%;
     }
-    .right-grid img:last-child {
+    .right-grid picture:last-child img {
       width: 40%;
       margin-right: 17%;
       margin-top: 12%;
@@ -198,78 +199,50 @@
   </h1>
   <h2 class="m subscribe">Subscribe to Save 15%</h2>
   <div class="m">
-    <picture>
-      <source
-        srcset="/images/coffees/tucan-mexico-paraiso_mexicano.avif"
-        type="image/avif" />
-      <img
-        loading="lazy"
-        src="/images/coffees/tucan-mexico-paraiso_mexicano.webp"
-        alt="Tucan Coffee Bag"
-        class="tucan" />
-    </picture>
-    <picture>
-      <source
-        srcset="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
-        type="image/avif" />
-      <img
-        loading="lazy"
-        src="/images/coffees/geckos-ethiopia-bensa_shantawene.webp"
-        alt="Geckos Coffee Bag"
-        class="geckos" />
-    </picture>
-    <picture>
-      <source srcset="/images/home/beans.avif" type="image/avif" />
-      <img
-        loading="lazy"
-        src="/images/home/beans.webp"
-        alt="Coffee beans"
-        class="beans" />
-    </picture>
-    <picture>
-      <source
-        srcset="/images/coffees/bear-peru-la_tierra.avif"
-        type="image/avif" />
-      <img
-        loading="lazy"
-        src="/images/coffees/bear-peru-la_tierra.webp"
-        alt="Bear Coffee Bag"
-        class="bear" />
-    </picture>
+    <Pict path="/images/coffees/tucan-mexico-paraiso_mexicano" let:props>
+      <img class="tucan" alt="Tucan Coffee Bag" {...props} />
+    </Pict>
+    <Pict path="/images/coffees/geckos-ethiopia-bensa_shantawene" let:props>
+      <img class="geckos" alt="Geckos Coffee Bag" {...props} />
+    </Pict>
+    <Pict path="/images/home/beans" let:props>
+      <img alt="Coffee beans" class="beans" {...props} />
+    </Pict>
+    <Pict path="/images/coffees/bear-peru-la_tierra" let:props>
+      <img alt="Bear Coffee Bag" class="bear" {...props} />
+    </Pict>
   </div>
   <a class="d" href="/beans">Get Matched</a>
   <div class="d row">
     <div class="d img-grid left-grid">
-      <img
-        loading="lazy"
-        src="/images/coffees/bear-mexico-chiapas.avif"
-        alt="" />
-      <img
-        loading="lazy"
-        src="/images/coffees/geckos-rwanda-nyaruguru.avif"
-        alt="" />
-      <img loading="lazy" src="/images/home/beans.avif" alt="Top bean" />
-      <img loading="lazy" src="/images/home/beans.avif" alt="" />
-      <img
-        loading="lazy"
-        src="/images/coffees/tucan-ethiopia-ethiopia_raro.avif"
-        alt="" />
+      <Pict path="/images/coffees/bear-mexico-chiapas" let:props>
+        <img alt="" {...props} />
+      </Pict>
+      <Pict path="/images/coffees/geckos-rwanda-nyaruguru" let:props>
+        <img alt="" {...props} />
+      </Pict>
+      <Pict path="/images/home/beans" let:props>
+        <img alt="Top bean" {...props} />
+      </Pict>
+      <Pict path="/images/home/beans" let:props><img alt="" {...props} /></Pict>
+      <Pict path="/images/coffees/tucan-ethiopia-ethiopia_raro" let:props>
+        <img alt="" {...props} />
+      </Pict>
     </div>
     <div class="d img-grid right-grid">
-      <img
-        loading="lazy"
-        src="/images/coffees/geckos-ethiopia-bensa_shantawene.avif"
-        alt="" />
-      <img
-        loading="lazy"
-        src="/images/coffees/tucan-mexico-paraiso_mexicano.avif"
-        alt="" />
-      <img loading="lazy" src="/images/home/beans.avif" alt="Top bean" />
-      <img loading="lazy" src="/images/home/beans.avif" alt="" />
-      <img
-        loading="lazy"
-        src="/images/coffees/bear-kenya-bungoma.avif"
-        alt="" />
+      <Pict path="/images/coffees/geckos-ethiopia-bensa_shantawene" let:props>
+        <img alt="" {...props} />
+      </Pict>
+      <Pict path="/images/coffees/tucan-mexico-paraiso_mexicano" let:props>
+        <img alt="" {...props} />
+      </Pict>
+      <Pict path="/images/home/beans" let:props>
+        <img alt="Top bean" {...props} />
+      </Pict>
+      <Pict path="/images/home/beans" let:props><img alt="" {...props} /></Pict>
+      <Pict path="/images/coffees/bear-kenya-bungoma" let:props>
+        <img alt="" {...props} />
+      </Pict>
     </div>
   </div>
 </section>
