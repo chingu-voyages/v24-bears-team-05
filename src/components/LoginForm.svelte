@@ -64,6 +64,9 @@
   .switch button {
     border: none;
     background: none;
+    font-size: 1rem;
+    padding-bottom: 0.4rem;
+    font-weight: 700;
   }
   .switch .active {
     border-bottom: 2px solid black;

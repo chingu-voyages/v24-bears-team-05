@@ -23,7 +23,7 @@
 </svelte:head>
 
 <main>
-  <h2>Join us to discover your new obsession</h2>
+  <h2>Join us to discover<br />your new obsession</h2>
   <h3>☕</h3>
   <LoginForm hydrate-client={{}} />
 </main>
