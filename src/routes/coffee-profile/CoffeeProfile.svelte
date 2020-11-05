@@ -77,6 +77,12 @@
     article img {
       grid-row: 1 / 3;
     }
+    .desc {
+      grid-row: 1/2;
+    }
+    :global(.coffeeprofilebuy-component) {
+      grid-row: 2/3;
+    }
   }
 </style>
 
