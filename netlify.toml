@@ -12,11 +12,6 @@
       public,
       max-age=31536000,
       immutable'''
-[[headers]]
-  for = "*.avif"
-  [headers.values]
-    Content-Type = "image/avif"
-    Content-Disposition = "inline"
 
 # Elder.js ntl dev config
 # Requires running "npm run dev:rollup" on a second terminal
