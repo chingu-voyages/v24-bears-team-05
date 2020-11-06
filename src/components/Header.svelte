@@ -45,7 +45,7 @@
     margin: 0;
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 3.5rem);
     background-color: #fbfaf4;
     display: flex;
     flex-flow: column;
@@ -61,6 +61,13 @@
     margin: 1rem;
     margin-left: 4rem;
     font-weight: 500;
+  }
+
+  /* global class for hiding body overflow when menus open (mobile) */
+  @media (max-width: 720px) {
+    :global(.m-menu-of) {
+      overflow: hidden;
+    }
   }
 
   /* Burger */
@@ -151,7 +158,11 @@
       class="m-menu-btn"
       class:opened
       aria-expanded={opened}
-      on:click={() => (opened = !opened)}
+      on:click={() => {
+        if (!opened) document.body.classList.add('m-menu-of');
+        else document.body.classList.remove('m-menu-of');
+        opened = !opened;
+      }}
       aria-label="Main Menu">
       <!-- prettier-ignore -->
       <svg width="30" height="30" viewBox="0 0 100 100">
@@ -174,7 +185,11 @@
   <button
     class="cart"
     aria-label="cart"
-    on:click={() => (cartOpened = !cartOpened)}>
+    on:click={() => {
+      if (!cartOpened) document.body.classList.add('m-menu-of');
+      else document.body.classList.remove('m-menu-of');
+      cartOpened = !cartOpened;
+    }}>
     {#if !cartOpened}
       <!-- prettier-ignore -->
       <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" in:fade >
@@ -207,7 +222,6 @@
         <img src="/images/footer/youtube.svg" alt="YouTube" />
       </div>
     </div>
-    <!-- TODO: Follow Us section -->
   </menu>
 {/if}
 
