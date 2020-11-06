@@ -29,11 +29,11 @@
     "intersection-observer": "^0.11.0",
     "markdown-js": "^0.0.4",
     "polka": "^0.5.2",
-    "postcss": "^8.1.4",
+    "postcss": "^8.1.6",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "sirv": "^1.0.7",
-    "stripe": "^8.119.0",
+    "stripe": "^8.120.0",
     "svelte": "^3.29.4",
     "svelte-preprocess": "^4.5.2"
   },
