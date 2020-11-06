@@ -137,7 +137,7 @@
     display: flex;
     flex-flow: column;
     place-items: center;
-    margin-top: 2rem;
+    margin-top: auto;
   }
   .social h2 {
     text-align: center;
@@ -152,7 +152,7 @@
   .social-icons img {
     width: 3rem;
   }
-  #cart-menu {
+  .cart-menu {
     padding: 0;
   }
 
@@ -236,7 +236,7 @@
 
 <!-- Cart slider -->
 {#if cartOpened}
-  <menu id="cart-menu" transition:slide={{ duration: 500 }}>
+  <menu class="cart-menu" transition:slide={{ duration: 500 }}>
     <Cart />
   </menu>
 {/if}
