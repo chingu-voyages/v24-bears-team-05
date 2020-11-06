@@ -1,7 +1,7 @@
 <script>
   import HeaderDNav from "./HeaderDNav.svelte";
   import Cart from "./Cart.svelte";
-  import { fly, fade, scale } from "svelte/transition";
+  import { slide, fade } from "svelte/transition";
 
   export let permalink;
   let isHome = permalink == "/";
@@ -193,7 +193,7 @@
 
 <!-- Burger menu dropdown -->
 {#if opened}
-  <menu transition:fly={{ duration: 200, y: -200 }}>
+  <menu transition:slide={{ duration: 500 }}>
     <a href="/beans/">Beans</a>
     <a href="/brew-guides/">Brew Guides</a>
     <a href="/about/">About</a>
@@ -213,7 +213,7 @@
 
 <!-- Cart slider -->
 {#if cartOpened}
-  <menu id="cart-menu" transition:fly={{ duration: 200, x: 200 }}>
+  <menu id="cart-menu" transition:slide={{ duration: 500 }}>
     <Cart />
   </menu>
 {/if}
