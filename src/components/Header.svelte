@@ -2,11 +2,31 @@
   import HeaderDNav from "./HeaderDNav.svelte";
   import Cart from "./Cart.svelte";
   import { slide, fade } from "svelte/transition";
+  import { sleep } from "../utils/utils";
 
   export let permalink;
   let isHome = permalink == "/";
   let opened;
   let cartOpened;
+
+  async function menuHandler() {
+    if (cartOpened) {
+      cartOpened = !cartOpened;
+      await sleep(250);
+    }
+    if (!opened) document.body.classList.add("m-menu-of");
+    else document.body.classList.remove("m-menu-of");
+    opened = !opened;
+  }
+  async function cartHandler() {
+    if (opened) {
+      opened = !opened;
+      await sleep(250);
+    }
+    if (!cartOpened) document.body.classList.add("m-menu-of");
+    else document.body.classList.remove("m-menu-of");
+    cartOpened = !cartOpened;
+  }
 </script>
 
 <style>
@@ -158,11 +178,7 @@
       class="m-menu-btn"
       class:opened
       aria-expanded={opened}
-      on:click={() => {
-        if (!opened) document.body.classList.add('m-menu-of');
-        else document.body.classList.remove('m-menu-of');
-        opened = !opened;
-      }}
+      on:click={menuHandler}
       aria-label="Main Menu">
       <!-- prettier-ignore -->
       <svg width="30" height="30" viewBox="0 0 100 100">
@@ -182,14 +198,7 @@
   <a class="logo" class:hidden={isHome} href="/"> Bear<br />Coffee </a>
   <h6 class="logo" class:hidden={!isHome}>Bear<br />Coffee</h6>
 
-  <button
-    class="cart"
-    aria-label="cart"
-    on:click={() => {
-      if (!cartOpened) document.body.classList.add('m-menu-of');
-      else document.body.classList.remove('m-menu-of');
-      cartOpened = !cartOpened;
-    }}>
+  <button class="cart" aria-label="cart" on:click={cartHandler}>
     {#if !cartOpened}
       <!-- prettier-ignore -->
       <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" in:fade >
