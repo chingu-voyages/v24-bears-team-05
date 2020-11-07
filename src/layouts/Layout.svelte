@@ -19,7 +19,7 @@
 <div class="container">
   <Header
     hydrate-client={{ permalink: request.permalink }}
-    hydrate-options={{ loading: 'eager' }} />
+    hydrate-options={{ loading: 'eager', preload: true }} />
   {@html templateHtml}
   <Footer />
 </div>
