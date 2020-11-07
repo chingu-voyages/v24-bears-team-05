@@ -1,20 +1,26 @@
 import { writable } from "svelte/store";
 
 function createCart() {
-  var storedCart = localStorage.getItem("cart");
-  if (storedCart) {
-    storedCart = JSON.parse(storedCart);
-  } else {
-    localStorage.setItem("cart", "{}");
-    storedCart = {};
-  }
-
-  const { subscribe, set, update } = writable(storedCart);
+  const { subscribe, set, update } = writable({});
 
   return {
-    subscribe,
-    add: (product) => update((o) => ({ ...o, product })),
+    add: (product) =>
+      update((o) => {
+        let data = { ...o, product };
+        localStorage.setItem("cart", JSON.stringify(data));
+        return data;
+      }),
+    init() {
+      // used in Header to initialize the Store from localStorage onMount, not possible within store
+      var data = localStorage.getItem("cart");
+      if (data) set(JSON.parse(data));
+      else {
+        localStorage.setItem("cart", "{}");
+        set({});
+      }
+    },
     clear: () => set({}),
+    subscribe,
   };
 }
 
