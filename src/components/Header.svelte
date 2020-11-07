@@ -7,7 +7,9 @@
   export let permalink;
   let isHome = permalink == "/";
   let opened;
-  let cartOpened;
+  // Nested hydrated component style fix
+  //  see: https://github.com/Elderjs/elderjs/issues/37
+  let cartOpened = process.env.componentType === "server";
 
   async function menuHandler() {
     if (cartOpened) {
