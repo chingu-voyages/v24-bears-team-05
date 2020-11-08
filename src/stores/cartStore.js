@@ -35,9 +35,8 @@ function createCart() {
       // used in Cart to initialize the Store from localStorage onMount, not possible within store
       var data = localStorage.getItem("cart");
       if (data) set(JSON.parse(data).products);
-      else this.clear();
+      else setCart();
     },
-    clear: setCart,
     subscribe,
   };
 }
