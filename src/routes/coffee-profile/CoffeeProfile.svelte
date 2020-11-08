@@ -6,6 +6,7 @@
   export let data;
   const { product } = data;
   let {
+    id,
     name,
     origin,
     roaster,
@@ -112,7 +113,7 @@
         all coffee needs.
       </p>
 
-      <CoffeeProfileBuy hydrate-client={{ prices, name, roaster }} />
+      <CoffeeProfileBuy hydrate-client={{ id, prices, name, type }} />
     </article>
   </section>
   <CoffeeProfileSuggest />
