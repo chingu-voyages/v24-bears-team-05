@@ -14,8 +14,10 @@ function createCart() {
       let data = localStorage.getItem("cart");
       let products = data ? JSON.parse(data).products : [];
 
-      let productIndex = products.findIndex((v) => v.id == id);
-      if (productIndex != -1 && products[productIndex].size == size) {
+      let productIndex = products.findIndex(
+        (v) => v.id == id && v.size == size
+      );
+      if (productIndex != -1) {
         // product & size exists, update quantity
         products[productIndex].quantity += quantity;
       } else {
