@@ -1,6 +1,7 @@
 <script>
   import CartItem from "./CartItem.svelte";
   import { onMount } from "svelte";
+  import { cart } from "../stores/cartStore";
 
   let cartItems = [];
 
@@ -10,6 +11,7 @@
       const removed_$_sign = element.price.replace("$", "");
       element.price = removed_$_sign;
     });
+    cart.init();
   });
 
   $: totalCost = cartItems.length
@@ -82,11 +84,10 @@
 {#if cartItems.length}
   <div class="cart">
     {#each cartItems as item}
-      <CartItem {item} />
+      <!-- <CartItem {item} /> -->
     {/each}
     <div class="checkout-area">
       <h3>Subtotal: ${totalCost}</h3>
-      <h3>Shipping: $</h3>
       <button class="checkout"><p>CHECK OUT NOW</p></button>
     </div>
   </div>
