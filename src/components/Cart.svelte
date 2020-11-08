@@ -4,18 +4,10 @@
   import { cart } from "../stores/cartStore";
   import Pict from "./Pict.svelte";
 
-  let cartProducts = [];
-
+  onMount(cart.init);
   function formatPrice(price) {
     return (price / 100).toFixed(2);
   }
-
-  onMount(cart.init);
-
-  // $: totalCost = cartItems.length
-  //   ? cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-  //   : 0;
-  // $: console.log("total cost", totalCost);
 </script>
 
 <style>
@@ -57,6 +49,7 @@
   }
   .item img {
     width: clamp(5rem, 24%, 8rem);
+    object-fit: contain;
   }
   .item-col-2 {
     flex: 0 1 10rem;
@@ -71,6 +64,37 @@
     height: 1px;
     margin-top: 1rem;
     border: none;
+  }
+
+  .quantity {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    background-color: white;
+    border: 1px solid #ececec;
+    width: 5rem;
+  }
+
+  .quantity .less,
+  .quantity .more {
+    background: none;
+    outline: none;
+    border-left: 1px solid #ececec;
+    -webkit-user-select: none;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    float: left;
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    color: #aaa;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
   }
 
   /* empty cart styles */
@@ -128,6 +152,20 @@
       <div class="item-col-2">
         <h3 class="type">{type}</h3>
         <h3 class="size">{size}</h3>
+        <div class="quantity">
+          <button
+            class="less"
+            on:click={() => {
+              if (quantity != 1) cart.updateQuantity(id, size, quantity - 1);
+              else cart.remove(id, size);
+            }}>-</button>
+          <span class="amount">{quantity}</span>
+          <button
+            class="more"
+            on:click={() => {
+              if (quantity < 999) cart.updateQuantity(id, size, quantity + 1);
+            }}>+</button>
+        </div>
         <button on:click={() => cart.remove(id, size)}>x</button>
         <h3 class="price">${formatPrice(price * quantity)}</h3>
       </div>

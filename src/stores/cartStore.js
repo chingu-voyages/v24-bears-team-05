@@ -42,6 +42,14 @@ function createCart() {
       );
       setCart(products);
     },
+    updateQuantity(id, size, quantity) {
+      let products = getCart();
+      let productIndex = products.findIndex(
+        (v) => v.id == id && v.size == size
+      );
+      products[productIndex].quantity = quantity;
+      setCart(products);
+    },
     init() {
       // used in Cart to initialize the Store from localStorage onMount, not possible within store
       var data = localStorage.getItem("cart");
