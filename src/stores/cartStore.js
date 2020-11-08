@@ -8,12 +8,13 @@ function createCart() {
     set(products);
     localStorage.setItem("cart", JSON.stringify({ products }));
   }
-
+  function getCart() {
+    let data = localStorage.getItem("cart");
+    return data ? JSON.parse(data).products : [];
+  }
   return {
     addToCart({ id, name, type, size, price, quantity }) {
-      let data = localStorage.getItem("cart");
-      let products = data ? JSON.parse(data).products : [];
-
+      let products = getCart();
       let productIndex = products.findIndex(
         (v) => v.id == id && v.size == size
       );
@@ -30,7 +31,15 @@ function createCart() {
           quantity,
         });
       }
-
+      setCart(products);
+    },
+    remove(id, size) {
+      // Handler used in Cart only
+      let products = getCart();
+      products.splice(
+        products.findIndex((v) => v.id == id && v.size == size),
+        1
+      );
       setCart(products);
     },
     init() {

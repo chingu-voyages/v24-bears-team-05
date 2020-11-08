@@ -128,7 +128,7 @@
       <div class="item-col-2">
         <h3 class="type">{type}</h3>
         <h3 class="size">{size}</h3>
-        <button>x</button>
+        <button on:click={() => cart.remove(id, size)}>x</button>
         <h3 class="price">${formatPrice(price * quantity)}</h3>
       </div>
     </div>
