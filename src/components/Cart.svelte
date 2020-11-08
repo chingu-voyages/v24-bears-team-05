@@ -2,22 +2,20 @@
   import CartItem from "./CartItem.svelte";
   import { onMount } from "svelte";
   import { cart } from "../stores/cartStore";
+  import Pict from "./Pict.svelte";
 
-  let cartItems = [];
+  let cartProducts = [];
 
-  onMount(async () => {
-    cartItems = [...JSON.parse(localStorage.getItem("session"))];
-    cartItems.forEach((element) => {
-      const removed_$_sign = element.price.replace("$", "");
-      element.price = removed_$_sign;
-    });
-    cart.init();
-  });
+  function formatPrice(price) {
+    return (price / 100).toFixed(2);
+  }
 
-  $: totalCost = cartItems.length
-    ? cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
-    : 0;
-  $: console.log("total cost", totalCost);
+  onMount(cart.init);
+
+  // $: totalCost = cartItems.length
+  //   ? cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+  //   : 0;
+  // $: console.log("total cost", totalCost);
 </script>
 
 <style>
@@ -52,6 +50,27 @@
     place-items: center;
   }
 
+  .item {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+
+  .item img {
+    width: clamp(5rem, 24%, 8rem);
+  }
+
+  .size {
+    font-family: var(--secondary-font);
+  }
+
+  hr {
+    background-color: #eee;
+    height: 1px;
+    margin-top: 1rem;
+    border: none;
+  }
+
   /* empty cart styles */
   .empty {
     margin: auto auto;
@@ -79,18 +98,40 @@
 
 <div class="header">
   <p class="title">YOUR CART</p>
-  <p class="price">0 items - $0.00</p>
+  <p class="price">
+    {$cart?.reduce((acc, i) => acc + i.quantity, 0) ?? 0}
+    items - ${formatPrice($cart?.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0)}
+  </p>
 </div>
-{#if cartItems.length}
+<!-- {#if cartItems.length}
   <div class="cart">
     {#each cartItems as item}
-      <!-- <CartItem {item} /> -->
+     <CartItem {item} /> 
     {/each}
     <div class="checkout-area">
       <h3>Subtotal: ${totalCost}</h3>
       <button class="checkout"><p>CHECK OUT NOW</p></button>
     </div>
   </div>
+{:else}
+  
+{/if} -->
+
+{#if $cart?.length}
+  {#each $cart as { id, name, type, size, price, quantity }}
+    <div class="item">
+      <Pict path="/images/coffees/{name}" let:props>
+        <img alt={type} {...props} />
+      </Pict>
+      <div>
+        <h3 class="type">{type}</h3>
+        <h3 class="size">{size}</h3>
+        <button>x</button>
+        <h3 class="price">${formatPrice(price * quantity)}</h3>
+      </div>
+    </div>
+    <hr />
+  {/each}
 {:else}
   <div class="empty">
     <h3>Your Cart Is Empty</h3>
