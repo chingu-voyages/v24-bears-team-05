@@ -6,6 +6,10 @@
   picture {
     display: contents;
   }
+  source {
+    /* fix bug with content-box hierarchy */
+    display: none;
+  }
 </style>
 
 <!--
