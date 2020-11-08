@@ -12,7 +12,7 @@ exports.handler = async (event) => {
     })
   );
 
-  return login?.secret
+  return login.secret
     ? {
         statusCode: 200,
         body: JSON.stringify({ token: login.secret }),
