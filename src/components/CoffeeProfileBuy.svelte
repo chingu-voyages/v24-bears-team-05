@@ -1,7 +1,9 @@
 <script>
-  export let prices;
+  import { cart } from "../stores/cartStore";
+  export let id;
   export let name;
-  export let roaster;
+  export let type;
+  export let prices;
   let sizeSelect = "10oz";
   const sizes = ["10oz", "2lbs", "5lbs"];
   let quantity = 1;
@@ -24,7 +26,17 @@
 
   let itemsInCart = [];
 
-  const addToCart = () => {
+  function addToCart() {
+    cart.addToCart({
+      id,
+      name,
+      type,
+      size: sizeSelect,
+      price: prices[sizeSelect],
+      quantity: actualQuantity,
+    });
+
+    /*  
     let newItem = {
       name,
       roaster,
@@ -53,7 +65,8 @@
       localStorage.setItem("session", JSON.stringify(itemsInCart));
     }
     console.log(JSON.parse(localStorage.getItem("session")));
-  };
+  */
+  }
 </script>
 
 <style>
@@ -161,6 +174,8 @@
   }
 </style>
 
+<!-- TODO: Transitions and hover styles
+similar to coffee example -->
 <div class="select">
   <p>Size</p>
   {#each sizes as size}
