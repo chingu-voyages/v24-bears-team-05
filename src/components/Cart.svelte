@@ -53,11 +53,13 @@
   .item {
     display: flex;
     margin-top: 1rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
-
   .item img {
     width: clamp(5rem, 24%, 8rem);
+  }
+  .item-col-2 {
+    flex: 0 1 10rem;
   }
 
   .size {
@@ -99,8 +101,8 @@
 <div class="header">
   <p class="title">YOUR CART</p>
   <p class="price">
-    {$cart?.reduce((acc, i) => acc + i.quantity, 0) ?? 0}
-    items - ${formatPrice($cart?.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0)}
+    {$cart.reduce((acc, i) => acc + i.quantity, 0) ?? 0}
+    items - ${formatPrice($cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0)}
   </p>
 </div>
 <!-- {#if cartItems.length}
@@ -117,13 +119,13 @@
   
 {/if} -->
 
-{#if $cart?.length}
+{#if $cart.length}
   {#each $cart as { id, name, type, size, price, quantity }}
     <div class="item">
       <Pict path="/images/coffees/{name}" let:props>
         <img alt={type} {...props} />
       </Pict>
-      <div>
+      <div class="item-col-2">
         <h3 class="type">{type}</h3>
         <h3 class="size">{size}</h3>
         <button>x</button>
