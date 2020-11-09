@@ -5,14 +5,14 @@
   import { fade, slide } from "svelte/transition";
   import CubeSpinner from "./CubeSpinner.svelte";
 
-  let stripeInit;
-  let stripePromise = new Promise((res) => (stripeInit = res));
+  let stripeReady;
+  let stripePromise = new Promise((res) => (stripeReady = res));
   onMount(() => {
     cart.init();
     if (window.Stripe) {
-      stripeInit();
+      stripeReady();
     } else {
-      affixScriptToHead("https://js.stripe.com/v3/", stripeInit);
+      affixScriptToHead("https://js.stripe.com/v3/", stripeReady);
     }
 
     function affixScriptToHead(url, onloadFunction) {
