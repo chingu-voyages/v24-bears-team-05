@@ -141,6 +141,7 @@
   </div>
 {:else}
   
+<CartItem {item} />
 {/if} -->
 
 {#if $cart.length}
@@ -162,9 +163,7 @@
           <span class="amount">{quantity}</span>
           <button
             class="more"
-            on:click={() => {
-              if (quantity < 999) cart.updateQuantity(id, size, quantity + 1);
-            }}>+</button>
+            on:click={() => quantity < 999 && cart.updateQuantity(id, size, quantity + 1)}>+</button>
         </div>
         <button on:click={() => cart.remove(id, size)}>x</button>
         <h3 class="price">${formatPrice(price * quantity)}</h3>
