@@ -19,6 +19,7 @@
   function formatPrice(price) {
     return (price / 100).toFixed(2);
   }
+  var isLoading = false;
   async function checkoutHandler() {
     isLoading = true;
     const stripe = await stripePromise;
@@ -44,7 +45,6 @@
   }
 
   let ready = true;
-  let isLoading = false;
 </script>
 
 <style>
