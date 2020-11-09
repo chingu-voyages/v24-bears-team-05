@@ -18,7 +18,7 @@ body {
   box-sizing: inherit;
 }
 /* CSS global variables */
-body {
+:root {
   --primary-font: "Killarney";
   --secondary-font: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
