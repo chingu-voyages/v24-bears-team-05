@@ -4,6 +4,7 @@
   import Pict from "./Pict.svelte";
   import { loadStripe } from "@stripe/stripe-js";
   import { fade, slide } from "svelte/transition";
+  import CubeSpinner from "./CubeSpinner.svelte";
 
   let stripePromise;
   onMount(() => {
@@ -19,6 +20,7 @@
     return (price / 100).toFixed(2);
   }
   async function checkoutHandler() {
+    isLoading = true;
     const stripe = await stripePromise;
     const checkoutItems = $cart.map(({ id, size, quantity }) => ({
       id,
@@ -35,13 +37,14 @@
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,
     });
-
+    isLoading = false;
     if (result.error) {
       // Do stuff to indicate an error on client browser/network failure.
     }
   }
 
   let ready = true;
+  let isLoading = false;
 </script>
 
 <style>
@@ -229,6 +232,9 @@
     {/each}
   </div>
   <div class="checkout-area" out:fade={{ duration: 250 }}>
+    {#if isLoading}
+      <CubeSpinner />
+    {/if}
     <h3 class="subtotal">Subtotal<br /><strong>${subtotal}</strong></h3>
     <button role="link" class="checkout" on:click={checkoutHandler}>CHECK OUT
       NOW</button>
