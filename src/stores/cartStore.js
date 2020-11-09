@@ -20,7 +20,9 @@ function createCart() {
       );
       if (productIndex != -1) {
         // product & size exists, update quantity
-        products[productIndex].quantity += quantity;
+        if (products[productIndex].quantity + quantity < 999) {
+          products[productIndex].quantity += quantity;
+        }
       } else {
         products.unshift({
           id,
