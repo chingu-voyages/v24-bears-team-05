@@ -103,17 +103,31 @@
     background: none;
     cursor: pointer;
     padding: 0;
+    margin: 1rem 0;
   }
 
   .checkout-area {
     display: flex;
     flex-flow: column;
     place-items: center;
+    padding: 1rem 0;
+    margin-top: auto;
+    border-top: 1px solid #eee;
   }
   .subtotal {
     text-align: center;
     font-family: var(--secondary-font);
     font-weight: 300;
+  }
+  .checkout {
+    width: 200px;
+    font-family: var(--secondary-font);
+    font-size: 100%;
+    padding: 1rem;
+  }
+
+  .items-container {
+    overflow-y: auto;
   }
 
   /* empty cart styles */
@@ -150,35 +164,37 @@
 </div>
 
 {#if $cart.length}
-  {#each $cart as { id, name, type, size, price, quantity }}
-    <div class="item">
-      <Pict path="/images/coffees/{name}" let:props>
-        <img alt={type} {...props} />
-      </Pict>
-      <div class="item-col-2">
-        <h3 class="type">{type}</h3>
-        <h3 class="size">{size}</h3>
-        <div class="quantity">
-          <button
-            class="less"
-            on:click={() => {
-              if (quantity != 1) cart.updateQuantity(id, size, quantity - 1);
-              else cart.remove(id, size);
-            }}>-</button>
-          <span class="amount">{quantity}</span>
-          <button
-            class="more"
-            on:click={() => quantity < 999 && cart.updateQuantity(id, size, quantity + 1)}>+</button>
+  <div class="items-container">
+    {#each $cart as { id, name, type, size, price, quantity }}
+      <div class="item">
+        <Pict path="/images/coffees/{name}" let:props>
+          <img alt={type} {...props} />
+        </Pict>
+        <div class="item-col-2">
+          <h3 class="type">{type}</h3>
+          <h3 class="size">{size}</h3>
+          <div class="quantity">
+            <button
+              class="less"
+              on:click={() => {
+                if (quantity != 1) cart.updateQuantity(id, size, quantity - 1);
+                else cart.remove(id, size);
+              }}>-</button>
+            <span class="amount">{quantity}</span>
+            <button
+              class="more"
+              on:click={() => quantity < 999 && cart.updateQuantity(id, size, quantity + 1)}>+</button>
+          </div>
+          <button class="remove" on:click={() => cart.remove(id, size)}>REMOVE X</button>
+          <h3 class="price">${formatPrice(price * quantity)}</h3>
         </div>
-        <button class="remove" on:click={() => cart.remove(id, size)}>REMOVE X</button>
-        <h3 class="price">${formatPrice(price * quantity)}</h3>
       </div>
-    </div>
-    <hr />
-  {/each}
+      <hr />
+    {/each}
+  </div>
   <div class="checkout-area">
     <h3 class="subtotal">Subtotal<br /><strong>${subtotal}</strong></h3>
-    <button class="checkout"><p>CHECK OUT NOW</p></button>
+    <button class="checkout">CHECK OUT NOW</button>
   </div>
 {:else}
   <div class="empty">
