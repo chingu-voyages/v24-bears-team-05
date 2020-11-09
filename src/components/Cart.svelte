@@ -3,9 +3,9 @@
   import { cart } from "../stores/cartStore";
   import Pict from "./Pict.svelte";
   import { loadStripe } from "@stripe/stripe-js";
+  import { fade, slide } from "svelte/transition";
 
   let stripePromise;
-
   onMount(() => {
     cart.init();
     stripePromise = loadStripe(
@@ -40,6 +40,8 @@
       // Do stuff to indicate an error on client browser/network failure.
     }
   }
+
+  let ready = true;
 </script>
 
 <style>
@@ -195,8 +197,12 @@
 
 {#if $cart.length}
   <div class="items-container">
-    {#each $cart as { id, name, type, size, price, quantity }}
-      <div class="item">
+    {#each $cart as { id, name, type, size, price, quantity } (`${id}${size}`)}
+      <div
+        class="item"
+        transition:slide={{ duration: 250 }}
+        on:outrostart={() => (ready = false)}
+        on:outroend={() => (ready = true)}>
         <Pict path="/images/coffees/{name}" let:props>
           <img alt={type} {...props} />
         </Pict>
@@ -222,13 +228,13 @@
       <hr />
     {/each}
   </div>
-  <div class="checkout-area">
+  <div class="checkout-area" out:fade={{ duration: 250 }}>
     <h3 class="subtotal">Subtotal<br /><strong>${subtotal}</strong></h3>
     <button role="link" class="checkout" on:click={checkoutHandler}>CHECK OUT
       NOW</button>
   </div>
-{:else}
-  <div class="empty">
+{:else if ready}
+  <div class="empty" in:fade={{ duration: 500 }}>
     <h3>Your Cart Is Empty</h3>
     <p>There's only one solution.</p>
     <a href="/beans">Shop Beans</a>
