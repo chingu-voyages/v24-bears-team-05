@@ -4,18 +4,12 @@
   import Pict from "./Pict.svelte";
 
   onMount(cart.init);
-  function formatPrice(price) {
-    return (price / 100).toFixed(2);
-  }
-  // function subtotal() {
-  //   return formatPrice(
-  //     $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
-  //   );
-  // }
-
   $: subtotal = formatPrice(
     $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
   );
+  function formatPrice(price) {
+    return (price / 100).toFixed(2);
+  }
 </script>
 
 <style>
