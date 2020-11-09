@@ -7,6 +7,15 @@
   function formatPrice(price) {
     return (price / 100).toFixed(2);
   }
+  // function subtotal() {
+  //   return formatPrice(
+  //     $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
+  //   );
+  // }
+
+  $: subtotal = formatPrice(
+    $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
+  );
 </script>
 
 <style>
@@ -26,6 +35,7 @@
   .price {
     font-size: 1rem;
     font-weight: 500;
+    font-family: var(--secondary-font);
   }
 
   .checkout,
@@ -73,7 +83,6 @@
     border: 1px solid #ececec;
     width: 5rem;
   }
-
   .quantity .less,
   .quantity .more {
     background: none;
@@ -94,6 +103,23 @@
     margin: 0;
     padding: 0;
     border: 0;
+  }
+  .remove {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .checkout-area {
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+  }
+  .subtotal {
+    text-align: center;
+    font-family: var(--secondary-font);
+    font-weight: 300;
   }
 
   /* empty cart styles */
@@ -125,19 +151,9 @@
   <p class="title">YOUR CART</p>
   <p class="price">
     {$cart.reduce((acc, i) => acc + i.quantity, 0) ?? 0}
-    items - ${formatPrice($cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0)}
+    items - ${subtotal}
   </p>
 </div>
-<!-- {#if cartItems.length}
-  <div class="cart">
-    <div class="checkout-area">
-      <h3>Subtotal: ${totalCost}</h3>
-      <button class="checkout"><p>CHECK OUT NOW</p></button>
-    </div>
-  </div>
-{:else}
-  
-{/if} -->
 
 {#if $cart.length}
   {#each $cart as { id, name, type, size, price, quantity }}
@@ -160,12 +176,16 @@
             class="more"
             on:click={() => quantity < 999 && cart.updateQuantity(id, size, quantity + 1)}>+</button>
         </div>
-        <button on:click={() => cart.remove(id, size)}>x</button>
+        <button class="remove" on:click={() => cart.remove(id, size)}>REMOVE X</button>
         <h3 class="price">${formatPrice(price * quantity)}</h3>
       </div>
     </div>
     <hr />
   {/each}
+  <div class="checkout-area">
+    <h3 class="subtotal">Subtotal<br /><strong>${subtotal}</strong></h3>
+    <button class="checkout"><p>CHECK OUT NOW</p></button>
+  </div>
 {:else}
   <div class="empty">
     <h3>Your Cart Is Empty</h3>
