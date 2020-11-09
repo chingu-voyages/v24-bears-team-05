@@ -17,6 +17,7 @@
 
     function affixScriptToHead(url, onloadFunction) {
       var newScript = document.createElement("script");
+      newscript.setAttribute("defer", "");
       if (onloadFunction) {
         newScript.onload = onloadFunction;
       }
