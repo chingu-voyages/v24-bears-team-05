@@ -1,5 +1,4 @@
 <script>
-  import CartItem from "./CartItem.svelte";
   import { onMount } from "svelte";
   import { cart } from "../stores/cartStore";
   import Pict from "./Pict.svelte";
@@ -131,9 +130,6 @@
 </div>
 <!-- {#if cartItems.length}
   <div class="cart">
-    {#each cartItems as item}
-     <CartItem {item} /> 
-    {/each}
     <div class="checkout-area">
       <h3>Subtotal: ${totalCost}</h3>
       <button class="checkout"><p>CHECK OUT NOW</p></button>
@@ -141,7 +137,6 @@
   </div>
 {:else}
   
-<CartItem {item} />
 {/if} -->
 
 {#if $cart.length}
