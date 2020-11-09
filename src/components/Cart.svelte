@@ -2,16 +2,27 @@
   import { onMount } from "svelte";
   import { cart } from "../stores/cartStore";
   import Pict from "./Pict.svelte";
-  import { loadStripe } from "@stripe/stripe-js";
   import { fade, slide } from "svelte/transition";
   import CubeSpinner from "./CubeSpinner.svelte";
 
-  let stripePromise;
+  let stripeInit;
+  let stripePromise = new Promise((res) => (stripeInit = res));
   onMount(() => {
     cart.init();
-    stripePromise = loadStripe(
-      "pk_test_51HgDAnDSctq7YxjT8ovDUDZvtkcvYmkvPYHeXriUXvwXDiDLArMmdNfbG81M1ZlZsLkRBCqccsyMtsmtD3LFOA5600vHuzDfpO"
-    );
+    if (window.Stripe) {
+      stripeInit();
+    } else {
+      affixScriptToHead("https://js.stripe.com/v3/", stripeInit);
+    }
+
+    function affixScriptToHead(url, onloadFunction) {
+      var newScript = document.createElement("script");
+      if (onloadFunction) {
+        newScript.onload = onloadFunction;
+      }
+      document.head.appendChild(newScript);
+      newScript.src = url;
+    }
   });
   $: subtotal = formatPrice(
     $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
@@ -21,7 +32,10 @@
   }
   async function checkoutHandler() {
     isLoading = true;
-    const stripe = await stripePromise;
+    await stripePromise;
+    const stripe = await window.Stripe(
+      "pk_test_51HgDAnDSctq7YxjT8ovDUDZvtkcvYmkvPYHeXriUXvwXDiDLArMmdNfbG81M1ZlZsLkRBCqccsyMtsmtD3LFOA5600vHuzDfpO"
+    );
     const checkoutItems = $cart.map(({ id, size, quantity }) => ({
       id,
       size,
