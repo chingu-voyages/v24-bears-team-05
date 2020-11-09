@@ -2,13 +2,43 @@
   import { onMount } from "svelte";
   import { cart } from "../stores/cartStore";
   import Pict from "./Pict.svelte";
+  import { loadStripe } from "@stripe/stripe-js";
 
-  onMount(cart.init);
+  let stripePromise;
+
+  onMount(() => {
+    cart.init();
+    stripePromise = loadStripe(
+      "pk_test_51HgDAnDSctq7YxjT8ovDUDZvtkcvYmkvPYHeXriUXvwXDiDLArMmdNfbG81M1ZlZsLkRBCqccsyMtsmtD3LFOA5600vHuzDfpO"
+    );
+  });
   $: subtotal = formatPrice(
     $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
   );
   function formatPrice(price) {
     return (price / 100).toFixed(2);
+  }
+  async function checkoutHandler() {
+    const stripe = await stripePromise;
+    const checkoutItems = $cart.map(({ id, size, quantity }) => ({
+      id,
+      size,
+      quantity,
+    }));
+
+    const res = await fetch("/.netlify/functions/create-checkout-session", {
+      method: "POST",
+      body: JSON.stringify({ checkoutItems }),
+    });
+    const session = await res.json();
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      // Do stuff to indicate an error on client browser/network failure.
+    }
   }
 </script>
 
@@ -194,7 +224,8 @@
   </div>
   <div class="checkout-area">
     <h3 class="subtotal">Subtotal<br /><strong>${subtotal}</strong></h3>
-    <button class="checkout">CHECK OUT NOW</button>
+    <button role="link" class="checkout" on:click={checkoutHandler}>CHECK OUT
+      NOW</button>
   </div>
 {:else}
   <div class="empty">
