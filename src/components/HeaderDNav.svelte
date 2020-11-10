@@ -1,5 +1,6 @@
 <script>
   export let permalink;
+  export let cartHandler;
   permalink = permalink.split("/").filter(Boolean)[0]; // get arr of current path names
 </script>
 
@@ -15,7 +16,8 @@
       margin: auto 2rem;
       margin-left: auto;
     }
-    a {
+    a,
+    .cart-btn {
       font-family: Killarney;
       font-size: 1.5rem;
       text-decoration: none;
@@ -30,6 +32,12 @@
       padding-bottom: 0.77rem;
       border-bottom: 3px solid #222;
     }
+    .cart-btn {
+      background: none;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+    }
   }
 </style>
 
@@ -37,6 +45,6 @@
   <a href="/beans/" class:curpath={'beans' == permalink}>Beans</a>
   <a href="/brew-guides/" class:curpath={'brew-guides' == permalink}>Brew Guides</a>
   <a href="/about/" class:curpath={'about' == permalink}>About</a>
-  <a href="/cart/" class:curpath={'cart' == permalink}>Cart</a>
+  <span> <button class="cart-btn" on:click={cartHandler}>Cart</button> </span>
   <a href="/login/" class:curpath={'login' == permalink}>Login</a>
 </nav>
