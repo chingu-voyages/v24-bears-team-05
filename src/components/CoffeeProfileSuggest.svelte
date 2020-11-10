@@ -54,9 +54,10 @@
 
     section {
       display: grid;
-      max-width: 40rem;
       column-gap: 3rem;
       margin: 0 auto;
+      max-width: 50rem;
+      place-content: center;
     }
     h2 {
       grid-column: 1/3;
@@ -80,12 +81,12 @@
     <h2 class="price">$22</h2>
   </article>
   <article style="background-color: hsl(191,35%,50%,0.5);">
-    <a class="link-wrapper" href="/tucan-mexico-paraiso_mexicano">
+    <a class="link-wrapper" href="/beans/tucan-mexico-paraiso_mexicano">
       <Pict path="/images/coffees/tucan-mexico-paraiso_mexicano" let:props>
         <img alt="Tucan" {...props} />
       </Pict>
       <h2>Tucan — Mexico</h2>
-      <h2>Paraiso Veracruz</h2>
+      <h2>Paraiso Mexicano</h2>
     </a>
     <h2 class="price">$20</h2>
   </article>
