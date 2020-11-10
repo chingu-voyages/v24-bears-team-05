@@ -100,7 +100,7 @@
       max-width: 80rem;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-      row-gap: 13rem;
+      row-gap: 2rem;
       column-gap: 2rem;
       justify-items: center;
     }
