@@ -58,6 +58,7 @@
   }
   .faq-item {
     margin: 0 0 2rem 0;
+    cursor: pointer;
   }
 </style>
 
