@@ -161,17 +161,42 @@
     padding: 0;
   }
 
+  .d {
+    display: none;
+  }
   /* Desktop dimensions */
   @media (min-width: 720px) {
+    .d {
+      display: block;
+    }
     /* hide mobile items */
     nav,
     button,
-    menu,
+    .burger,
     .cart {
       display: none;
     }
     .logo {
       margin-left: 2rem;
+    }
+
+    .cart-menu {
+      right: 0;
+      height: 100%;
+      max-width: 30rem;
+      top: 0;
+      z-index: 40;
+    }
+
+    .bg-overlay {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: rgb(74 74 74 / 80%);
+      z-index: 35;
+      height: 100vh;
+      width: 100vw;
     }
   }
 </style>
@@ -215,7 +240,7 @@
 
 <!-- Burger menu dropdown -->
 {#if opened}
-  <menu transition:slide={{ duration: 500 }}>
+  <menu class="burger" transition:slide={{ duration: 500 }}>
     <a href="/beans/">Beans</a>
     <a href="/brew-guides/">Brew Guides</a>
     <a href="/about/">About</a>
@@ -235,6 +260,10 @@
 <!-- Cart slider -->
 {#if cartOpened && isMounted}
   <menu class="cart-menu" transition:slide={{ duration: 500 }}>
-    <Cart />
+    <Cart on:close={cartHandler} />
   </menu>
+  <div
+    on:click={cartHandler}
+    class="bg-overlay d"
+    transition:fade={{ duration: 500 }} />
 {/if}

@@ -1,9 +1,11 @@
 <script>
-  import { onMount } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import { cart } from "../stores/cartStore";
   import Pict from "./Pict.svelte";
   import { fade, slide } from "svelte/transition";
   import CubeSpinner from "./CubeSpinner.svelte";
+
+  const dispatch = createEventDispatcher();
 
   let stripeReady;
   let stripePromise = new Promise((res) => (stripeReady = res));
@@ -203,6 +205,27 @@
     padding: 0.4rem 5rem;
     white-space: nowrap;
   }
+
+  .d {
+    display: none;
+  }
+  /* Desktop */
+  @media (min-width: 720px) {
+    .d {
+      display: block;
+    }
+    .header {
+      justify-content: space-between;
+    }
+    .header p {
+      margin: 1.1rem;
+    }
+    .x-btn {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  }
 </style>
 
 <div class="header">
@@ -211,6 +234,10 @@
     {$cart.reduce((acc, i) => acc + i.quantity, 0) ?? 0}
     items - ${subtotal}
   </p>
+  <button class="d x-btn" on:click={() => dispatch('close')}>
+    <!-- prettier-ignore -->
+    <svg class="feather feather-x" in:fade xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
 </div>
 
 {#if $cart.length}

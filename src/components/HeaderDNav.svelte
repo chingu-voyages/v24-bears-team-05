@@ -45,6 +45,6 @@
   <a href="/beans/" class:curpath={'beans' == permalink}>Beans</a>
   <a href="/brew-guides/" class:curpath={'brew-guides' == permalink}>Brew Guides</a>
   <a href="/about/" class:curpath={'about' == permalink}>About</a>
-  <span> <button class="cart-btn" on:click={cartHandler}>Cart</button> </span>
+  <button class="cart-btn" on:click={cartHandler}>Cart</button>
   <a href="/login/" class:curpath={'login' == permalink}>Login</a>
 </nav>
