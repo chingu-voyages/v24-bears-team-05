@@ -76,8 +76,8 @@
   <nav>
     <div class="d-col">
       <h2>Beans</h2>
-      <a href="/coffee">Coffee</a>
-      <a href="/roasters">Roasters</a>
+      <a href="/beans">Coffee</a>
+      <a href="/beans">Roasters</a>
     </div>
     <div class="d-col">
       <h2>Brew Guides</h2>
