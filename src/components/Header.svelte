@@ -3,6 +3,7 @@
   import Cart from "./Cart.svelte";
   import { slide, fade } from "svelte/transition";
   import { sleep } from "../utils/utils";
+  import { onMount } from "svelte";
 
   export let permalink;
   let isHome = permalink == "/";
@@ -10,6 +11,8 @@
   // Nested hydrated component style fix
   //  see: https://github.com/Elderjs/elderjs/issues/37
   let cartOpened = process.env.componentType === "server";
+  let isMounted = false; // prevent cart menu layout shift, check if Header has mounted
+  onMount(() => (isMounted = true));
 
   async function menuHandler() {
     if (cartOpened) {
@@ -237,7 +240,7 @@
 {/if}
 
 <!-- Cart slider -->
-{#if cartOpened}
+{#if cartOpened && isMounted}
   <menu class="cart-menu" transition:slide={{ duration: 500 }}>
     <Cart />
   </menu>
