@@ -42,35 +42,28 @@
     background-color: #aaa395;
   }
   /* text on top of cards */
-  .chemex::after {
-    content: "Chemex";
-    font-size: 3em;
+  .chemex::after,
+  .aeropress::after,
+  .pour-over::after {
+    font-size: 4rem;
+    font-family: var(--primary-font);
+    color: white;
     position: absolute;
     top: calc(50% - (17% / 2));
     left: 0;
     bottom: 0;
     right: 0;
     z-index: 5;
+  }
+
+  .chemex::after {
+    content: "Chemex";
   }
   .aeropress::after {
     content: "Aeropress";
-    font-size: 3em;
-    position: absolute;
-    top: calc(50% - (17% / 2));
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 5;
   }
   .pour-over::after {
     content: "Pour Over";
-    font-size: 3em;
-    position: absolute;
-    top: calc(50% - (17% / 2));
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 5;
   }
 
   .img-box1 {
