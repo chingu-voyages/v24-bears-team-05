@@ -33,13 +33,13 @@ module.exports = {
             img: "/images/brewGuides/chemex3.jpg",
             title: "3. Add Grounds",
             step:
-              "pour an initial amount of 90g of water and let bloom for 40 secs. Follow that by pouring the rest of the water",
+              "Pour an initial amount of 90g of water and let bloom for 40 secs. Follow that by pouring the rest of the water",
           },
           {
             id: 4,
             img: "/images/brewGuides/chemex4.jpg",
             title: "4. Bloom Coffee",
-            step: "enjoy the cup of joe",
+            step: "Enjoy the cup of joe",
           },
         ],
       },
@@ -68,13 +68,13 @@ module.exports = {
             img: "/images/brewGuides/chemex3.jpg",
             title: "3. Add Grounds",
             step:
-              "pour an initial amount of 90g of water and let bloom for 40 secs. Follow that by pouring the rest of the water",
+              "Pour an initial amount of 90g of water and let bloom for 40 secs. Follow that by pouring the rest of the water",
           },
           {
             id: 4,
             img: "/images/brewGuides/chemex4.jpg",
             title: "4. Bloom Coffee",
-            step: "enjoy the cup of joe",
+            step: "Enjoy the cup of joe",
           },
         ],
       },
@@ -103,13 +103,13 @@ module.exports = {
             img: "/images/brewGuides/chemex3.jpg",
             title: "3. Add Grounds",
             step:
-              "pour an initial amount of 90g of water and let bloom for 40 secs. Follow that by pouring the rest of the water",
+              "Pour an initial amount of 90g of water and let bloom for 40 secs. Follow that by pouring the rest of the water",
           },
           {
             id: 4,
             img: "/images/brewGuides/chemex4.jpg",
             title: "4. Bloom Coffee",
-            step: "enjoy the cup of joe",
+            step: "Enjoy the cup of joe",
           },
         ],
       },
