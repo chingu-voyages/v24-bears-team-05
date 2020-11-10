@@ -10,7 +10,7 @@
   let opened;
   // Nested hydrated component style fix
   //  see: https://github.com/Elderjs/elderjs/issues/37
-  let cartOpened = false;
+  let cartOpened = process.env.componentType === "server";
   let isMounted = false; // prevent cart menu layout shift, check if Header has mounted
   onMount(() => (isMounted = true));
 
@@ -243,7 +243,7 @@
 {/if}
 
 <!-- Cart slider -->
-{#if true && cartOpened}
+{#if cartOpened && isMounted}
   <menu class="cart-menu" transition:slide={{ duration: 500 }}>
     <Cart />
   </menu>
