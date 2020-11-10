@@ -173,6 +173,9 @@
     .logo {
       margin-left: 2rem;
     }
+
+    .d-cart-btn {
+    }
   }
 </style>
 
