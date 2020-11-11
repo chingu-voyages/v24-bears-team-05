@@ -16,7 +16,7 @@ exports.handler = async ({ body }) => {
     payment_method_types: ["card"],
     line_items,
     mode: "payment",
-    success_url: baseURL,
+    success_url: baseURL + "success",
     cancel_url: baseURL,
   });
 
