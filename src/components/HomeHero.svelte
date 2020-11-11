@@ -23,6 +23,9 @@
     text-align: center;
     max-width: 12rem;
     margin-bottom: 3rem;
+    text-decoration: none;
+    font-family: var(--primary-font);
+    line-height: 1.2;
   }
   div {
     position: relative;
@@ -84,7 +87,7 @@
     }
 
     a.d {
-      font-family: Killarney;
+      font-family: var(--primary-font);
       border: 4px solid #222;
       border-radius: 0.5rem;
       background: none;
@@ -197,7 +200,7 @@
     <span class="d">Choose</span><span class="m">Find</span>
     Your Next<br />Favorite Brew
   </h1>
-  <h2 class="m subscribe">Subscribe to Save 15%</h2>
+  <a href="/beans" class="m subscribe">Subscribe to Save 15%</a>
   <div class="m">
     <Pict path="/images/coffees/tucan-mexico-paraiso_mexicano" let:props>
       <img class="tucan" alt="Tucan Coffee Bag" {...props} />

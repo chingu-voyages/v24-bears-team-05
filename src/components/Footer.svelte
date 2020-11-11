@@ -17,7 +17,7 @@
   }
 
   .logo {
-    font-family: "Killarney";
+    font-family: "var(--primary-font)";
     text-decoration: none;
     text-align: center;
     line-height: 80%;

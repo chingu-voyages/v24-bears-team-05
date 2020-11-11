@@ -18,7 +18,7 @@
     }
     a,
     .cart-btn {
-      font-family: Killarney;
+      font-family: var(--primary-font);
       font-size: 1.5rem;
       text-decoration: none;
       margin-left: 3rem;

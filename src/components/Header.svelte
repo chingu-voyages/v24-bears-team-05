@@ -81,7 +81,7 @@
   }
   menu a {
     text-decoration: none;
-    font-family: Killarney;
+    font-family: var(--primary-font);
     font-size: 2.5rem;
     margin: 1rem;
     margin-left: 4rem;
@@ -125,7 +125,7 @@
   }
 
   .logo {
-    font-family: "Killarney";
+    font-family: "var(--primary-font)";
     text-decoration: none;
     text-align: center;
     line-height: 80%;

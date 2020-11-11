@@ -1,92 +1,4 @@
-<!-- <script>
-
-let products = [
-    {
-      name: "Bear Coffee — Kenya",
-      type: "Bungoma",
-      color: "rgba(83, 77, 86, 0.5)",
-      price: "$18",
-      src:
-        "https://s3-alpha-sig.figma.com/img/d2ae/6b35/e3da824053ae97882387329125ede01e?Expires=1604275200&Signature=E~CLe6rZqmWG6wnf1SqQEU8i-CTkzoa-0PUlepqbWbW4Tno~i2oWUXovgnxgDKx70lBK3ikBN7KpF4KeNVQXrZPhufShj6stjjR3KQ~Ceo9-hG3miOVEXN0N2TPlqFDhjUREINGwrz8UPLLc2-9jvJcU~oyogWbU~2nb-KCnikvcX33Oo957pvjFE1Jk1TZjX9LaUdUvjkyxgJCROSOuWc2hFeh-Hu-mUg8ja1G~ybqugbsGWVGKhRvDTvnm7KvLMQq-YEvgXDcQOritsBI-O-~T7eiJIuQD50l~liq7BfzspMZmxhFaVgWyv4hdi~Of3JdwGoTn5tYrsuOTuczLBg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-    },
-    {
-      name: "Tucan — Ethiopia",
-      type: "Ethipia Raro",
-      color: "hsl(57,87%,68%,0.5)",
-      price: "$22",
-      src:
-        "https://s3-alpha-sig.figma.com/img/7251/70b5/9a04f258af1c509301eb717292e55b04?Expires=1604275200&Signature=ZRH-s9Y238OEW9NUvNEai2kutIY3y~5Kz7evubJf4XRmE77QkVsWZdHaC7mbjIBT3uBXoCnL5G4PZ8dGbtx8SwQTUJ2m80fScvRRmACNVIJJP~clcMHufgZ~XMdzYSAyyoGIWkTngE9R52znv2w1d4CrOOX-ocFg~Z7xtilvq1ywVW2y1DKKGIDfPphyosiCjZ85HVC4jqZ2qyEzEKS4eMNNBF6Gsw7S9~ZENZ71Y0-TD7Ifs5JhJTmED9uGA997bhmY-RCUPkfBkJkSuBr0n6-IK~EJwl82IbFniRZBIR5y92T6grPzneFHUwjWz1odxWKsPIaXt8APskv70-oeUQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-    },
-    {
-      name: "Tucan Mexico",
-      type: "Paraiso Veracruz",
-      color: "hsl(191,35%,50%,0.5)",
-      price: "$20",
-      src:
-        "https://s3-alpha-sig.figma.com/img/54db/e45d/f6775d54a23be2a8723bbb8fb392ecab?Expires=1604275200&Signature=bJ-Gwz7r82O~UgqiQgnNp8OJZMihA9VyJo3om2elrItXm30ea9AUPJLPENDYcipm7I6H~H3-8wZfhP7nJr85~wAamSDhnGUggGweb-uTot4WItAZAsDDLq76h9n0oEd8j~y6v-liJwosdE0qk2JWgJNHxhbdG6ceX7ITjP387rNh2yr5eC5XJleXhg9id1k64qY8C0QR-NsEO3XnVfq56CqpPyRW7ZbBJxsyFnXblQHpGz2YeYwPfZOIasJG5p-PysXsop8nw7UGCYVYr4Wrz7UKnelzcMDf~TB2Fl4zhZeQvarw7XobC16QyFix5NfVmBUeLC1cNzbu2qU041r1Fw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
-    },
-  ];
-
-  const originalList = products
-
-  function filterBungoma() {
-    products = originalList;
-    products = products.filter(product => product.type === "Bungoma")
-    console.log(products)
-  }
-  function filterEthipiaRaro() {
-    products = originalList;
-    products = products.filter(product => product.type === "Ethipia Raro")
-    console.log(products)
-  }
-  function filterParaisoVeracruz() {
-    products = originalList;
-    products = products.filter(product => product.type === "Paraiso Veracruz")
-    console.log(products)
-  }
-
-
-</script>
-
-
-<style>
-
-.dropdown {
-  font-family: Killarney;
-  border: 2px solid #222222;
-  border-radius: 0.5rem;
-  background: none;
-  font-size: 1.2rem;
-  padding: 0.25rem 1.5rem;
-  align-self: flex-end;
-  margin-bottom: 1.5rem;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color:#ddd;}    
-
-</style>
-
-<div class="dropdown">
+<!--<script ✂prettier:content✂="CgpsZXQgcHJvZHVjdHMgPSBbCiAgICB7CiAgICAgIG5hbWU6ICJCZWFyIENvZmZlZSDigJQgS2VueWEiLAogICAgICB0eXBlOiAiQnVuZ29tYSIsCiAgICAgIGNvbG9yOiAicmdiYSg4MywgNzcsIDg2LCAwLjUpIiwKICAgICAgcHJpY2U6ICIkMTgiLAogICAgICBzcmM6CiAgICAgICAgImh0dHBzOi8vczMtYWxwaGEtc2lnLmZpZ21hLmNvbS9pbWcvZDJhZS82YjM1L2UzZGE4MjQwNTNhZTk3ODgyMzg3MzI5MTI1ZWRlMDFlP0V4cGlyZXM9MTYwNDI3NTIwMCZTaWduYXR1cmU9RX5DTGU2clpxbVdHNnduZjFTcVFFVThpLUNUa3pvYS0wUFVsZXBxYldiVzRUbm9+aTJvV1VYb3ZnbnhnREt4NzBsQkszaWtCTjdLcEY0S2VOVlFYclpQaHVmU2hqNnN0ampSM0tRfkNlbzktaEczbWlPVkVYTjBOMlRQbHFGRGhqVVJFSU5Hd3J6OFVQTExjMi05anZKY1V+b3lvZ1diVX4ybmItS0NuaWt2Y1gzM09vOTU3cHZqRkUxSmsxVFpqWDlMYVVkVXZqa3l4Z0pDUk9TT3VXYzJoRmVoLUh1LW1VZzhqYTFHfnlicXVnYnNHV1ZHS2hSdkRUdm5tN0t2TE1RcS1ZRXZnWERjUU9yaXRzQkktTy1+VDdlaUpJdVFENTBsfmxpcTdCZnpzcE1abXhoRmFWZ1d5djRoZGl+T2YzSmR3R29UbjV0WXJzdU9UdWN6TEJnX18mS2V5LVBhaXItSWQ9QVBLQUlOVFZTVUdFV0g1WEQ1VUEiLAogICAgfSwKICAgIHsKICAgICAgbmFtZTogIlR1Y2FuIOKAlMKgRXRoaW9waWEiLAogICAgICB0eXBlOiAiRXRoaXBpYSBSYXJvIiwKICAgICAgY29sb3I6ICJoc2woNTcsODclLDY4JSwwLjUpIiwKICAgICAgcHJpY2U6ICIkMjIiLAogICAgICBzcmM6CiAgICAgICAgImh0dHBzOi8vczMtYWxwaGEtc2lnLmZpZ21hLmNvbS9pbWcvNzI1MS83MGI1LzlhMDRmMjU4YWYxYzUwOTMwMWViNzE3MjkyZTU1YjA0P0V4cGlyZXM9MTYwNDI3NTIwMCZTaWduYXR1cmU9WlJILXM5WTIzOE9FVzlOVXZORWFpMmt1dElZM3l+NUt6N2V2dWJKZjRYUm1FNzdRa1ZzV1pkSGFDN21iaklCVDN1QlhvQ25MNUc0UFo4ZEdidHg4U3dRVFVKMm04MGZTY3ZSUm1BQ05WSUpKUH5jbGNNSHVmZ1p+WE1kellTQXl5b0dJV2tUbmdFOVI1MnpudjJ3MWQ0Q3JPT1gtb2NGZ35aN3h0aWx2cTF5d1ZXMnkxREtLR0lEZlBwaHlvc2lDalo4NUhWQzRqcVoycXlFekVLUzRlTU5OQkY2R3N3N1M5flpFTlo3MVkwLVREN0lmczVKaEpUbUVEOXVHQTk5N2JobVktUkNVUGtmQmtKa1N1QnIwbjYtSUt+RUp3bDgySWJGbmlSWkJJUjV5OTJUNmdyUHpuZUZIVXdqV3oxb2R4V0tzUElhWHQ4QVBza3Y3MC1vZVVRX18mS2V5LVBhaXItSWQ9QVBLQUlOVFZTVUdFV0g1WEQ1VUEiLAogICAgfSwKICAgIHsKICAgICAgbmFtZTogIlR1Y2FuIE1leGljbyIsCiAgICAgIHR5cGU6ICJQYXJhaXNvIFZlcmFjcnV6IiwKICAgICAgY29sb3I6ICJoc2woMTkxLDM1JSw1MCUsMC41KSIsCiAgICAgIHByaWNlOiAiJDIwIiwKICAgICAgc3JjOgogICAgICAgICJodHRwczovL3MzLWFscGhhLXNpZy5maWdtYS5jb20vaW1nLzU0ZGIvZTQ1ZC9mNjc3NWQ1NGEyM2JlMmE4NzIzYmJiOGZiMzkyZWNhYj9FeHBpcmVzPTE2MDQyNzUyMDAmU2lnbmF0dXJlPWJKLUd3ejdyODJPflVncWlRZ25OcDhPSlpNaWhBOVZ5Sm8zb20yZWxySXRYbTMwZWE5QVVQSkxQRU5EWWNpcG03STZIfkgzLTh3WmZoUDduSnI4NX53QWFtU0RobkdVZ2dHd2ViLXVUb3Q0V0l0QVpBc0RETHE3Nmg5bjBvRWQ4an55NnYtbGlKd29zZEUwcWsySldnSk5IeGhiZEc2Y2VYN0lUalAzODdyTmgyeXI1ZUM1WEpsZVhoZzlpZDFrNjRxWThDMFFSLU5zRU8zWG5WZnE1NkNxcFB5Ulc3WmJCSnhzeUZuWGJsUUhwR3oyWWVZd1BmWk9JYXNKRzVwLVB5c1hzb3A4bnc3VUdDWVZZcjRXcno3VUtuZWx6Y01EZn5UQjJGbDR6aFplUXZhcnc3WG9iQzE2UXlGaXg1TmZWbUJVZUxDMWNOemJ1MnFVMDQxcjFGd19fJktleS1QYWlyLUlkPUFQS0FJTlRWU1VHRVdINVhENVVBIiwKICAgIH0sCiAgXTsKCiAgY29uc3Qgb3JpZ2luYWxMaXN0ID0gcHJvZHVjdHMKCiAgZnVuY3Rpb24gZmlsdGVyQnVuZ29tYSgpIHsKICAgIHByb2R1Y3RzID0gb3JpZ2luYWxMaXN0OwogICAgcHJvZHVjdHMgPSBwcm9kdWN0cy5maWx0ZXIocHJvZHVjdCA9PiBwcm9kdWN0LnR5cGUgPT09ICJCdW5nb21hIikKICAgIGNvbnNvbGUubG9nKHByb2R1Y3RzKQogIH0KICBmdW5jdGlvbiBmaWx0ZXJFdGhpcGlhUmFybygpIHsKICAgIHByb2R1Y3RzID0gb3JpZ2luYWxMaXN0OwogICAgcHJvZHVjdHMgPSBwcm9kdWN0cy5maWx0ZXIocHJvZHVjdCA9PiBwcm9kdWN0LnR5cGUgPT09ICJFdGhpcGlhIFJhcm8iKQogICAgY29uc29sZS5sb2cocHJvZHVjdHMpCiAgfQogIGZ1bmN0aW9uIGZpbHRlclBhcmFpc29WZXJhY3J1eigpIHsKICAgIHByb2R1Y3RzID0gb3JpZ2luYWxMaXN0OwogICAgcHJvZHVjdHMgPSBwcm9kdWN0cy5maWx0ZXIocHJvZHVjdCA9PiBwcm9kdWN0LnR5cGUgPT09ICJQYXJhaXNvIFZlcmFjcnV6IikKICAgIGNvbnNvbGUubG9nKHByb2R1Y3RzKQogIH0KCgo=">{}</script><style ✂prettier:content✂="CgouZHJvcGRvd24gewogIGZvbnQtZmFtaWx5OiB2YXIoLS1wcmltYXJ5LWZvbnQpOwogIGJvcmRlcjogMnB4IHNvbGlkICMyMjIyMjI7CiAgYm9yZGVyLXJhZGl1czogMC41cmVtOwogIGJhY2tncm91bmQ6IG5vbmU7CiAgZm9udC1zaXplOiAxLjJyZW07CiAgcGFkZGluZzogMC4yNXJlbSAxLjVyZW07CiAgYWxpZ24tc2VsZjogZmxleC1lbmQ7CiAgbWFyZ2luLWJvdHRvbTogMS41cmVtOwp9CgouZHJvcGRvd24tY29udGVudCB7CiAgZGlzcGxheTogbm9uZTsKICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgYmFja2dyb3VuZC1jb2xvcjogI2YxZjFmMTsKICBtaW4td2lkdGg6IDE2MHB4OwogIGJveC1zaGFkb3c6IDBweCA4cHggMTZweCAwcHggcmdiYSgwLDAsMCwwLjIpOwogIHotaW5kZXg6IDE7Cn0KCi5kcm9wZG93bi1jb250ZW50IGEgewogIGNvbG9yOiBibGFjazsKICBwYWRkaW5nOiAxMnB4IDE2cHg7CiAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogIGRpc3BsYXk6IGJsb2NrOwp9CgouZHJvcGRvd24tY29udGVudCBhOmhvdmVyIHtiYWNrZ3JvdW5kLWNvbG9yOiAjZGRkO30KCi5kcm9wZG93bjpob3ZlciAuZHJvcGRvd24tY29udGVudCB7ZGlzcGxheTogYmxvY2s7fQoKLmRyb3Bkb3duOmhvdmVyIC5kcm9wYnRuIHtiYWNrZ3JvdW5kLWNvbG9yOiNkZGQ7fSAgICAKCg=="></style><div class="dropdown">
    Type
   <div class="dropdown-content">
     <a href="#" on:click={filterBungoma}>Bungoma</a>
@@ -106,9 +18,7 @@ let products = [
 {/each} -->
 <script>
   // Mock data before moving to Stripe
-  import FilterMenu from './FilterMenu.svelte'
-
-
+  import FilterMenu from "./FilterMenu.svelte";
 </script>
 
 <style>
@@ -116,7 +26,7 @@ let products = [
     padding: 0 1rem;
   }
   button {
-    font-family: Killarney;
+    font-family: var(--primary-font);
     border: 2px solid #222222;
     border-radius: 0.5rem;
     background: none;
@@ -157,9 +67,8 @@ let products = [
     margin-bottom: 0.5rem;
   }
 
-  
   .dropdown {
-    font-family: Killarney;
+    font-family: var(--primary-font);
     border: 2px solid #222222;
     border-radius: 0.5rem;
     background: none;
@@ -174,7 +83,7 @@ let products = [
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
 
@@ -185,38 +94,37 @@ let products = [
     display: block;
   }
 
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
 
-  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
-  .dropdown:hover .dropbtn {background-color:#ddd;}  
+  .dropdown:hover .dropbtn {
+    background-color: #ddd;
+  }
 </style>
 
-
-
-
 <section>
-
   <button>Type</button>
   <div class="dropdown">
     <div class="dropdown-content">
       <a href="#" on:click={filterBungoma}>Bungoma</a>
       <a href="#" on:click={filterEthipiaRaro}>Ethipia Raro</a>
       <a href="#" on:click={filterParaisoVeracruz}>Paraiso Veracruz</a>
-
     </div>
   </div>
 
   <div class="container">
     {#each products as { name, type, src, color, price }}
-    <article style="background-color: {color};">
-      <img {src} alt={name} />
-      <h2>{name}</h2>
-      <h2>{type}</h2>
-      <h2 class="price">{price}</h2>
-    </article>
+      <article style="background-color: {color};">
+        <img {src} alt={name} />
+        <h2>{name}</h2>
+        <h2>{type}</h2>
+        <h2 class="price">{price}</h2>
+      </article>
     {/each}
-    
-
   </div>
 </section>

@@ -104,7 +104,7 @@
   }
 
   .price {
-    font-family: Killarney;
+    font-family: var(--primary-font);
     font-weight: 400;
     font-size: 2.2rem;
     text-align: right;
@@ -154,7 +154,7 @@
     background: white;
     border: none;
     height: 2rem;
-    font-family: Killarney;
+    font-family: var(--primary-font);
     font-weight: 400;
     font-size: 1.5rem;
     padding: 0 0.5rem;

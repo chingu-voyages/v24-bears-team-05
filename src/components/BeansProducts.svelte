@@ -61,7 +61,7 @@
     margin-bottom: 0.5rem;
   }
   .dropdown {
-    font-family: Killarney;
+    font-family: var(--primary-font);
     border: 2px solid #222222;
     border-radius: 0.5rem;
     background: none;

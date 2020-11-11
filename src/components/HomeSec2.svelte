@@ -31,7 +31,7 @@
     border: 3px solid #222;
     border-radius: 0.5rem;
     font-size: 1.5rem;
-    font-family: Killarney;
+    font-family: var(--primary-font);
     font-weight: 400;
     padding: 0.4rem 0.5rem;
     cursor: pointer;
