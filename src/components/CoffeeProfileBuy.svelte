@@ -1,5 +1,7 @@
 <script>
   import { cart } from "../stores/cartStore";
+  import { toast } from "../stores/toastStore";
+  import Toast from "./Toast.svelte";
   export let id;
   export let name;
   export let type;
@@ -134,6 +136,8 @@
   }
 </style>
 
+<Toast />
+
 <!-- TODO: Transitions and hover styles
 similar to coffee example -->
 <div class="select">
@@ -154,5 +158,10 @@ similar to coffee example -->
     <input type="number" bind:value={quantity} />
     <button on:click={() => (quantity = Number(quantity) + 1)}>+</button>
   </div>
-  <button class="cart-add-btn" on:click={addToCart}>Add To Cart</button>
+  <button
+    class="cart-add-btn"
+    on:click={() => {
+      addToCart();
+      toast.setToast(`You added ${quantity > 1 ? quantity + ' bags' : 'a bag'} of ${type} (${sizeSelect}) to your cart!`);
+    }}>Add To Cart</button>
 </div>

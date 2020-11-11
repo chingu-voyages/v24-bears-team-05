@@ -7,15 +7,13 @@
   export let request;
 </script>
 
-<style>
-</style>
-
 <svelte:head>
   <link
     rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='12 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
   <link rel="stylesheet" href="/global.css" />
 </svelte:head>
+
 <div class="container">
   <Header
     hydrate-client={{ permalink: request.permalink }}
