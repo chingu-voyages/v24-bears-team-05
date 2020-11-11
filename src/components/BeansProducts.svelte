@@ -1,8 +1,45 @@
 <script>
   import Pict from "./Pict.svelte";
-
   export let products
   const originalList = products;
+
+  $: innerWidth = 0
+
+  let isActive = false
+  let show = false
+
+  function clickOutside(node, { enabled: initialEnabled, cb }) {
+    const handleOutsideClick = ({ target }) => {
+      if (!node.contains(target)) {
+        cb();
+      }
+    };
+
+  function update({enabled}) {
+    if (enabled) {
+      window.addEventListener('click', handleOutsideClick);
+    } else {
+      window.removeEventListener('click', handleOutsideClick);
+    }
+  }
+
+    update({ enabled: initialEnabled });
+    return {
+      update,
+      destroy() {
+        window.removeEventListener( 'click', handleOutsideClick );
+      }
+    };
+  }
+
+  let open = false;
+
+  function toggleShow() {
+		show = !show
+  }
+  
+  
+
 
   function getRoasterFilter(str) {
     return function filterHandler() {
@@ -14,7 +51,12 @@
   function getOriginFilter(str) {
     return function filterHandler() {
       products = originalList;
-      products = products.filter((product) => product.origin === str);
+      if (str === "All") {
+        products = products.filter((product) => product.origin);
+      } else {
+        products = products.filter((product) => product.origin === str);
+      }
+
     }
   }
 </script>
@@ -61,7 +103,7 @@
     margin-bottom: 0.5rem;
   }
   .dropdown {
-    font-family: var(--primary-font);
+    font-family: Killarney;
     border: 2px solid #222222;
     border-radius: 0.5rem;
     background: none;
@@ -85,22 +127,25 @@
     display: block;
   }
   .dropdown-content a:hover {
-    background-color: #ddd;
+      background-color: #ddd;
   }
-  .dropdown:hover .dropdown-content {
+  .dropdown-content {
     display: block;
   }
-  .dropdown:hover .dropbtn {
+  .dropbtn {
     background-color: #ddd;
   }
   
+
+
+
   /* Desktop */
   @media(min-width: 720px) {
     .container {
       max-width: 80rem;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-      row-gap: 2rem;
+      row-gap: 13rem;
       column-gap: 2rem;
       justify-items: center;
     }
@@ -114,28 +159,61 @@
     a {
       margin-bottom: 1.5rem;
     }
+    
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown:hover .dropbtn {
+      background-color: #ddd;
+    }
   }
 </style>
-
+<svelte:window bind:innerWidth />
+<!-- <p>{innerWidth}</p>
+{open}
+{show} -->
 <section>
-  <div class="dropdown">
-    Roast Filter   
-    <div class="dropdown-content">
+  <!-- <div class="dropdown">
+    Roast Filter
+    <div class:dropdown-content={isActive}>
       {#each originalList as { roaster }}
       <a href="#" on:click={getRoasterFilter(roaster)}>{roaster}</a>
       {/each}
     </div>
-    
-  </div>
-    <div class="dropdown">
-    Origin Filter
-    <div class="dropdown-content">
-      {#each originalList as {origin}}
-      <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
-      {/each}
-    </div>
+  </div> -->
 
-  </div>
+
+  {#if innerWidth < 720}
+    <div class="dropdown" use:clickOutside={{ enabled: open, cb: () => open = false }} on:click={() => open = true}>
+      Origin Filter
+      {#if open}
+        <div class="dropdown-content">
+            <a href="#" on:click={getOriginFilter("All")}>All</a>
+          {#each originalList as {origin}}
+            <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
+          {/each}
+        </div>
+      {:else}
+      
+      {/if}
+    </div>
+  {:else}
+    <div class="dropdown" on:mouseenter={toggleShow} on:mouseleave={toggleShow}>
+      Origin Filter
+      {#if show}    
+        <div class="dropdown-content">
+            <a href="#" on:click={getOriginFilter("All")}>All</a>
+          {#each originalList as {origin}}
+            <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
+          {/each}
+        </div>
+      {/if}
+    </div>
+  {/if}
+
   <div class="container">
     {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
       <article style="background-color: {color};">

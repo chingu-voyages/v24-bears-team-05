@@ -28,7 +28,7 @@
     }
   });
   $: subtotal = formatPrice(
-    $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) ?? 0
+    $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) || 0
   );
   function formatPrice(price) {
     return (price / 100).toFixed(2);
@@ -231,7 +231,7 @@
 <div class="header">
   <p class="title">YOUR CART</p>
   <p class="price">
-    {$cart.reduce((acc, i) => acc + i.quantity, 0) ?? 0}
+    {$cart.reduce((acc, i) => acc + i.quantity, 0) || 0}
     items - ${subtotal}
   </p>
   <button class="d x-btn" on:click={() => dispatch('close')}>
