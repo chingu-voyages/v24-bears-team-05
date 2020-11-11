@@ -9,13 +9,6 @@
   let quantity = 1;
   let actualQuantity = 1;
 
-  /* get size data, get quantity, and  get price for the product
-    at the end, on click btn add new item  to user's cart. 
-      -create an object whos property values are equal to the value of size, quantity , price, name
-        -- if 
-      - push created object to localStorage array
-      */
-
   // Validate quantity input
   $: quantity =
     quantity == null
@@ -23,8 +16,6 @@
       : quantity > 0 && quantity < 1000
       ? (actualQuantity = quantity && quantity)
       : actualQuantity;
-
-  let itemsInCart = [];
 
   function addToCart() {
     cart.addToCart({
@@ -35,37 +26,6 @@
       price: prices[sizeSelect],
       quantity: actualQuantity,
     });
-
-    /*  
-    let newItem = {
-      name,
-      roaster,
-      src,
-      prices,
-      quantity,
-      sizeSelect,
-    };
-    console.log(newItem);
-    itemsInCart = [...(JSON.parse(localStorage.getItem("session")) || [])];
-    const itemInCart = itemsInCart.find(
-      (item) => item.roastProfile === newItem.roastProfile
-    );
-
-    if (itemInCart) {
-      var updatedItemsInCart = itemsInCart.map((item) => {
-        const updateItems =
-          item.roastProfile === itemInCart.roastProfile
-            ? { ...itemInCart, quantity: item.quantity + newItem.quantity }
-            : { ...item };
-        return updateItems;
-      });
-      localStorage.setItem("session", JSON.stringify(updatedItemsInCart));
-    } else {
-      itemsInCart.push(newItem);
-      localStorage.setItem("session", JSON.stringify(itemsInCart));
-    }
-    console.log(JSON.parse(localStorage.getItem("session")));
-  */
   }
 </script>
 
