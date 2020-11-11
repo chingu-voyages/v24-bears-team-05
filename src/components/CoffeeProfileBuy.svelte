@@ -162,6 +162,6 @@ similar to coffee example -->
     class="cart-add-btn"
     on:click={() => {
       addToCart();
-      toast.setToast(`You added ${quantity > 1 ? quantity + ' bags' : 'a bag'} of ${type} (${sizeSelect}) to your cart!`);
+      toast.setToast(`You added ${quantity > 1 ? quantity + ' packs' : 'a pack'} of ${type} (${sizeSelect}) to your cart!`);
     }}>Add To Cart</button>
 </div>
