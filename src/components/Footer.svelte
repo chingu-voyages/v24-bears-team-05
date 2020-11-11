@@ -17,7 +17,7 @@
   }
 
   .logo {
-    font-family: "var(--primary-font)";
+    font-family: var(--primary-font);
     text-decoration: none;
     text-align: center;
     line-height: 80%;
