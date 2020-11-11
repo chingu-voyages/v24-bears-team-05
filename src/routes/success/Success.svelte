@@ -21,6 +21,6 @@
 
 <section>
   <h1>Great Success!</h1>
-  <p>Thanks for your purchase!</p>
+  <p>Thanks for your order!</p>
   <UseSuccess hydrate-client={{}} />
 </section>
