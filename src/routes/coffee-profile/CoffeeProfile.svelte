@@ -11,7 +11,14 @@
     origin,
     roaster,
     type,
-    description = "",
+    description = `Tropical Weather embodies everything we love about specialty coffee and
+        has evolved into a foundational blend. We brew this in our own cafes as
+        a “House” filter option and love how it balances the relationship
+        between modern citric acidity flavors with full bodied chocolates. This
+        comfortable, yet surprisingly complex and sophisticated coffee is
+        approachable to all. It performs well on its own for the purist or with
+        fats such as dairy or plant based beverages, making it a true answer for
+        all coffee needs.`,
     color = "lightgray",
     prices = "N/A",
   } = product;
@@ -102,16 +109,7 @@
         <img alt="{roaster} - {origin}" {...props} />
       </Pict>
       <!-- TODO: currently hardcoded, use {description} when available -->
-      <p class="desc">
-        Tropical Weather embodies everything we love about specialty coffee and
-        has evolved into a foundational blend. We brew this in our own cafes as
-        a “House” filter option and love how it balances the relationship
-        between modern citric acidity flavors with full bodied chocolates. This
-        comfortable, yet surprisingly complex and sophisticated coffee is
-        approachable to all. It performs well on its own for the purist or with
-        fats such as dairy or plant based beverages, making it a true answer for
-        all coffee needs.
-      </p>
+      <p class="desc">{description}</p>
 
       <CoffeeProfileBuy hydrate-client={{ id, prices, name, type }} />
     </article>
