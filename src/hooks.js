@@ -38,10 +38,9 @@ const hooks = [
       // var { data: products } = await stripe.products.list();
       // products = products.map(
       //   ({
-      //     name,
       //     description,
       //     id,
-      //     metadata: { type, roaster, origin, decaf, notes, color },
+      //     metadata: { type, roaster, origin, decaf, notes, color, slug: name },
       //   }) => {
       //     return {
       //       name,
