@@ -23,7 +23,7 @@ module.exports = {
     // },
     "@elderjs/plugin-browser-reload": {
       // this reloads your browser when nodemon restarts your server.
-      port: 8090,
+      port: 8080,
     },
   },
   shortcodes: { closePattern: "}}", openPattern: "{{" },
