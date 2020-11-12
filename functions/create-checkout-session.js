@@ -13,6 +13,9 @@ exports.handler = async ({ body }) => {
 
   const baseURL = "https://bearcoffee.netlify.app/";
   const session = await stripe.checkout.sessions.create({
+    shipping_address_collection: {
+      allowed_countries: ["US", "CA"],
+    },
     payment_method_types: ["card"],
     line_items,
     mode: "payment",
