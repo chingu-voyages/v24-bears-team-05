@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<div style="text-align:center">
+<div style="text-align:center; margin-bottom: 3rem;">
   {#each images as image, i}
     <span
       class={slideIndex === -i ? 'dotselected' : 'dot'}
