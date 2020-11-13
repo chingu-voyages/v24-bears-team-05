@@ -1,3 +1,4 @@
+// These queries are in FQL, which can be executed via Fauna's shell, CLI, or VSCode extension.
 CreateCollection({name: "Users"})
 
 Create(
@@ -18,3 +19,24 @@ CreateIndex({
   terms: [{field: ["data", "email"]}],
   unique: true
 })
+
+Update(
+  Role("User"),
+  {
+    privileges: [
+      {
+        resource: Collection("Users"),
+        actions: {
+          read: Query(
+            Lambda("ref",
+              Equals(
+                Identity(),
+                Var("ref")
+              )
+            )
+          )
+        }
+      }
+    ]
+  }
+)
