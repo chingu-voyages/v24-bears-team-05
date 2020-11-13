@@ -5,9 +5,19 @@
 
   $: innerWidth = 0
 
-  let isActive = false
-  let show = false
+  // Is 
+ 
+  let isClicked = false;
 
+  // Hover switch for filter menu
+
+  let isHovered = false
+
+  function toggleShow() {
+		isHovered = !isHovered
+  }
+  
+  // Mobile version function. Dropdown On Off Click Outside
   function clickOutside(node, { enabled: initialEnabled, cb }) {
     const handleOutsideClick = ({ target }) => {
       if (!node.contains(target)) {
@@ -15,13 +25,13 @@
       }
     };
 
-  function update({enabled}) {
-    if (enabled) {
-      window.addEventListener('click', handleOutsideClick);
-    } else {
-      window.removeEventListener('click', handleOutsideClick);
+    function update({enabled}) {
+      if (enabled) {
+        window.addEventListener('click', handleOutsideClick);
+      } else {
+        window.removeEventListener('click', handleOutsideClick);
+      }
     }
-  }
 
     update({ enabled: initialEnabled });
     return {
@@ -32,21 +42,7 @@
     };
   }
 
-  let open = false;
-
-  function toggleShow() {
-		show = !show
-  }
-  
-  
-
-
-  function getRoasterFilter(str) {
-    return function filterHandler() {
-      products = originalList;
-      products = products.filter((product) => product.roaster === str);
-    }
-  }
+  // Filter coffee by origin
 
   function getOriginFilter(str) {
     return function filterHandler() {
@@ -59,6 +55,7 @@
 
     }
   }
+
 </script>
 
 <style>
@@ -172,24 +169,12 @@
   }
 </style>
 <svelte:window bind:innerWidth />
-<!-- <p>{innerWidth}</p>
-{open}
-{show} -->
+
 <section>
-  <!-- <div class="dropdown">
-    Roast Filter
-    <div class:dropdown-content={isActive}>
-      {#each originalList as { roaster }}
-      <a href="#" on:click={getRoasterFilter(roaster)}>{roaster}</a>
-      {/each}
-    </div>
-  </div> -->
-
-
   {#if innerWidth < 720}
-    <div class="dropdown" use:clickOutside={{ enabled: open, cb: () => open = false }} on:click={() => open = true}>
+    <div class="dropdown" use:clickOutside={{ enabled: isClicked, cb: () => isClicked = false }} on:click={() => opisClickeden = true}>
       Origin Filter
-      {#if open}
+      {#if isClicked}
         <div class="dropdown-content">
             <a href="#" on:click={getOriginFilter("All")}>All</a>
           {#each originalList as {origin}}
@@ -203,7 +188,7 @@
   {:else}
     <div class="dropdown" on:mouseenter={toggleShow} on:mouseleave={toggleShow}>
       Origin Filter
-      {#if show}    
+      {#if isHovered}    
         <div class="dropdown-content">
             <a href="#" on:click={getOriginFilter("All")}>All</a>
           {#each originalList as {origin}}
@@ -213,6 +198,7 @@
       {/if}
     </div>
   {/if}
+
 
   <div class="container">
     {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
@@ -228,4 +214,6 @@
       </article>
     {/each}
   </div>
+
+  
 </section>

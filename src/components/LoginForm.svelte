@@ -115,6 +115,6 @@
       bind:value={password}
       placeholder="Password" />
 
-    <button type="submit">{logIn ? 'Log in' : 'Sign up'}</button>
+    <button type="submit">{  ? 'Log in' : 'Sign up'}</button>
   </form>
 </section>

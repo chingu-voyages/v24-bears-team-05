@@ -47,7 +47,7 @@
     z-index: 30;
   }
 
-  .m-menu-btn,
+  g .m-menu-btn,
   .cart {
     width: 3.5rem;
     height: 3.5rem;
