@@ -30,9 +30,11 @@
   $: subtotal = formatPrice(
     $cart.reduce((acc, { quantity, price }) => quantity * price + acc, 0) || 0
   );
+
   function formatPrice(price) {
     return (price / 100).toFixed(2);
   }
+
   async function checkoutHandler() {
     isLoading = true;
     await stripePromise;
@@ -47,7 +49,10 @@
 
     const res = await fetch("/.netlify/functions/create-checkout-session", {
       method: "POST",
-      body: JSON.stringify({ checkoutItems }),
+      body: JSON.stringify({
+        checkoutItems,
+        secret: localStorage.getItem("token"),
+      }),
     });
     const session = await res.json();
 
