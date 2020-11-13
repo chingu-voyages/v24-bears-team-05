@@ -15,7 +15,7 @@
         }),
       }
     );
-    data = await res.json();
+    let data = await res.json();
     if (data.token) {
       localStorage.setItem("token", data.token);
     }
