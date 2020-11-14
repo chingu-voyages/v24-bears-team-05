@@ -1,7 +1,15 @@
 <script>
+  import { onMount } from "svelte";
+
   let email;
   let password;
   let logIn = true;
+
+  onMount(() => {
+    if (localStorage.getItem("token")) {
+      location.pathname = "/orders";
+    }
+  });
 
   async function submitHandler() {
     // Fetch from serverless func that will log the user in.
@@ -18,6 +26,7 @@
     let data = await res.json();
     if (data.token) {
       localStorage.setItem("token", data.token);
+      location.pathname = "/orders";
     }
   }
 </script>
