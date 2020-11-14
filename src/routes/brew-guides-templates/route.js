@@ -67,28 +67,28 @@ module.exports = {
 					{
 						id: 2,
 						img: "/images/brewGuides/aeropress/aeropress2.jpg",
-						title: "2. Rinse",
+						title: "2. Add Your Coffee",
 						step:
 							"Weight 17g of coffee to and grind them to a fine-medium setting of your grinder. We are using the Baratza Encore at a setting of 15 here in the office. Once grinned, pour them inside the filter. Make sure that the coffee grounds are level. This will ensure that there is an even extraction.",
 					},
 					{
 						id: 3,
 						img: "/images/brewGuides/aeropress/aeropress3.jpg",
-						title: "3. Add Grounds",
+						title: "3. Add Water to Your Coffee",
 						step:
 							"Remember to zero your scale and then start your timer. Pour an initial 40g of water and let is rest for 20 seconds. This bloom will ensure that we are able to release all the body and tastes of the coffee. You may stir the coffee at this point to ensure that all the coffee grounds are wet. After your bloom, start pouring an additional 215g of water to reach a total of 255g. You can stir the coffee once again if you’d like.",
 					},
 					{
 						id: 4,
 						img: "/images/brewGuides/aeropress/aeropress4.jpg",
-						title: "4. Bloom Coffee",
+						title: "4. Press the Coffee",
 						step:
 							"At the 1:15 minute mark, place the plunger on top of the Aeropress body and push downwards. This extraction should be slow and controlled, lasting around 20 - 30 seconds. If you go under or over, it is okay. Once you reach the bottom you should hear a hissing noise and see bubbles foaming at the bottom or your Aeropress.",
 					},
 					{
 						id: 5,
 						img: "/images/brewGuides/aeropress/aeropress5.jpg",
-						title: "4. Bloom Coffee",
+						title: "5. Remove Aeropress and Enjoy!",
 						step:
 							"Once the coffee has been filtered, dispose of the coffee and filter. Now you can enjoy your cup of coffee! The total process can range from 1:50 - 2:30 minutes and should serve one cups. Enjoy!",
 					},

@@ -96,26 +96,26 @@
 	<div class="container">
 		<a class="card chemex" href="/brew-guides/chemex">
 			<div class="image-box img-box1">
-				<img src="/images/brewGuides/chemex1.jpg" alt="" />
+				<img src="/images/brewGuides/chemex/chemex1.jpg" alt="" />
 			</div>
 			<div class="image-box img-box2">
-				<img src="/images/brewGuides/chemex2.jpg" alt="" />
+				<img src="/images/brewGuides/chemex/chemex2.jpg" alt="" />
 			</div>
 		</a>
 		<a class="card aeropress" href="/brew-guides/aeropress">
 			<div class="image-box img-box1">
-				<img src="/images/brewGuides/chemex1.jpg" alt="" />
+				<img src="/images/brewGuides/aeropress/aeropress1.jpg" alt="" />
 			</div>
 			<div class="image-box img-box2">
-				<img src="/images/brewGuides/chemex2.jpg" alt="" />
+				<img src="/images/brewGuides/aeropress/aeropress3.jpg" alt="" />
 			</div>
 		</a>
 		<a class="card pour-over" href="/brew-guides/pourover">
 			<div class="image-box img-box1">
-				<img src="/images/brewGuides/chemex1.jpg" alt="" />
+				<img src="/images/brewGuides/pourover/pourover1.jpg" alt="" />
 			</div>
 			<div class="image-box img-box2">
-				<img src="/images/brewGuides/chemex2.jpg" alt="" />
+				<img src="/images/brewGuides/pourover/pourover4.jpg" alt="" />
 			</div>
 		</a>
 	</div>
