@@ -1,23 +1,13 @@
 <script>
-  // Props
-  export let slideIndex = 0;
-  export let images = [
-    "./images/carousel/sliderImg1.1.jpg",
-    "./images/carousel/sliderImg1.2.jpg",
-    "./images/carousel/sliderImg2.1.jpg",
-    "./images/carousel/sliderImg2.2.jpg",
+  let images = [
+    "./images/carousel/sliderImg1.jpg",
+    "./images/carousel/sliderImg2.jpg",
     "./images/carousel/sliderImg3.jpg",
   ];
-  $: offset = 0;
 
-  let w;
-
-  let showSlides = (slideIndex) => {
-    offset = slideIndex * w;
-  };
-  let currentSlide = (n) => {
-    showSlides((slideIndex = n));
-  };
+  let slideIndex = 0,
+    w = 0;
+  $: offset = slideIndex * w;
 </script>
 
 <style>
@@ -68,6 +58,6 @@
   {#each images as image, i}
     <span
       class={slideIndex === -i ? 'dotselected' : 'dot'}
-      on:click={() => currentSlide(-i)} />
+      on:click={() => (slideIndex = -i)} />
   {/each}
 </div>
