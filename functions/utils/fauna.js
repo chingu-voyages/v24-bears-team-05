@@ -22,7 +22,7 @@ exports.addCustomerId = async function addCustomerId(userEmail, customerId) {
    * Add a customer's ID if the email exists in DB.
    */
   var client = new faunadb.Client({ secret: process.env.FAUNA_KEY });
-  const { isValidEmail } = await client.query(
+  const isValidEmail = await client.query(
     q.Exists(q.Match(q.Index("Users_by_email"), userEmail))
   );
   if (isValidEmail) {
