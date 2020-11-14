@@ -1,5 +1,5 @@
 const { addCustomerId } = require("./utils/fauna");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 exports.handler = async ({ body, headers }) => {
   // webhook endpoint attaches customer ID to DB

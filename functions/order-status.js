@@ -1,6 +1,6 @@
 var faunadb = require("faunadb"),
   q = faunadb.query;
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 exports.handler = async ({ body }) => {
   var { token: secret = "" } = JSON.parse(body);
@@ -10,7 +10,7 @@ exports.handler = async ({ body }) => {
   }
   var client = new faunadb.Client({ secret: process.env.FAUNA_KEY });
   var user = await client.query(
-    Select(["data"], Get(Select(["instance"], KeyFromSecret(secret))))
+    q.Select(["data"], q.Get(q.Select(["instance"], q.KeyFromSecret(secret))))
   );
   var orderHistory = [];
   if (user.customerId) {
