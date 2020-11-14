@@ -16,7 +16,7 @@ exports.handler = async (event) => {
     })
   );
 
-  return registration?.ref
+  return registration.ref
     ? {
         statusCode: 200,
         body: "Great success!",
