@@ -2,9 +2,11 @@
   // Props
   export let slideIndex = 0;
   export let images = [
-    "./images/carousel/1.jpg",
-    "./images/carousel/2.jpg",
-    "./images/carousel/3.jpg",
+    "./images/carousel/sliderImg1.1.jpg",
+    "./images/carousel/sliderImg1.2.jpg",
+    "./images/carousel/sliderImg2.1.jpg",
+    "./images/carousel/sliderImg2.2.jpg",
+    "./images/carousel/sliderImg3.jpg",
   ];
   $: offset = 0;
 
@@ -56,10 +58,7 @@
   <div class="slide" style="transform: translateX({offset}px);;">
     {#each images as image, i}
       <div>
-        <img
-          src={image}
-          alt="Carousel option {i}"
-          style="width:{w}px; max-height: 400px; height: 100%;" />
+        <img src={image} alt="Carousel option {i}" style="width:{w}px; " />
       </div>
     {/each}
   </div>
