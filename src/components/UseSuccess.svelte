@@ -11,6 +11,6 @@
   }
 </style>
 
-<Pict path="/images/success/burrito_dog" let:props>
-  <img alt="Burrito Dog" {...props} />
+<Pict path="/images/success/bear_coffee" let:props>
+  <img alt="Bear in coffee" {...props} />
 </Pict>
