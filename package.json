@@ -1,6 +1,4 @@
 {
-  "name": "TODO",
-  "description": "TODO",
   "version": "0.0.1",
   "scripts": {
     "start": "npm run build:rollup && npm run dev:server",

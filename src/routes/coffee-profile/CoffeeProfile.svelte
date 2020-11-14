@@ -61,8 +61,6 @@
     margin-top: -4.5rem;
     transform: rotate(-11.77deg);
   }
-  /* TODO: When image hasn't loaded yet, causes negative margin to make text float up. Use static imagery with 
-    Elder's Svelte plugin*/
 
   .desc {
     font-weight: 500;
@@ -108,7 +106,6 @@
       <Pict path="/images/coffees/{name}" let:props>
         <img alt="{roaster} - {origin}" {...props} />
       </Pict>
-      <!-- TODO: currently hardcoded, use {description} when available -->
       <p class="desc">{description}</p>
 
       <CoffeeProfileBuy hydrate-client={{ id, prices, name, type }} />

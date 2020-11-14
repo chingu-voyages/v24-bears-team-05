@@ -138,8 +138,6 @@
 
 <Toast />
 
-<!-- TODO: Transitions and hover styles
-similar to coffee example -->
 <div class="select">
   <p>Size</p>
   {#each sizes as size}
