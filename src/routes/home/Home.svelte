@@ -29,6 +29,6 @@
 <main>
   <HomeHero />
   <HomeSec1 />
-  <Carousel hydrate-client={{}} />
+  <!-- <Carousel hydrate-client={{}} /> -->
   <HomeSec2 />
 </main>
