@@ -14,9 +14,9 @@
     "prettier:svelte": "prettier --write --plugin-search-dir=. ./**/*.svelte"
   },
   "dependencies": {
-    "@elderjs/elderjs": "^1.1.8",
-    "@elderjs/plugin-browser-reload": "^0.1.16",
-    "@elderjs/plugin-markdown": "^0.1.16",
+    "@elderjs/elderjs": "^1.1.9",
+    "@elderjs/plugin-browser-reload": "^0.1.18",
+    "@elderjs/plugin-markdown": "^0.1.18",
     "@stripe/stripe-js": "^1.11.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
