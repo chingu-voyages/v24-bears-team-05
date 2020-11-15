@@ -34,13 +34,7 @@
   }
 
   /* Desktop */
-  .m {
-    display: none;
-  }
   @media (min-width: 720px) {
-    .d {
-      display: unset;
-    }
     p {
       max-width: 80%;
     }

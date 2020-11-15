@@ -3,7 +3,7 @@
 <script>
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
-  export let templateHtml, settings;
+  export let templateHtml;
   export let request;
 </script>
 
