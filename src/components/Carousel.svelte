@@ -1,8 +1,8 @@
 <script>
   let images = [
-    "./images/carousel/sliderImg1.jpg",
-    "./images/carousel/sliderImg2.jpg",
-    "./images/carousel/sliderImg3.jpg",
+    "./images/carousel/sliderImg1.webp",
+    "./images/carousel/sliderImg2.webp",
+    "./images/carousel/sliderImg3.webp",
   ];
 
   let slideIndex = 0,
