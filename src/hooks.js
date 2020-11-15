@@ -35,37 +35,37 @@ const hooks = [
     priority: 50,
     run: async ({ data }) => {
       // TODO: Switch to Stripe API for product sourcing in a few hours
-      // // Get the products
-      // var { data: products } = await stripe.products.list();
-      // products = products.map(
-      //   ({
-      //     description,
-      //     id,
-      //     metadata: { type, roaster, origin, decaf, notes, color, slug: name },
-      //   }) => {
-      //     return {
-      //       name,
-      //       description,
-      //       id,
-      //       type,
-      //       roaster,
-      //       origin,
-      //       decaf,
-      //       notes,
-      //       color,
-      //       prices: {},
-      //     };
-      //   }
-      // );
+      // Get the products
+      var { data: products } = await stripe.products.list();
+      products = products.map(
+        ({
+          description,
+          id,
+          metadata: { type, roaster, origin, decaf, notes, color, slug: name },
+        }) => {
+          return {
+            name,
+            description,
+            id,
+            type,
+            roaster,
+            origin,
+            decaf,
+            notes,
+            color,
+            prices: {},
+          };
+        }
+      );
 
-      // // Get and add prices to products
-      // const { data: prices } = await stripe.prices.list({ limit: 100 });
-      // prices.forEach(({ product, nickname, unit_amount }) => {
-      //   prodIndex = products.findIndex(({ id }) => id == product);
-      //   if (prodIndex != -1) {
-      //     products[prodIndex].prices[nickname] = unit_amount;
-      //   }
-      // });
+      // Get and add prices to products
+      const { data: prices } = await stripe.prices.list({ limit: 100 });
+      prices.forEach(({ product, nickname, unit_amount }) => {
+        prodIndex = products.findIndex(({ id }) => id == product);
+        if (prodIndex != -1) {
+          products[prodIndex].prices[nickname] = unit_amount;
+        }
+      });
 
       /* 
       // Products API obj example: https://stripe.com/docs/api/products/list?lang=node 
@@ -85,6 +85,7 @@ const hooks = [
       // Prices API obj example: https://stripe.com/docs/api/prices/list
       */
 
+      /*
       var products =
         // Mock data if Stripe not connected and undefined.
         // The first entry represents a good example of the full data structure after processing
@@ -207,6 +208,7 @@ const hooks = [
             prices: { "5lbs": 3200, "2lbs": 2200, "10oz": 1800 },
           },
         ];
+        */
 
       return {
         data: {
