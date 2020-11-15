@@ -34,7 +34,6 @@ const hooks = [
     description: "Hook that makes product data available on all routes.",
     priority: 50,
     run: async ({ data }) => {
-      // TODO: Switch to Stripe API for product sourcing in a few hours
       // Get the products
       var { data: products } = await stripe.products.list();
       products = products.map(
