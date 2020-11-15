@@ -5,12 +5,9 @@
 
   $: innerWidth = 0
 
-  // Is 
- 
   let isClicked = false;
 
   // Hover switch for filter menu
-
   let isHovered = false
 
   function toggleShow() {
@@ -24,7 +21,6 @@
         cb();
       }
     };
-
     function update({enabled}) {
       if (enabled) {
         window.addEventListener('click', handleOutsideClick);
@@ -32,7 +28,6 @@
         window.removeEventListener('click', handleOutsideClick);
       }
     }
-
     update({ enabled: initialEnabled });
     return {
       update,
@@ -43,7 +38,6 @@
   }
 
   // Filter coffee by origin
-
   function getOriginFilter(str) {
     return function filterHandler() {
       products = originalList;
@@ -52,10 +46,8 @@
       } else {
         products = products.filter((product) => product.origin === str);
       }
-
     }
   }
-
 </script>
 
 <style>
@@ -108,21 +100,25 @@
     padding: 0.25rem 1.5rem;
     align-self: flex-end;
     margin-bottom: 1.5rem;
-    width: 7.6rem;
+    width: 9rem;
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
   }
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    width: 9rem;
     z-index: 1;
     border: 2px solid #222222;
+    border-top: none;
+    left: -2px;
   }
   .dropdown-content button {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 13px;
     text-decoration: none;
     display: block;
   }
@@ -132,6 +128,8 @@
     align-self: flex-end;
     border: none;
     outline: none;
+    width: 100%;
+    text-align: left;
   }
   .dropdown-content button:hover {
     background-color: #ddd;
@@ -146,12 +144,8 @@
     background-color: #ddd;
     border: none;
     outline: none;
-   
   }
   
-
-
-
   /* Desktop */
   @media(min-width: 720px) {
     .container {
@@ -169,36 +163,11 @@
     article img {
       margin-bottom: 4rem;
     }
-    button {
-      font-family: var(--primary-font);
-      font-size: 1.7rem;
-
-      border: none;
-      outline: none;
-      text-align: center;
-    }
-    
-    .dropdown-content button:hover {
-      background-color: #ddd;
-      border: none;
-      outline: none;
-      text-align: center;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-      border: none;
-      outline: none;
-      text-align: center;
-    }
-    .dropdown:hover .dropbtn {
-      background-color: #ddd;
-      border: none;
-      outline: none;
-      text-align: center;
-    }
   }
 </style>
+
 <svelte:window bind:innerWidth />
+
 <section>
   {#if innerWidth < 720}
     <div class="dropdown" use:clickOutside={{ enabled: isClicked, cb: () => isClicked = false }} on:click={() => isClicked = true}>
@@ -226,7 +195,6 @@
     </div>
   {/if}
 
-
   <div class="container">
     {#each products as { name, origin, roaster, type, color = "lightgray", prices }}
       <article style="background-color: {color};">
@@ -241,6 +209,4 @@
       </article>
     {/each}
   </div>
-
-  
 </section>
