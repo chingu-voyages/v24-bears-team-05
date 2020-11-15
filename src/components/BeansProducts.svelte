@@ -117,20 +117,33 @@
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-  .dropdown-content a {
+  .dropdown-content button {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
-  .dropdown-content a:hover {
-      background-color: #ddd;
+  button {
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+    align-self: flex-end;
+    border: none;
+    outline: none
+  }
+  .dropdown-content button:hover {
+    background-color: #ddd;
+    border: none;
+    outline: none
   }
   .dropdown-content {
     display: block;
+    border: none;
+    outline: none
   }
   .dropbtn {
     background-color: #ddd;
+    border: none;
+    outline: none
   }
   
 
@@ -153,36 +166,43 @@
     article img {
       margin-bottom: 4rem;
     }
-    a {
-      margin-bottom: 1.5rem;
+    button {
+      font-family: var(--primary-font);
+      font-size: 1.2rem;
+      align-self: flex-end;
+      border: none;
+      outline: none
     }
     
-    .dropdown-content a:hover {
+    .dropdown-content button:hover {
       background-color: #ddd;
+      border: none;
+      outline: none
     }
     .dropdown:hover .dropdown-content {
       display: block;
+      border: none;
+      outline: none
     }
     .dropdown:hover .dropbtn {
       background-color: #ddd;
+      border: none;
+      outline: none
     }
   }
 </style>
 <svelte:window bind:innerWidth />
-
 <section>
   {#if innerWidth < 720}
-    <div class="dropdown" use:clickOutside={{ enabled: isClicked, cb: () => isClicked = false }} on:click={() => opisClickeden = true}>
+    <div class="dropdown" use:clickOutside={{ enabled: isClicked, cb: () => isClicked = false }} on:click={() => isClicked = true}>
       Origin Filter
       {#if isClicked}
         <div class="dropdown-content">
-            <a href="#" on:click={getOriginFilter("All")}>All</a>
+            <button on:click={getOriginFilter("All")}>All</button>
           {#each originalList as {origin}}
-            <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
+            <button on:click={getOriginFilter(origin)}>{origin}</button>
           {/each}
         </div>
-      {:else}
-      
       {/if}
     </div>
   {:else}
@@ -190,9 +210,9 @@
       Origin Filter
       {#if isHovered}    
         <div class="dropdown-content">
-            <a href="#" on:click={getOriginFilter("All")}>All</a>
+            <button on:click={getOriginFilter("All")}>All</button>
           {#each originalList as {origin}}
-            <a href="#" on:click={getOriginFilter(origin)}>{origin}</a>
+            <button on:click={getOriginFilter(origin)}>{origin}</button>
           {/each}
         </div>
       {/if}
