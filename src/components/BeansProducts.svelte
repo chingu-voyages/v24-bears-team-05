@@ -104,7 +104,7 @@
     border: 2px solid #222222;
     border-radius: 0.5rem;
     background: none;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     padding: 0.25rem 1.5rem;
     align-self: flex-end;
     margin-bottom: 1.5rem;
@@ -125,7 +125,7 @@
   }
   button {
     font-family: var(--primary-font);
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     align-self: flex-end;
     border: none;
     outline: none
@@ -143,7 +143,8 @@
   .dropbtn {
     background-color: #ddd;
     border: none;
-    outline: none
+    outline: none;
+   
   }
   
 
@@ -168,26 +169,30 @@
     }
     button {
       font-family: var(--primary-font);
-      font-size: 1.2rem;
-      align-self: flex-end;
+      font-size: 1.7rem;
+
       border: none;
-      outline: none
+      outline: none;
+      text-align: center;
     }
     
     .dropdown-content button:hover {
       background-color: #ddd;
       border: none;
-      outline: none
+      outline: none;
+      text-align: center;
     }
     .dropdown:hover .dropdown-content {
       display: block;
       border: none;
-      outline: none
+      outline: none;
+      text-align: center;
     }
     .dropdown:hover .dropbtn {
       background-color: #ddd;
       border: none;
-      outline: none
+      outline: none;
+      text-align: center;
     }
   }
 </style>
