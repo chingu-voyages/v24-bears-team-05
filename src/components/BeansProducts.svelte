@@ -108,7 +108,7 @@
     padding: 0.25rem 1.5rem;
     align-self: flex-end;
     margin-bottom: 1.5rem;
-    width: 12rem;
+    width: 7.6rem;
     text-align: center;
   }
   .dropdown-content {
@@ -118,6 +118,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    border: 2px solid #222222;
   }
   .dropdown-content button {
     color: black;
@@ -130,7 +131,7 @@
     font-size: 1.7rem;
     align-self: flex-end;
     border: none;
-    outline: none
+    outline: none;
   }
   .dropdown-content button:hover {
     background-color: #ddd;
@@ -139,7 +140,6 @@
   }
   .dropdown-content {
     display: block;
-    border: none;
     outline: none
   }
   .dropbtn {
@@ -202,7 +202,7 @@
 <section>
   {#if innerWidth < 720}
     <div class="dropdown" use:clickOutside={{ enabled: isClicked, cb: () => isClicked = false }} on:click={() => isClicked = true}>
-      Origin Filter
+      Origin
       {#if isClicked}
         <div class="dropdown-content">
             <button on:click={getOriginFilter("All")}>All</button>
@@ -214,7 +214,7 @@
     </div>
   {:else}
     <div class="dropdown" on:mouseenter={toggleShow} on:mouseleave={toggleShow}>
-      Origin Filter
+      Origin
       {#if isHovered}    
         <div class="dropdown-content">
             <button on:click={getOriginFilter("All")}>All</button>
