@@ -108,6 +108,8 @@
     padding: 0.25rem 1.5rem;
     align-self: flex-end;
     margin-bottom: 1.5rem;
+    width: 12rem;
+    text-align: center;
   }
   .dropdown-content {
     display: none;
