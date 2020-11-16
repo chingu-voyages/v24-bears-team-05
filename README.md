@@ -88,7 +88,12 @@ The what and why we use them.
 **Notion**
 
 - Collaborative all-in-one workspace. Nested page structure based notes, wikis, docs, databases, calendar, and more. Uses markdown shortcuts and WYSIWYG. We used it to manage much of our work, write documentation, and internalize many tasks to the point where GitHub Issues were unnecessary.
-- **Other details**
+ 
+<details>
+<summary><strong>Other Details</strong></summary>
+<br>  
+Because Elder's development experience still has some nuances and bugs, the development environment instructions were not included. Elder was chosen because Sapper is being deprecated in favor of Svelte Kit (exact name not final).
+</details>
 
 ## Acknowledgements
 
