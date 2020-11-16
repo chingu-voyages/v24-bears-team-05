@@ -45,15 +45,15 @@ Note that the data is sourced from Stripe's Products API. You will need to fill 
 
 ## The 🐻 Team & Testimonals
 
-Fang🦁 ([armchair-traveller](https://github.com/armchair-traveller))
+**Fang🦁** ([armchair-traveller](https://github.com/armchair-traveller))
 
 > Svelte transitions are nifty and sooo easy to use! Though managing transition states while other transitions were playing proved to be a challenge, it was quite fun. I especially wasn't expecting to whip up a custom toast notification in just a few minutes, but the unbelievable happened with Svelte's transitions and stores!
 
-[zxcv3](https://github.com/zxcv3)
+[**zxcv3**](https://github.com/zxcv3)
 
 > I am surprised how simple it is to write code with svelte. It was quite challenging to use tools that I'm not familiar with, but I could realize its high productivity.
 
-[rafawelsh](https://github.com/rafawelsh)
+[**rafawelsh**](https://github.com/rafawelsh)
 
 > At first Svelte and Elder.js seemed too hard to understand. Once Fang helped me out with the first steps it was great to work with them! One unexpected learning experience in this endeavor was Figma! As the team's designer, I had to pick up Figma and get a design ready. Overall a great project.
 
@@ -92,14 +92,14 @@ The what and why we use them.
 
 ## Acknowledgements
 
-Fang🦁
+**Fang🦁**
 
 > I feel compelled to give credit where credit is due. A shoutout goes to rafawelsh for the amazing designs and content sourcing! Our project would've competed for top dullest designs otherwise. And thanks zxcv3 for the implementing the Carousel and Filter components, one of the few interactive components we have in our project.
 
-[zxcv3](https://github.com/zxcv3)
+[**zxcv3**](https://github.com/zxcv3)
 
 > I have greatly benefited from Fang. He taught me lots of stuffs about svelte and elder.js. Advice and comments given by Fang has been a great help in finishing this project. Also, rafawelsh made enormous contribution to design our website. Thank you for great works.
 
-[rafawelsh](https://github.com/rafawelsh)
+[**rafawelsh**](https://github.com/rafawelsh)
 
 > I want to give Fang a huge shoutout as he led the team and managed to get everyone onboard to new technologies. This was a difficult project for us all but Fang was able to keep the team working and we made a great product! Also, do you see how cool this README is? Thank you Fang! I need to also give a shoutout to Zxcv3. He and I were new to Svelte and Elder.js but that did not stop Zxcv3 to continue improving in his work. He was able to implement some cool components with technology he had a few weeks to learn.
